@@ -3,24 +3,24 @@ export default [
 		topicName: "Array",
 		position: 0,
 		started: true,
-		doneQuestions: 3,
+		doneQuestions: 0,
 		questions: [
 			{
 				Topic: "Array",
 				Problem: "Reverse the array",
-				Done: true,
+				Done: false,
 				URL: "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
 			},
 			{
 				Topic: "Array",
 				Problem: "Find the maximum and minimum element in an array",
-				Done: true,
+				Done: false,
 				URL: "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
 			},
 			{
 				Topic: "Array",
 				Problem: 'Find the "Kth" max and min element of an array ',
-				Done: true,
+				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/kth-smallest-element/0",
 			},
 			{
