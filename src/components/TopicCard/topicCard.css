@@ -1,0 +1,49 @@
+.container-custom {
+	overflow-y: scroll;
+	height: 64vh;
+}
+.container::-webkit-scrollbar {
+	width: 5px; /* width of the entire scrollbar */
+}
+.container::-webkit-scrollbar-track {
+	background: rgb(255, 255, 255); /* color of the tracking area */
+}
+.container::-webkit-scrollbar-thumb {
+	background-color: rgba(54, 54, 54, 0.466); /* color of the scroll thumb */
+	border-radius: 10px; /* roundness of the scroll thumb */
+	border: 3px solid rgba(78, 78, 78, 0.452); /* creates padding around scroll thumb */
+}
+.inprogress-card {
+	background-color: #aad6b9;
+	border-radius: 15px;
+	height: 90%;
+}
+.topicName {
+	color: #333333;
+	font-size: 25px;
+	font-weight: 700;
+}
+.totalQuestion {
+	color: #4f4f4f;
+	font-weight: 700;
+}
+.notstarted-card {
+	background-color: #aad0f6;
+	border-radius: 15px;
+	height: 90%;
+}
+
+.percentDone {
+	color: #4f4f4f;
+}
+
+.container-custom2 {
+	width: 40vw;
+	min-width: 290px !important;
+}
+
+@media screen and (max-width: 480px) {
+	.container-custom {
+		height: 70vh;
+	}
+}
