@@ -2,7 +2,7 @@ export default [
 	{
 		topicName: "Array",
 		position: 0,
-		started: true,
+		started: false,
 		doneQuestions: 0,
 		questions: [
 			{
