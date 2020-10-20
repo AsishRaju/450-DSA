@@ -20,32 +20,32 @@ export default function TopicCard({ questionData }) {
 			return (
 				<Fade duration={500 + index * 0.4} key={index}>
 					<div className="col mb-4">
-						<Card className="mb-3 inprogress-card animate__slideInDown hvr-grow">
-							<Card.Body>
-								<Row>
-									<Col>
-										<Card.Title className="topicName">{topic.topicName}</Card.Title>
-									</Col>
-									<Col>
-										<h4>
-											<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
+						<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
+							<Card className="mb-3 inprogress-card animate__slideInDown hvr-grow">
+								<Card.Body>
+									<Row>
+										<Col>
+											<Card.Title className="topicName">{topic.topicName}</Card.Title>
+										</Col>
+										<Col>
+											<h4>
 												<Badge pill variant="success" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
 													{questionsRemainig === 0 ? "Done 👏🏻" : "Solve Now 🙇🏻‍♂️"}
 												</Badge>
-											</Link>
-										</h4>
-									</Col>
-								</Row>
-								<Card.Text className="totalQuestion">
-									Total Question {topic.questions.length} <br />
-									{`${questionsRemainig}`} More to go
-								</Card.Text>
-								<p className="percentDone mb-1">
-									<b>{percentDone}% Done</b>
-								</p>
-								<ProgressBar animated={percentDone === 100 ? false : true} variant="success" now={percentDone} />
-							</Card.Body>
-						</Card>
+											</h4>
+										</Col>
+									</Row>
+									<Card.Text className="totalQuestion">
+										Total Question {topic.questions.length} <br />
+										{`${questionsRemainig}`} More to go
+									</Card.Text>
+									<p className="percentDone mb-1">
+										<b>{percentDone}% Done</b>
+									</p>
+									<ProgressBar animated={percentDone === 100 ? false : true} variant="success" now={percentDone} />
+								</Card.Body>
+							</Card>
+						</Link>
 					</div>
 				</Fade>
 			);

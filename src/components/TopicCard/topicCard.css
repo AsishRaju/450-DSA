@@ -1,6 +1,6 @@
 .container-custom {
 	overflow-y: scroll;
-	height: 64vh;
+	height: 65vh;
 }
 .container::-webkit-scrollbar {
 	width: 5px; /* width of the entire scrollbar */
@@ -59,8 +59,14 @@
 	transform: scale(1.05);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 420px) {
 	.container-custom {
-		height: 70vh;
+		height: 55vh;
+	}
+}
+
+@media screen and (min-width: 540px) {
+	.container-custom {
+		height: 50vh;
 	}
 }

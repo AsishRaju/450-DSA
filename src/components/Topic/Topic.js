@@ -15,7 +15,7 @@ export default function Topic({ data, updateData }) {
 		};
 		return (
 			<div className="container container-custom2">
-				<InputGroup className="mb-3">
+				<InputGroup className="mb-4">
 					<FormControl
 						className="text-center"
 						placeholder="Search Question.. 🔍"
@@ -109,7 +109,7 @@ export default function Topic({ data, updateData }) {
 
 	return (
 		<>
-			<h3 className="text-center mb-5">
+			<h3 className="text-center mb-4">
 				<Link to="/">Topics</Link>/{topicName}
 			</h3>
 
