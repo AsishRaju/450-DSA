@@ -22,7 +22,7 @@ export default function About() {
 					</div>
 					<div className="container my-5">
 						<h2 className="text-center">
-							<a href="/#">450dsa</a> is your personal web-based progress tracker based on <br></br>
+							<a href="https://www.450dsa.com">450dsa</a> is your personal web-based progress tracker based on <br></br>
 							<i>
 								<a
 									href="https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view"

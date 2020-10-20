@@ -6,12 +6,12 @@ import About from "./components/About/About";
 import { getData, updateDBData } from "./services/dbServices";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Topic from "./components/Topic/Topic";
-import ReactGA from "react-ga";
+// import ReactGA from "react-ga";
 function App() {
 	const [questionData, setquestionData] = useState([]);
 	useEffect(() => {
-		ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
-		ReactGA.pageview(window.location.pathname + window.location.search);
+		// ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
+		// ReactGA.pageview(window.location.pathname + window.location.search);
 		getData((QuestionData) => {
 			setquestionData(QuestionData);
 		});
