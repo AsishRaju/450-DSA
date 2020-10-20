@@ -1,5 +1,4 @@
 import React from "react";
-import "./topicCard.css";
 import Card from "react-bootstrap/Card";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Badge from "react-bootstrap/Badge";
@@ -7,11 +6,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import "./topicCard.css";
 
 export default function TopicCard({ questionData }) {
+	// This component takes all the topicsData(here questionData ) and renders a TopicCard Component
+
+	// Utility func() to find the progress in percentage
 	const findPercentage = (doneQuestions, totalQuestions) => {
 		return Math.round((doneQuestions / totalQuestions) * 100);
 	};
+
+	// Mapping questionData to topicCard array
 	let topicCard = questionData.map((topic, index) => {
 		let { topicName, doneQuestions, questions, started } = topic;
 		let percentDone = findPercentage(doneQuestions, questions.length);

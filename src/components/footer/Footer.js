@@ -1,7 +1,7 @@
 import React from "react";
-import "./footer.css";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
+import "./footer.css";
 export default function Footer() {
 	return (
 		<div>

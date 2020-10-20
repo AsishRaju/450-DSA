@@ -9,6 +9,52 @@ import { Link } from "react-router-dom";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 export default function Topic({ data, updateData }) {
+
+	/*
+	  This component takes data releted to a paticular topic 
+	  and updateData() from App component
+	*/
+
+	/*
+	  Setting state for fields that comes from `data` prop 
+	  so that `data` prop is not undefined on reload
+	*/
+	const [select, setSelected] = useState([]);
+	const [questionsTableData, setQuestionsTableData] = useState([]);
+	const [topicName, setTopicName] = useState("");
+	let doneQuestion = [];
+
+	// updating states using useEffect with dependency  on `data` prop
+	useEffect(() => {
+		if (data !== undefined) {
+			let tableData = data.questions.map((question, index) => {
+				if (question.Done) {
+					doneQuestion.push(index);
+				}
+				/*
+					Search works on text only, since the table view contains hyperlinks search wont work
+					this solved by a niche hack you can see this returns a obj containing 
+					{id:..,question:...,question_text:...} so question is what is viewable in the app whereas
+					question_text is hidden in the table config so search bar can now apply its search on 
+					question_text which is present in data but not on view.
+				*/
+				return {
+					id: index,
+					question: (
+						<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
+							{question.Problem}
+						</a>
+					),
+					question_text: question.Problem,
+				};
+			});
+			setQuestionsTableData(tableData);
+			setTopicName(data.topicName);
+			setSelected(doneQuestion);
+		}
+	}, [data]);
+
+	// seacrh bar config
 	const SearchBar = (props) => {
 		const handleChange = (e) => {
 			props.onSearch(e.target.value);
@@ -27,31 +73,8 @@ export default function Topic({ data, updateData }) {
 			</div>
 		);
 	};
-	const [select, setSelected] = useState([]);
-	const [questionsTableData, setQuestionsTableData] = useState([]);
-	const [topicName, setTopicName] = useState("");
-	let doneQuestion = [];
-	useEffect(() => {
-		if (data !== undefined) {
-			let tableData = data.questions.map((question, index) => {
-				if (question.Done) {
-					doneQuestion.push(index);
-				}
-				return {
-					id: index,
-					question: (
-						<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
-							{question.Problem}
-						</a>
-					),
-					question_text: question.Problem,
-				};
-			});
-			setQuestionsTableData(tableData);
-			setTopicName(data.topicName);
-			setSelected(doneQuestion);
-		}
-	}, [data]);
+
+	// table config
 	const columns = [
 		{
 			dataField: "id",
@@ -78,6 +101,7 @@ export default function Topic({ data, updateData }) {
 		onSelect: handleSelect,
 	};
 
+	// func() triggered when a question is marked done
 	function handleSelect(row, isSelect) {
 		let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
 		let newDoneQuestion = [...select];
@@ -118,19 +142,19 @@ export default function Topic({ data, updateData }) {
 					<Spinner animation="grow" variant="success" />
 				</div>
 			) : (
-				<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
-					{(props) => (
-						<div>
-							<SearchBar {...props.searchProps} />
-							<div className="container container-custom">
-								<Fade duration={600}>
-									<BootstrapTable {...props.baseProps} selectRow={selectRow} />
-								</Fade>
+					<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
+						{(props) => (
+							<div>
+								<SearchBar {...props.searchProps} />
+								<div className="container container-custom">
+									<Fade duration={600}>
+										<BootstrapTable {...props.baseProps} selectRow={selectRow} />
+									</Fade>
+								</div>
 							</div>
-						</div>
-					)}
-				</ToolkitProvider>
-			)}
+						)}
+					</ToolkitProvider>
+				)}
 		</>
 	);
 }

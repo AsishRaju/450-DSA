@@ -4,6 +4,7 @@ import Badge from "react-bootstrap/Badge";
 import Fade from "react-reveal/Fade";
 
 export default function About({ resetData }) {
+	// About component takes resetData() from App <Component> to trigger DB data reset
 	return (
 		<>
 			<div className="container-custom">
