@@ -18,9 +18,9 @@ export default function TopicCard({ questionData }) {
 		let questionsRemainig = questions.length - doneQuestions;
 		if (started) {
 			return (
-				<Fade duration={500 + index * 0.4}>
-					<div className="col mb-4" key={index}>
-						<Card className="mb-3 inprogress-card animate__slideInDown">
+				<Fade duration={500 + index * 0.4} key={index}>
+					<div className="col mb-4">
+						<Card className="mb-3 inprogress-card animate__slideInDown hvr-grow">
 							<Card.Body>
 								<Row>
 									<Col>
@@ -29,7 +29,7 @@ export default function TopicCard({ questionData }) {
 									<Col>
 										<h4>
 											<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
-												<Badge pill variant="success" as="a" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
+												<Badge pill variant="success" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
 													{questionsRemainig === 0 ? "Done 👏🏻" : "Solve Now 🙇🏻‍♂️"}
 												</Badge>
 											</Link>
@@ -51,32 +51,32 @@ export default function TopicCard({ questionData }) {
 			);
 		} else {
 			return (
-				<Fade duration={500 + index * 50}>
-					<div className="col mb-4" key={index}>
-						<Card className="mb-3 notstarted-card">
-							<Card.Body>
-								<Row>
-									<Col>
-										<Card.Title className="topicName"> {topicName} </Card.Title>
-									</Col>
-									<Col>
-										<h4>
-											<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
-												<Badge pill variant="primary" className="float-right" as="a" style={{ fontWeight: "500", cursor: "pointer" }}>
+				<Fade duration={500 + index * 50} key={index}>
+					<div className="col mb-4 ">
+						<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
+							<Card className="mb-3 notstarted-card hvr-grow">
+								<Card.Body>
+									<Row>
+										<Col>
+											<Card.Title className="topicName"> {topicName} </Card.Title>
+										</Col>
+										<Col>
+											<h4>
+												<Badge pill variant="primary" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
 													Start Now
 												</Badge>
-											</Link>
-										</h4>
-									</Col>
-								</Row>
-								<Card.Text className="totalQuestion">Total Question {questions.length}</Card.Text>
-								<p className="percentDone mb-1">
-									<b>
-										<i>Not yet started</i>
-									</b>
-								</p>
-							</Card.Body>
-						</Card>
+											</h4>
+										</Col>
+									</Row>
+									<Card.Text className="totalQuestion">Total Question {questions.length}</Card.Text>
+									<p className="percentDone mb-1">
+										<b>
+											<i>Not yet started</i>
+										</b>
+									</p>
+								</Card.Body>
+							</Card>
+						</Link>
 					</div>
 				</Fade>
 			);

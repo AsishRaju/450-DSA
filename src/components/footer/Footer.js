@@ -10,11 +10,11 @@ export default function Footer() {
 					<div className="p-2 bd-highlight">
 						<a href="https://github.com/AsishRaju/450-DSA">
 							<h4>
-								<Badge pill variant="light" as="a">
+								<Badge pill variant="light" className="hvr-grow">
 									<span role="img" aria-label="star">
 										⭐
 									</span>{" "}
-									this project
+									This project
 								</Badge>
 							</h4>
 						</a>
@@ -22,8 +22,11 @@ export default function Footer() {
 					<div className="ml-auto p-2 bd-highlight">
 						<h4>
 							<Link to="/about">
-								<Badge pill variant="light">
-									About
+								<Badge pill variant="light" className="hvr-grow">
+									About{" "}
+									<span role="img" aria-label="face-with-monocole">
+										🧐
+									</span>
 								</Badge>
 							</Link>
 						</h4>

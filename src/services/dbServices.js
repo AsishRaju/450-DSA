@@ -37,3 +37,14 @@ export function getTopicData(key, callback) {
 export function updateDBData(key, updateData) {
 	db.collection("450dsaArchive").doc(key).update(updateData);
 }
+
+export function resetDBData(callback) {
+	db.collection("450dsaArchive")
+		.delete()
+		.then((response) => {
+			callback(response);
+		})
+		.catch((error) => {
+			console.log("There was an error, do something else");
+		});
+}

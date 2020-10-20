@@ -2,7 +2,8 @@ import React from "react";
 import Alert from "react-bootstrap/Alert";
 import Badge from "react-bootstrap/Badge";
 import Fade from "react-reveal/Fade";
-export default function About() {
+
+export default function About({ resetData }) {
 	return (
 		<>
 			<div className="container-custom">
@@ -51,6 +52,20 @@ export default function About() {
 								👨🏻‍💻
 							</span>
 						</h4>
+						<h5 className="text-center">
+							<Badge
+								variant="danger"
+								as="a"
+								style={{ cursor: "pointer" }}
+								onClick={() => {
+									if (window.confirm("Are you sure you want to reset the progress !")) {
+										resetData();
+									}
+								}}
+							>
+								Reset Progress
+							</Badge>
+						</h5>
 						<h3 className="text-center my-5">
 							<Badge>
 								For the{" "}
