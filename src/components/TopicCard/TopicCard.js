@@ -41,7 +41,7 @@ export default function TopicCard({ questionData }) {
 										</Col>
 									</Row>
 									<Card.Text className="totalQuestion">
-										Total Question {topic.questions.length} <br />
+										Total Questions {topic.questions.length} <br />
 										{`${questionsRemainig}`} More to go
 									</Card.Text>
 									<p className="percentDone mb-1">
@@ -73,7 +73,7 @@ export default function TopicCard({ questionData }) {
 											</h4>
 										</Col>
 									</Row>
-									<Card.Text className="totalQuestion">Total Question {questions.length}</Card.Text>
+									<Card.Text className="totalQuestion">Total Questions {questions.length}</Card.Text>
 									<p className="percentDone mb-1">
 										<b>
 											<i>Not yet started</i>
