@@ -1,68 +1,64 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 450-DSA Cracker 🚀
 
-## Available Scripts
+[![React Badge](http://img.shields.io/badge/Powered%20By-React-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
+[![Website Badge](https://img.shields.io/badge/Visit-Now-green?style=for-the-badge&logo=vercel)](https://450dsa.com/)
 
-In the project directory, you can run:
+## Overview 👀
 
-### `npm start`
+![](.gitres/cover.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Topic wise question search 🔍**
+- **Topic wise progress 🧐**
+- **Complete local storage 📂**
+- **Mobile first design ✌🏻**
+- **Clean UI ⚡**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## What is 450DSA-Cracker 🤔
 
-### `npm test`
+#### 450 DSA Cracker is a comprehensive list of 400 + topic wise questions to build your confidence in data structure and algorithms and prepare yourself for placements.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 450 DSA Cracker doesn't guarantee a job but guarantees your confidence in solving any coding problem if done in the right way 👍🏻.
 
-### `npm run build`
+#### More details on how [450dsa] can help you -> [here].
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Dependencies 🗃
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- [React] - **Frontend Framework**
+- [Bootstrap] - **CSS Framework**
+- [React-Reveal] - **React Based Animations**
+- [React-Table-2] - **Suite of table hooks**
+- [LocalBase] - **Firebase style DB for offline storage**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## WIP 🛠
 
-### `npm run eject`
+- Dark Mode
+- Add `mark for review\fav` feature
+- Leader Board
+- Better Responsive CSS
+- Better State Management
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Run Locally 💻
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+> Clone the repo
+> cd 450dsa
+> npm install
+> npm start
+> 450dsa runs on port 4000
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[![OPEN-PR](https://img.shields.io/badge/Open%20For-PR-orange?style=for-the-badge&logo=github)](https://github.com/AsishRaju/450-DSA)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Credits 🙏🏻
 
-## Learn More
+#### Curated list of question in [450dsa] is based on _[DSA Cracker Sheet]_ by [Love Babbar]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[here]: https://www.youtube.com/watch?v=4iFALQ1ACdA
+[450dsa]: https://450dsa.com/
+[love babbar]: https://www.linkedin.com/in/love-babbar-38ab2887/
+[dsa cracker sheet]: https://drive.google.com/file/d/1FMdN_OCfOI0iAeDlqswCiC2DZzD4nPsb/view
+[localbase]: https://github.com/dannyconnell/localbase
+[react-reveal]: https://www.react-reveal.com/
+[bootstrap]: https://react-bootstrap.github.io/
+[react]: https://reactjs.org/
+[react-table-2]: https://react-bootstrap-table.github.io/react-bootstrap-table2/
