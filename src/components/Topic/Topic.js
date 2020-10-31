@@ -93,14 +93,13 @@ export default function Topic({ data, updateData }) {
 			hidden: true,
 		},
 	];
-	const rowStyle = { fontSize: "20px" };
+	const rowStyle = { fontSize: "21px" };
 	const selectRow = {
 		mode: "checkbox",
-		style: { background: "#c8e6c9" },
+		style: { background: "rgb(141, 244, 144)" },
 		selected: select,
 		onSelect: handleSelect,
 	};
-
 	// func() triggered when a question is marked done
 	function handleSelect(row, isSelect) {
 		let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
