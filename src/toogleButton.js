@@ -2,21 +2,16 @@
 import styled from 'styled-components';
 
 export const ToogleButton = styled.button`
-background: ${({ theme }) => theme.gradient};
+background: #27ae60;
 cursor: pointer;
-display: flex;
-font-size: 0.5rem;
-justify-content: space-between;
-margin: 0 auto;
-overflow: hidden;
-padding: 0.5rem;
-position: relative;
-width: 5rem;
-height: 3rem;
-transition: all 0.25s linear;
+margin-left:auto;
+width: 70px;
+height: 44px;
 border:none;
 outline:0;
-:hover,:active,:focus{
+
+:active,:focus{
     outline:0;
 }
+
 `;

@@ -8,25 +8,17 @@ import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import ReactGA from "react-ga";
 import "./App.css";
-import sun from './assets/sun.svg';
-import moon from './assets/moon.svg';
+
 import { ThemeProvider } from 'styled-components';
 import {lightTheme,darkTheme} from './theme';
 import { GlobalStyles } from './global-styles';
-import {ToogleButton} from './toogleButton';
+
 
 function App() {
 
 	// setting state for data received from the DB
 	const [questionData, setquestionData] = useState([]);
 	const [theme, setTheme] = useState('light');
-	const toggleTheme = () => {
-	  if (theme === 'light') {
-		setTheme('dark');
-	  } else {
-		setTheme('light');
-	  }
-	}
 
 	// useEffect for fetching data from DB on load and init GA
 	useEffect(() => {
@@ -64,12 +56,7 @@ function App() {
 				<GlobalStyles />
 				<div className="App">
 					<h1 className="app-heading text-center mt-5">450 DSA Cracker</h1>
-					<ToogleButton
-					onClick={e => toggleTheme(theme)} className="toogler">                
-					{
-						<img src={theme === "dark" ?sun:moon} alt="toggle theme" className="sun-moon"/>
-					}     
-					</ToogleButton>
+					
 					{questionData.length === 0 ? (
 						// load spinner until data is fetched from DB
 						<div className="d-flex justify-content-center">
@@ -100,7 +87,7 @@ function App() {
 							</>
 
 						)}
-					<Footer></Footer>
+					<Footer theme={theme} setTheme={setTheme}/>
 				</div>
 			</ThemeProvider>
 		</Router>

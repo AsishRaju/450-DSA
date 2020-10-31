@@ -5,3 +5,13 @@
 	height: 45px; 
 	background-color: #27ae60;
 }
+
+.sun-moon{
+	height: 23px;
+	vertical-align: middle;
+}
+.sun-moon:hover{
+	transform: scale(1.15);
+	transition: transform 0.3s ease-in-out;
+	
+}

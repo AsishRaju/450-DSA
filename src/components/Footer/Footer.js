@@ -2,7 +2,19 @@ import React from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import "./footer.css";
-export default function Footer() {
+import {ToogleButton} from '../../toogleButton';
+import sun from '../../assets/sun.svg';
+import moon from '../../assets/moon.svg';
+export default function Footer({theme , setTheme}) {
+
+	const toggleTheme = () => {
+		if (theme === 'light') {
+		  setTheme('dark');
+		} else {
+		  setTheme('light');
+		}
+	  }
+  
 	return (
 		<div>
 			<footer className="footer">
@@ -19,7 +31,12 @@ export default function Footer() {
 							</h4>
 						</a>
 					</div>
-					<div className="ml-auto p-2 bd-highlight">
+					<ToogleButton onClick={e => toggleTheme(theme)} className="toogler">                
+				{
+					<img src={theme === "dark" ?sun:moon} alt="toggle theme" className="sun-moon"/>
+				}     
+				</ToogleButton>
+					<div className="p-2 bd-highlight">
 						<h4>
 							<Link to="/about">
 								<Badge pill variant="light" className="hvr-grow">
@@ -32,6 +49,7 @@ export default function Footer() {
 						</h4>
 					</div>
 				</div>
+				
 			</footer>
 		</div>
 	);
