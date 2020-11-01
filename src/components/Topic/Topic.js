@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 
 export default function Topic({ data, updateData }) {
-
 	/*
 	  This component takes data releted to a paticular topic 
 	  and updateData() from App component
@@ -31,7 +30,7 @@ export default function Topic({ data, updateData }) {
 				if (question.Done) {
 					doneQuestion.push(index);
 				}
-				
+
 				/*
 				|	Hidden properties `_is_selected` and `_search_text` are used to sort the table
 				|	and search the table respectively. react-bootstrap-table does not allow sorting
@@ -79,7 +78,7 @@ export default function Topic({ data, updateData }) {
 		{
 			dataField: "id",
 			text: "Q-Id",
-			headerStyle: { width: "130px", fontSize: "20px" }
+			headerStyle: { width: "130px", fontSize: "20px" },
 		},
 		{
 			dataField: "question",
@@ -91,7 +90,7 @@ export default function Topic({ data, updateData }) {
 			text: "Is Selected",
 			headerStyle: { fontSize: "20px" },
 			hidden: true,
-			sort: true
+			sort: true,
 		},
 		{
 			dataField: "_search_text",
@@ -108,8 +107,8 @@ export default function Topic({ data, updateData }) {
 		onSelect: handleSelect,
 	};
 	const sortMode = {
-		dataField: '_is_selected',
-		order: 'asc'
+		dataField: "_is_selected",
+		order: "asc",
 	};
 
 	// func() triggered when a question is marked done
@@ -139,7 +138,7 @@ export default function Topic({ data, updateData }) {
 			},
 			data.position
 		);
-	};
+	}
 
 	return (
 		<>
@@ -152,19 +151,19 @@ export default function Topic({ data, updateData }) {
 					<Spinner animation="grow" variant="success" />
 				</div>
 			) : (
-					<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
-						{(props) => (
-							<div>
-								<SearchBar {...props.searchProps} />
-								<div className="container container-custom no-anchor">
-									<Fade duration={600}>
-										<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode}/>
-									</Fade>
-								</div>
+				<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
+					{(props) => (
+						<div>
+							<SearchBar {...props.searchProps} />
+							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
+								<Fade duration={600}>
+									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} />
+								</Fade>
 							</div>
-						)}
-					</ToolkitProvider>
-				)}
+						</div>
+					)}
+				</ToolkitProvider>
+			)}
 		</>
 	);
 }
