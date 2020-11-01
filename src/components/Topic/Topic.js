@@ -22,21 +22,20 @@ export default function Topic({ data, updateData }) {
 	const [select, setSelected] = useState([]);
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState("");
-	let doneQuestion = [];
 
 	// updating states using useEffect with dependency  on `data` prop
 	useEffect(() => {
 		if (data !== undefined) {
+			let doneQuestion = [];
 			let tableData = data.questions.map((question, index) => {
 				if (question.Done) {
 					doneQuestion.push(index);
 				}
+				
 				/*
-					Search works on text only, since the table view contains hyperlinks search wont work
-					this solved by a niche hack you can see this returns a obj containing 
-					{id:..,question:...,question_text:...} so question is what is viewable in the app whereas
-					question_text is hidden in the table config so search bar can now apply its search on 
-					question_text which is present in data but not on view.
+				|	Hidden properties `_is_selected` and `_search_text` are used to sort the table
+				|	and search the table respectively. react-bootstrap-table does not allow sorting
+				|	by selectRow by default, and requires plain text to perform searches.
 				*/
 				return {
 					id: index,
@@ -45,7 +44,8 @@ export default function Topic({ data, updateData }) {
 							{question.Problem}
 						</a>
 					),
-					question_text: question.Problem,
+					_is_selected: question.Done,
+					_search_text: question.Problem,
 				};
 			});
 			setQuestionsTableData(tableData);
@@ -79,7 +79,7 @@ export default function Topic({ data, updateData }) {
 		{
 			dataField: "id",
 			text: "Q-Id",
-			headerStyle: { width: "130px", fontSize: "20px" },
+			headerStyle: { width: "130px", fontSize: "20px" }
 		},
 		{
 			dataField: "question",
@@ -87,8 +87,15 @@ export default function Topic({ data, updateData }) {
 			headerStyle: { fontSize: "20px" },
 		},
 		{
-			dataField: "question_text",
-			text: "Questions",
+			dataField: "_is_selected",
+			text: "Is Selected",
+			headerStyle: { fontSize: "20px" },
+			hidden: true,
+			sort: true
+		},
+		{
+			dataField: "_search_text",
+			text: "Search Text",
 			headerStyle: { fontSize: "20px" },
 			hidden: true,
 		},
@@ -99,6 +106,10 @@ export default function Topic({ data, updateData }) {
 		style: { background: "#c8e6c9" },
 		selected: select,
 		onSelect: handleSelect,
+	};
+	const sortMode = {
+		dataField: '_is_selected',
+		order: 'asc'
 	};
 
 	// func() triggered when a question is marked done
@@ -128,8 +139,7 @@ export default function Topic({ data, updateData }) {
 			},
 			data.position
 		);
-		setSelected([...newDoneQuestion]);
-	}
+	};
 
 	return (
 		<>
@@ -146,9 +156,9 @@ export default function Topic({ data, updateData }) {
 						{(props) => (
 							<div>
 								<SearchBar {...props.searchProps} />
-								<div className="container container-custom">
+								<div className="container container-custom no-anchor">
 									<Fade duration={600}>
-										<BootstrapTable {...props.baseProps} selectRow={selectRow} />
+										<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode}/>
 									</Fade>
 								</div>
 							</div>

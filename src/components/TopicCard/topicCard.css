@@ -2,6 +2,9 @@
 	overflow-y: scroll;
 	height: 64vh;
 }
+.no-anchor {
+	overflow-anchor: none;
+}
 .container::-webkit-scrollbar {
 	width: 5px; /* width of the entire scrollbar */
 }
