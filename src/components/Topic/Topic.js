@@ -6,7 +6,10 @@ import FormControl from "react-bootstrap/FormControl";
 import Spinner from "react-bootstrap/Spinner";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import './Topic.css';
 
 export default function Topic({ data, updateData }) {
 
@@ -128,8 +131,34 @@ export default function Topic({ data, updateData }) {
 			},
 			data.position
 		);
-		setSelected([...newDoneQuestion]);
-	}
+		displayToast(isSelect, row.id);
+	};
+
+	// trigger an information message for user on select change
+	function displayToast(isSelect, id) {
+		const { type, icon, verb, dir } = {
+			type: isSelect ? 'complete' : 'incomplete',
+			icon: isSelect ? '👏🏻' : '🙇🏻‍♂️',
+			verb: isSelect ? 'sent' : 'returned',
+			dir: isSelect ? 'bottom' : 'top'
+		};
+
+		const title = `Question ${id} marked ${type} ${icon}`;
+		const subTitle = `It has been ${verb} to the ${dir} of the table.`;
+
+		const Card = (
+			<>
+				<p>{title}</p>
+				<p class="toast-subtitle">{subTitle}</p>
+			</>
+		);
+		
+		toast(Card, {
+			className: `toast-${type}`,
+			autoClose: 2000,
+			closeButton: false
+		});
+	};
 
 	return (
 		<>
@@ -154,7 +183,8 @@ export default function Topic({ data, updateData }) {
 							</div>
 						)}
 					</ToolkitProvider>
-				)}
+			)}
+			<ToastContainer />
 		</>
 	);
 }

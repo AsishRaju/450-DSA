@@ -1,0 +1,29 @@
+.Toastify__toast-body {
+    color: white;
+    text-align: center;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 600;
+    padding: 0 0.5rem;
+}
+
+.Toastify__toast-body .toast-subtitle {
+    font-weight: initial;
+}
+
+/* Marked Complete */
+.Toastify__toast.toast-complete {
+    background: #28a745;
+}
+
+.Toastify__toast.toast-complete .Toastify__progress-bar {
+    background: #c8e6c9;
+}
+
+/* Marked Incomplete */
+.Toastify__toast.toast-incomplete {
+    background: #007bff;
+}
+
+.Toastify__toast.toast-incomplete .Toastify__progress-bar {
+    background: #aad0f6;
+}
