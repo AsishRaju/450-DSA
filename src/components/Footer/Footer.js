@@ -5,6 +5,7 @@ import "./footer.css";
 import {ToogleButton} from '../../toogleButton';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
+
 export default function Footer({theme , setTheme}) {
 
 	const toggleTheme = () => {
