@@ -68,8 +68,8 @@ function App() {
 							<Route path="/binary_trees" children={<Topic data={questionData[5]} updateData={updateData} />} />
 							<Route path="/bst" children={<Topic data={questionData[6]} updateData={updateData} />} />
 							<Route path="/greedy" children={<Topic data={questionData[7]} updateData={updateData} />} />
-							<Route path="/stacks_queues" children={<Topic data={questionData[8]} updateData={updateData} />} />
-							<Route path="/backtracking" children={<Topic data={questionData[9]} updateData={updateData} />} />
+							<Route path="/backtracking" children={<Topic data={questionData[8]} updateData={updateData} />} />
+							<Route path="/stacks_queues" children={<Topic data={questionData[9]} updateData={updateData} />} />
 							<Route path="/heap" children={<Topic data={questionData[10]} updateData={updateData} />} />
 							<Route path="/graph" children={<Topic data={questionData[11]} updateData={updateData} />} />
 							<Route path="/trie" children={<Topic data={questionData[12]} updateData={updateData} />} />
