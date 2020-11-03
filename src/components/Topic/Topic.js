@@ -193,6 +193,7 @@ export default function Topic({ data, updateData }) {
 					)}
 				</ToolkitProvider>
 			)}
+			<ToastContainer />
 		</>
 	);
 }
