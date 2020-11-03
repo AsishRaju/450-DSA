@@ -6,13 +6,12 @@ import FormControl from "react-bootstrap/FormControl";
 import Spinner from "react-bootstrap/Spinner";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import './Topic.css';
+import "./Topic.css";
 
 export default function Topic({ data, updateData }) {
-
 	/*
 	  This component takes data releted to a paticular topic 
 	  and updateData() from App component
@@ -132,19 +131,18 @@ export default function Topic({ data, updateData }) {
 			data.position
 		);
 		displayToast(isSelect, row.id);
-	};
+	}
 
 	// trigger an information message for user on select change
 	function displayToast(isSelect, id) {
 		const { type, icon, verb, dir } = {
-			type: isSelect ? 'complete' : 'incomplete',
-			icon: isSelect ? '👏🏻' : '🙇🏻‍♂️',
-			verb: isSelect ? 'sent' : 'returned',
-			dir: isSelect ? 'bottom' : 'top'
+			type: isSelect ? "Done" : "Incomplete",
+			icon: isSelect ? "🎉" : "🙇🏻‍♂️",
+			dir: isSelect ? "👇🏻" : "👆🏻",
 		};
 
-		const title = `Question ${id} marked ${type} ${icon}`;
-		const subTitle = `It has been ${verb} to the ${dir} of the table.`;
+		const title = `Q-${id} Marked ${type} ${icon}`;
+		const subTitle = `Question pushed to the ${dir} of the table.`;
 
 		const Card = (
 			<>
@@ -152,13 +150,13 @@ export default function Topic({ data, updateData }) {
 				<p class="toast-subtitle">{subTitle}</p>
 			</>
 		);
-		
+
 		toast(Card, {
 			className: `toast-${type}`,
 			autoClose: 2000,
-			closeButton: false
+			closeButton: true,
 		});
-	};
+	}
 
 	return (
 		<>
@@ -171,18 +169,18 @@ export default function Topic({ data, updateData }) {
 					<Spinner animation="grow" variant="success" />
 				</div>
 			) : (
-					<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
-						{(props) => (
-							<div>
-								<SearchBar {...props.searchProps} />
-								<div className="container container-custom">
-									<Fade duration={600}>
-										<BootstrapTable {...props.baseProps} selectRow={selectRow} />
-									</Fade>
-								</div>
+				<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
+					{(props) => (
+						<div>
+							<SearchBar {...props.searchProps} />
+							<div className="container container-custom">
+								<Fade duration={600}>
+									<BootstrapTable {...props.baseProps} selectRow={selectRow} />
+								</Fade>
 							</div>
-						)}
-					</ToolkitProvider>
+						</div>
+					)}
+				</ToolkitProvider>
 			)}
 			<ToastContainer />
 		</>
