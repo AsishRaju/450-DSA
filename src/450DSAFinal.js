@@ -1234,7 +1234,7 @@ export default [
 		questions: [
 			{
 				Topic: "Binary Search Trees",
-				Problem: "Fina a value in a BST",
+				Problem: "Find a value in a BST",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
 			},
