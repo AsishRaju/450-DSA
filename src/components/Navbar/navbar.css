@@ -1,6 +1,27 @@
-.dark {
-  color: #dadada;
-  background: #1c2022;
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  flex-wrap: wrap;
+}
+
+.header-navlink {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.header-logo {
+  font-weight: 700;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+.header-link {
+  font-weight: 700;
+  font-size: 22px;
+  text-decoration: none;
+  margin-left: 25px;
 }
 
 .btn-clear {
@@ -14,12 +35,6 @@
 }
 
 @media screen and (max-width: 480px) {
-  .app-heading {
-    font-size: 30px;
-  }
-  .app-heading2 {
-    font-size: 20px;
-  }
   .header-logo {
     font-size: 25px;
   }

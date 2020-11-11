@@ -89,12 +89,7 @@ export default function TopicCard({ questionData }) {
 	});
 	return (
 		<>
-			<h3 className="app-heading2 text-center mb-5">
-				Your Gateway to crack DSA{" "}
-				<span role="img" aria-label="fire">
-					🔥
-				</span>
-			</h3>
+			
 			<div className="container container-custom">
 				<div className="row row-cols-1 row-cols-md-3 mt-3 grids">{topicCard}</div>
 			</div>

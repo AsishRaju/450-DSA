@@ -10,8 +10,13 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "./Topic.css";
+import ThemeContext from '../../contexts/theme'
 
 export default function Topic({ data, updateData }) {
+	//using theme from ThemeContext
+	const theme = React.useContext(ThemeContext);
+	const themeColor = (theme==='light'?'black':'white');
+	
 	/*
 	  This component takes data releted to a paticular topic 
 	  and updateData() from App component
@@ -81,12 +86,14 @@ export default function Topic({ data, updateData }) {
 		{
 			dataField: "id",
 			text: "Q-Id",
-			headerStyle: { width: "130px", fontSize: "20px" },
+			headerStyle: { width: "130px", fontSize: "20px",color:themeColor },
+			style:{color:themeColor}
 		},
 		{
 			dataField: "question",
 			text: "Questions",
-			headerStyle: { fontSize: "20px" },
+			headerStyle: { fontSize: "20px",color:themeColor},
+			
 		},
 		{
 			dataField: "_is_selected",
@@ -94,6 +101,8 @@ export default function Topic({ data, updateData }) {
 			headerStyle: { fontSize: "20px" },
 			hidden: true,
 			sort: true,
+			
+			
 		},
 		{
 			dataField: "_search_text",
@@ -105,7 +114,7 @@ export default function Topic({ data, updateData }) {
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
 		mode: "checkbox",
-		style: { background: "#c8e6c9" },
+		style: { background: "#91C5E8" },
 		selected: select,
 		onSelect: handleSelect,
 	};
