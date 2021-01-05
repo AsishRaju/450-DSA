@@ -145,15 +145,15 @@ export default [
 			},
 			{
 				Topic: "Array",
-				Problem: "Find longest coinsecutive subsequence",
+				Problem: "Find longest consecutive subsequence",
 				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/longest-consecutive-subsequence/0",
 			},
 			{
 				Topic: "Array",
-				Problem: 'Given an array of size n and a number k, fin all elements that appear more than " n/k " times.',
+				Problem: 'Given an array of size n and a number k, find all elements that appear more than " n/k " times.',
 				Done: false,
-				URL: "https://www.geeksforgeeks.org/given-an-array-of-of-size-n-finds-all-the-elements-that-appear-more-than-nk-times/",
+				URL: "https://leetcode.com/problems/majority-element-ii/",
 			},
 			{
 				Topic: "Array",
