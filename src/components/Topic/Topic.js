@@ -25,6 +25,9 @@ export default function Topic({ data, updateData }) {
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState("");
 
+	// adding question id's
+	questionsTableData.forEach((tableData) => tableData.qid = tableData.id + 1);
+
 	// updating states using useEffect with dependency  on `data` prop
 	useEffect(() => {
 		if (data !== undefined) {
@@ -79,7 +82,7 @@ export default function Topic({ data, updateData }) {
 	// table config
 	const columns = [
 		{
-			dataField: "id",
+			dataField: "qid",
 			text: "Q-Id",
 			headerStyle: { width: "130px", fontSize: "20px" },
 		},
@@ -141,18 +144,18 @@ export default function Topic({ data, updateData }) {
 			},
 			data.position
 		);
-		displayToast(isSelect, row.id);
+		displayToast(isSelect, row.qid);
 	}
 
 	// trigger an information message for user on select change
-	function displayToast(isSelect, id) {
+	function displayToast(isSelect, qid) {
 		const { type, icon, verb, dir } = {
 			type: isSelect ? "Done" : "Incomplete",
 			icon: isSelect ? "🎉" : "🙇🏻‍♂️",
 			dir: isSelect ? "👇🏻" : "👆🏻",
 		};
 
-		const title = `Q-${id} Marked ${type} ${icon}`;
+		const title = `Q-${qid} Marked ${type} ${icon}`;
 		const subTitle = `Question pushed to the ${dir} of the table.`;
 
 		const Card = (
@@ -180,19 +183,19 @@ export default function Topic({ data, updateData }) {
 					<Spinner animation="grow" variant="success" />
 				</div>
 			) : (
-				<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
-					{(props) => (
-						<div>
-							<SearchBar {...props.searchProps} />
-							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
-								<Fade duration={600}>
-									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} />
-								</Fade>
+					<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
+						{(props) => (
+							<div>
+								<SearchBar {...props.searchProps} />
+								<div className="container container-custom" style={{ overflowAnchor: "none" }}>
+									<Fade duration={600}>
+										<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} />
+									</Fade>
+								</div>
 							</div>
-						</div>
-					)}
-				</ToolkitProvider>
-			)}
+						)}
+					</ToolkitProvider>
+				)}
 			<ToastContainer />
 		</>
 	);
