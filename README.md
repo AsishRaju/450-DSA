@@ -41,9 +41,15 @@
 
 ```
 > Clone the repo
-> cd 450dsa
-> npm install
-> npm start
+    >> For Windows: Git Bash
+    >> For Linux: Terminal
+    >> git clone https://github.com/AvanishCodes/450-DSA.git
+> Change the folder loation to your source Code Folder
+    >> cd 450dsa/src
+> Install the dependencies
+    >> npm install
+> Start the server
+    >> npm start
 > 450dsa runs on port 4000
 ```
 
