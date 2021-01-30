@@ -60,13 +60,20 @@ function App() {
 							<Route path="/about" children={<About resetData={resetData}></About>} />
 
 							{/* TOPIC ROUTE */}
-							{questionData.map((data) =>
-                                <Route path={`/${data.topicName.toLowerCase().replace(/ & | /g, '_')}`}>
+							{questionData.map((data) => {
+
+                                let topicName = data.topicName
+                                    .toLowerCase()
+                                    .replace(/ & | /g, '_');
+
+                                return <Route
+                                    key={topicName} 
+                                    path={`/${topicName}`}>
                                     <Topic
                                         data={data}
                                         updateData={updateData} />
                                 </Route>
-                            )}
+                            })}
 						</>
 
 					)}
