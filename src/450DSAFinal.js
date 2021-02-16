@@ -593,7 +593,7 @@ export default [
 				Topic: "Searching & Sorting",
 				Problem: "Maximum and minimum of an array using minimum number of comparisons",
 				Done: false,
-				URL: "https://practice.geeksforgeeks.org/problems/middle-of-three2926/1",
+				URL: "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
 			},
 			{
 				Topic: "Searching & Sorting",
