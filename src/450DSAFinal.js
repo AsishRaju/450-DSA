@@ -732,7 +732,7 @@ export default [
 				Topic: "Searching & Sorting",
 				Problem: "Missing Number in AP",
 				Done: false,
-				URL: "https://practice.geeksforgeeks.org/problems/arithmetic-number/0",
+				URL: "https://leetcode.com/problems/missing-number/",
 			},
 			{
 				Topic: "Searching & Sorting",
