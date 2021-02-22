@@ -44,7 +44,7 @@
     >> For Windows: Git Bash
     >> For Linux: Terminal
     >> git clone https://github.com/AvanishCodes/450-DSA.git
-> Change the folder loation to your source Code Folder
+> Change the folder location to your source Code Folder
     >> cd 450dsa/src
 > Install the dependencies
     >> npm install
