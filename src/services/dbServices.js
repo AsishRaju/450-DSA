@@ -1,6 +1,7 @@
 import Localbase from "localbase";
 import QuestionData from "../450DSAFinal";
 let db = new Localbase("db");
+db.config.debug = false
 
 export function insertData(callback) {
 	QuestionData.forEach((topic, index) => {
@@ -8,6 +9,9 @@ export function insertData(callback) {
 	});
 	getData(callback);
 }
+
+
+
 
 export function getData(callback) {
 	db.collection("450dsaArchive")
@@ -45,6 +49,27 @@ export function resetDBData(callback) {
 			callback(response);
 		})
 		.catch((error) => {
-			console.log("There was an error, do something else");
+			console.log("There was an error, do something else", error);
 		});
+}
+
+export function exportDBData(callback) {
+	db.collection("450dsaArchive").get().then((data) => {
+		callback(data)
+	})
+}
+
+
+export function importDBData(data, callback) {
+	console.log('here')
+	resetDBData((response) => {
+		console.log(response)
+		data.forEach((topic, index) => {
+			console.log(topic, topic.topicName)
+			db.collection("450dsaArchive").add(topic, topic.topicName)
+			if (index == data.length - 1) {
+				callback()
+			}
+		});
+	})
 }
