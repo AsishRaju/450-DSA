@@ -17,7 +17,9 @@ export function getData(callback) {
 	db.collection("450dsaArchive")
 		.get()
 		.then((data) => {
+			console.log(data)
 			if (data.length === 0) {
+				console.log("should not be here")
 				insertData(callback);
 			} else {
 				return callback(
@@ -61,15 +63,20 @@ export function exportDBData(callback) {
 
 
 export function importDBData(data, callback) {
-	console.log('here')
+
 	resetDBData((response) => {
-		console.log(response)
-		data.forEach((topic, index) => {
-			console.log(topic, topic.topicName)
-			db.collection("450dsaArchive").add(topic, topic.topicName)
-			if (index == data.length - 1) {
-				callback()
-			}
-		});
+		new Promise((resolve, reject) => {
+			data.forEach((topic, index) => {
+				console.log(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase())
+				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase())
+				if (index == data.length - 1) {
+					resolve()
+				}
+			});
+		}).then(() => {
+			getData((data) => {
+				callback(data)
+			})
+		})
 	})
 }

@@ -17,6 +17,7 @@ function App() {
 
 	// useEffect for fetching data from DB on load and init GA
 	useEffect(() => {
+		console.log('in use effect')
 		ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
 		ReactGA.pageview(window.location.pathname + window.location.search);
 		getData((QuestionData) => {
@@ -59,16 +60,11 @@ function App() {
 	// import 450DSA-Progress data
 
 	function importData(data, callback) {
-		resetDBData((response) => {
-			setquestionData([]);
-			importDBData(data, () => {
-				getData((QuestionData) => {
-					setquestionData(QuestionData);
-					callback()
-				});
-			})
+		importDBData(data, (QuestionData) => {
+			console.log(QuestionData)
+			setquestionData(QuestionData);
+			callback()
 		});
-
 	}
 
 	return (
