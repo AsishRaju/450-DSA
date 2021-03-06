@@ -1100,7 +1100,7 @@ export default [
 			},
 			{
 				Topic: "Binary Trees",
-				Problem: "Diagnol Traversal of a Binary tree",
+				Problem: "Diagonal Traversal of a Binary tree",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/",
 			},
