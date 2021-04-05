@@ -1,7 +1,9 @@
 import Localbase from "localbase";
-import QuestionData from "../450DSAFinal";
+import QuestionData, { version } from "../450DSAFinal";
 let db = new Localbase("db");
-db.config.debug = false
+db.config.debug = false;
+
+const localVersion = localStorage.getItem("450version");
 
 export function insertData(callback) {
 	QuestionData.forEach((topic, index) => {
@@ -10,23 +12,53 @@ export function insertData(callback) {
 	getData(callback);
 }
 
-
-
-
 export function getData(callback) {
 	db.collection("450dsaArchive")
 		.get()
 		.then((data) => {
-			console.log(data)
 			if (data.length === 0) {
-				console.log("should not be here")
 				insertData(callback);
 			} else {
-				return callback(
-					data.sort((a, b) => {
-						return a.position - b.position;
-					})
-				);
+				data.sort((a, b) => {
+					return a.position - b.position;
+				});
+				if (localVersion === null) {
+					localStorage.setItem("450version", 100000000);
+					window.location.replace("http://localhost:3000");
+					// window.location.replace('https://450dsa.com');
+				} else if (parseInt(localVersion) !== version) {
+					let i = 0;
+					for (let topic of data) {
+						let dataFromJSON = QuestionData[i].questions;
+						let key = topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
+						topic.questions.forEach((qObj, index) => {
+							if (qObj.Done) {
+								dataFromJSON[index]["Done"] = true;
+							}
+							if (qObj.Bookmark) {
+								dataFromJSON[index]["Bookmark"] = true
+							} else {
+								dataFromJSON[index]["Bookmark"] = false
+							}
+						});
+						updateDBData(
+							key,
+							{
+								started: topic.started,
+								doneQuestions: topic.doneQuestions,
+								questions: dataFromJSON,
+							}
+						);
+						i++;
+					}
+					localStorage.setItem("450version", version);
+					setTimeout(() => {
+						window.location.replace("http://localhost:3000");
+						// window.location.replace('https://450dsa.com');
+					}, 1000);
+				} else {
+					return callback(data);
+				}
 			}
 		});
 }
@@ -56,27 +88,26 @@ export function resetDBData(callback) {
 }
 
 export function exportDBData(callback) {
-	db.collection("450dsaArchive").get().then((data) => {
-		callback(data)
-	})
+	db.collection("450dsaArchive")
+		.get()
+		.then((data) => {
+			callback(data);
+		});
 }
 
-
 export function importDBData(data, callback) {
-
 	resetDBData((response) => {
 		new Promise((resolve, reject) => {
 			data.forEach((topic, index) => {
-				console.log(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase())
-				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase())
+				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
 				if (index == data.length - 1) {
-					resolve()
+					resolve();
 				}
 			});
 		}).then(() => {
 			getData((data) => {
-				callback(data)
-			})
-		})
-	})
+				callback(data);
+			});
+		});
+	});
 }

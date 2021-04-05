@@ -21,6 +21,15 @@ export default function Footer() {
 					</div>
 					<div className="ml-auto p-2 bd-highlight">
 						<h4>
+							<Link to="/settings" style={{ marginRight: "15px" }}>
+								<Badge pill variant="light" className="hvr-grow">
+									Settings{" "}
+									<span role="img" aria-label="gear">
+										⚙️
+									</span>
+								</Badge>
+							</Link>
+
 							<Link to="/about">
 								<Badge pill variant="light" className="hvr-grow">
 									About{" "}
