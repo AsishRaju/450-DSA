@@ -69,8 +69,8 @@ export default function Settings({ dbQuestionData, updateData, resetData, export
             autoClose: 1000,
             closeButton: true,
             onClose: () => {
-                window.location.replace('http://localhost:3000');
-                // window.location.replace('https://450dsa.com');
+                // window.location.replace('http://localhost:3000');
+                window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
             }
         });
     }

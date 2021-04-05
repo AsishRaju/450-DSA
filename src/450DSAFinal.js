@@ -8,7 +8,7 @@ export default [
 		questions: [
 			{
 				Topic: "Array",
-				Problem: "Reverse the array",
+				Problem: "Reverse the array changes reflected",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
 				Bookmark: false
@@ -18,7 +18,7 @@ export default [
 				Problem: "Find the maximum and minimum element in an array",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
-				Bookmark: true
+				Bookmark: false
 			},
 			{
 				Topic: "Array",
@@ -3279,4 +3279,4 @@ export default [
 	},
 ];
 
-export const version = 76467
+export const version = 105042021
