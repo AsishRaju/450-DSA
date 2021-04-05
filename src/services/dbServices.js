@@ -35,8 +35,8 @@ export function getData(callback) {
 							if (qObj.Done) {
 								dataFromJSON[index]["Done"] = true;
 							}
-							if (qObj.Bookmark) {
-								dataFromJSON[index]["Bookmark"] = true
+							if (qObj.hasOwnProperty('Bookmark')) {
+								dataFromJSON[index]["Bookmark"] = qObj.Bookmark
 							} else {
 								dataFromJSON[index]["Bookmark"] = false
 							}
