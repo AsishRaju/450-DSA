@@ -2174,7 +2174,7 @@ export default [
 			},
 			{
 				Topic: "Graph",
-				Problem: "Find the no. of Isalnds",
+				Problem: "Find the no. of Islands",
 				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1",
 			},
