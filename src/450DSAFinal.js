@@ -280,7 +280,7 @@ export default [
 			},
 			{
 				Topic: "Matrix",
-				Problem: "Kth smallest element in a row-cpumn wise sorted matrix",
+				Problem: "Kth smallest element in a row-column wise sorted matrix",
 				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/kth-element-in-matrix/1",
 			},
