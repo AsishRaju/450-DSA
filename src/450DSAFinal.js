@@ -1704,24 +1704,6 @@ export default [
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/find-the-k-th-permutation-sequence-of-first-n-natural-numbers/",
 			},
-			{
-				Topic: "Stacks & Queues",
-				Problem: " Implement Stack from Scratch",
-				Done: false,
-				URL: "https://www.tutorialspoint.com/javaexamples/data_stack.htm",
-			},
-			{
-				Topic: "Stacks & Queues",
-				Problem: " Implement Queue from Scratch",
-				Done: false,
-				URL: "https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/",
-			},
-			{
-				Topic: "Stacks & Queues",
-				Problem: "Implement 2 stack in an array",
-				Done: false,
-				URL: "https://practice.geeksforgeeks.org/problems/implement-two-stacks-in-an-array/1",
-			},
 		],
 	},
 	{
