@@ -8,7 +8,7 @@ export default [
 		questions: [
 			{
 				Topic: "Array",
-				Problem: "Reverse the array changes reflected",
+				Problem: "Reverse the array changes reflected 567",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
 				Bookmark: false
@@ -1973,28 +1973,7 @@ export default [
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/find-the-k-th-permutation-sequence-of-first-n-natural-numbers/",
 				Bookmark: false
-			},
-			{
-				Topic: "Stacks & Queues",
-				Problem: " Implement Stack from Scratch",
-				Done: false,
-				URL: "https://www.tutorialspoint.com/javaexamples/data_stack.htm",
-				Bookmark: false
-			},
-			{
-				Topic: "Stacks & Queues",
-				Problem: " Implement Queue from Scratch",
-				Done: false,
-				URL: "https://www.geeksforgeeks.org/queue-set-1introduction-and-array-implementation/",
-				Bookmark: false
-			},
-			{
-				Topic: "Stacks & Queues",
-				Problem: "Implement 2 stack in an array",
-				Done: false,
-				URL: "https://practice.geeksforgeeks.org/problems/implement-two-stacks-in-an-array/1",
-				Bookmark: false
-			},
+			}
 		],
 	},
 	{
@@ -3279,4 +3258,4 @@ export default [
 	},
 ];
 
-export const version = 105042021
+export const version = 10504202155

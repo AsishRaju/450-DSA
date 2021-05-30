@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, useHistory, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { getData, updateDBData, resetDBData, exportDBData, importDBData } from "./services/dbServices";
 import { saveAs } from "file-saver";
 import Spinner from "react-bootstrap/Spinner";
@@ -12,7 +12,6 @@ import ReactGA from "react-ga";
 import "./App.css";
 
 function App(prop) {
-	let history = useHistory();
 
 	// setting state for data received from the DB
 	const [questionData, setquestionData] = useState([]);
@@ -65,6 +64,14 @@ function App(prop) {
 			setquestionData(QuestionData);
 			callback();
 		});
+	}
+
+	// picking random question and opening it in new tab
+
+	function pickRandom() {
+		let topicNumber = Math.floor(Math.random() * 16);
+		let questionNo = Math.floor(Math.random() * questionData[topicNumber].questions.length)
+		window.open(`${questionData[topicNumber].questions[questionNo].URL}`)
 	}
 
 	return (
@@ -121,7 +128,7 @@ function App(prop) {
 						/>
 					</>
 				)}
-				<Footer></Footer>
+				<Footer pickRandom={pickRandom}></Footer>
 			</div>
 		</Router>
 	);

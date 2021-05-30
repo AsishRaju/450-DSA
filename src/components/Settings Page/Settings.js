@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import QuestionData from "../../450DSAFinal";
 import Button from 'react-bootstrap/Button'
 import Spinner from "react-bootstrap/Spinner";
-import Container from 'react-bootstrap/Container'
 import { toast, ToastContainer } from "react-toastify";
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -16,7 +15,8 @@ export default function Settings({ dbQuestionData, updateData, resetData, export
     let history = useHistory();
     const [importSpinnerState, setImportSpinnerState] = useState(false)
     const [exportSpinnerState, setExportSpinnerState] = useState(false)
-    // About component takes resetData() from App <Component> to trigger DB data reset
+
+
     function handleChange(e) {
         setImportSpinnerState(true)
         const fileReader = new FileReader();
@@ -58,7 +58,9 @@ export default function Settings({ dbQuestionData, updateData, resetData, export
         }
         const Card = (
             <>
-                <p className="text-center">New Data Synced 👍🏻</p>
+                <p className="text-center">New Data Synced <span role="img" aria-label="thumbs-up">
+                    👍🏻
+									</span></p>
                 <p className="text-center toast-subtitle">Redirecting now...</p>
             </>
         );
@@ -69,8 +71,8 @@ export default function Settings({ dbQuestionData, updateData, resetData, export
             autoClose: 1000,
             closeButton: true,
             onClose: () => {
-                // window.location.replace('http://localhost:3000');
-                window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
+                window.location.replace('http://localhost:3000');
+                // window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
             }
         });
     }
@@ -124,7 +126,6 @@ export default function Settings({ dbQuestionData, updateData, resetData, export
                     </div>
                 </Fade>
                 <ToastContainer style={{ height: "160px" }} />
-
             </div>
         </>
     );

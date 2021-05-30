@@ -24,8 +24,8 @@ export function getData(callback) {
 				});
 				if (localVersion === null) {
 					localStorage.setItem("450version", 100000000);
-					// window.location.replace("http://localhost:3000");
-					window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
+					window.location.replace("http://localhost:3000");
+					// window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
 				} else if (parseInt(localVersion) !== version) {
 					let i = 0;
 					for (let topic of data) {
@@ -53,8 +53,8 @@ export function getData(callback) {
 					}
 					localStorage.setItem("450version", version);
 					setTimeout(() => {
-						// window.location.replace("http://localhost:3000");
-						window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
+						window.location.replace("http://localhost:3000");
+						// window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
 					}, 1000);
 				} else {
 					return callback(data);
@@ -100,7 +100,7 @@ export function importDBData(data, callback) {
 		new Promise((resolve, reject) => {
 			data.forEach((topic, index) => {
 				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
-				if (index == data.length - 1) {
+				if (index === data.length - 1) {
 					resolve();
 				}
 			});

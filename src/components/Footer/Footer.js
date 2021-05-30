@@ -2,7 +2,7 @@ import React from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import "./footer.css";
-export default function Footer() {
+export default function Footer({ pickRandom }) {
 	return (
 		<div>
 			<footer className="footer">
@@ -18,6 +18,17 @@ export default function Footer() {
 								</Badge>
 							</h4>
 						</a>
+
+					</div>
+					<div className="p-2 bd-highlight" style={{ cursor: 'pointer' }}>
+						<h4>
+							<Badge pill variant="light" className="hvr-grow" onClick={pickRandom}>
+								<span role="img" aria-label="curly-loop">
+									➰
+									</span>{" "}
+									Pick Random
+							</Badge>
+						</h4>
 					</div>
 					<div className="ml-auto p-2 bd-highlight">
 						<h4>
