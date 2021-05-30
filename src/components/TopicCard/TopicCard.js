@@ -16,11 +16,15 @@ export default function TopicCard({ questionData }) {
 		return Math.round((doneQuestions / totalQuestions) * 100);
 	};
 
+	let totalSolved = 0;
+
 	// Mapping questionData to topicCard array
 	let topicCard = questionData.map((topic, index) => {
 		let { topicName, doneQuestions, questions, started } = topic;
 		let percentDone = findPercentage(doneQuestions, questions.length);
 		let questionsRemainig = questions.length - doneQuestions;
+		//adding solved questions of every topic to totalSolved
+		totalSolved += doneQuestions;
 		if (started) {
 			return (
 				<Fade duration={500 + index * 0.4} key={index}>
@@ -95,6 +99,9 @@ export default function TopicCard({ questionData }) {
 					🔥
 				</span>
 			</h3>
+			<h4 className="text-center mb-5">
+				{totalSolved ? ("Total Questions Solved : " +  totalSolved ) : "Start Solving" } 
+			</h4>
 			<div className="container container-custom">
 				<div className="row row-cols-1 row-cols-md-3 mt-3 grids">{topicCard}</div>
 			</div>
