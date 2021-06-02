@@ -1,6 +1,6 @@
 .container-custom {
 	overflow-y: scroll;
-	height: 64vh;
+	height: 57vh;
 }
 .container::-webkit-scrollbar {
 	width: 5px; /* width of the entire scrollbar */

@@ -4,6 +4,7 @@ import ToolkitProvider from "react-bootstrap-table2-toolkit";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Spinner from "react-bootstrap/Spinner";
+import Button from 'react-bootstrap/Button'
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -169,6 +170,13 @@ export default function Topic({ data, updateData }) {
 		});
 	}
 
+	//randomProblem will pick a random number for the topic and open a new tab for that problem
+	const randomProblem = () => {
+		let randomNum = Math.floor(Math.random() * data.questions.length)
+		console.log("data", data)
+		window.open(data.questions[randomNum].URL)
+	}
+
 	return (
 		<>
 			<h3 className="text-center mb-4">
@@ -184,6 +192,9 @@ export default function Topic({ data, updateData }) {
 					{(props) => (
 						<div>
 							<SearchBar {...props.searchProps} />
+							<div className="text-center" id="randomProblem">
+								<Button variant="success" onClick={randomProblem}>Pick a Random Question</Button>
+							</div>
 							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
 								<Fade duration={600}>
 									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} />
