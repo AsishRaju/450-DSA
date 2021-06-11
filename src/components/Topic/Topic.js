@@ -108,6 +108,7 @@ export default function Topic({ data, updateData }) {
 		style: { background: "#c8e6c9" },
 		selected: select,
 		onSelect: handleSelect,
+		hideSelectAll: true
 	};
 	const sortMode = {
 		dataField: "_is_selected",
