@@ -17,7 +17,6 @@ export default function TopicCard({ questionData }) {
 	};
 
 	let totalSolved = 0;
-
 	// Mapping questionData to topicCard array
 	let topicCard = questionData.map((topic, index) => {
 		let { topicName, doneQuestions, questions, started } = topic;
@@ -101,6 +100,12 @@ export default function TopicCard({ questionData }) {
 			</h3>
 			<h4 className="text-center mb-5">
 				{totalSolved ? ("Total Questions Solved : " + totalSolved) : "Start Solving"}
+
+				{/* {((totalSolved/450)*100).toFixed} */}
+			<p className="percentDone mb-1">
+					<b>{((totalSolved / 450) * 100).toFixed(2)}% Done!</b>
+			</p>
+				<ProgressBar animated={((totalSolved / 450) * 100).toFixed(2) === "100" ? false : true} variant="success" now={((totalSolved / 450) * 100).toFixed(2)} style={{ margin: "0.2em 5em"}}/>
 			</h4>
 			<div className="container container-custom">
 				<div className="row row-cols-1 row-cols-md-3 mt-3 grids">{topicCard}</div>
