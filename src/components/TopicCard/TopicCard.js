@@ -28,7 +28,10 @@ export default function TopicCard({ questionData }) {
 			return (
 				<Fade duration={500 + index * 0.4} key={index}>
 					<div className="col mb-4">
-						<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
+						<Link
+							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
+							style={{ textDecoration: "none" }}
+						>
 							<Card className="mb-3 inprogress-card animate__slideInDown hvr-grow">
 								<Card.Body>
 									<Row>
@@ -37,7 +40,12 @@ export default function TopicCard({ questionData }) {
 										</Col>
 										<Col>
 											<h4>
-												<Badge pill variant="success" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
+												<Badge
+													pill
+													variant="success"
+													className="float-right"
+													style={{ fontWeight: "500", cursor: "pointer" }}
+												>
 													{questionsRemainig === 0 ? "Done 👏🏻" : "Solve Now 🙇🏻‍♂️"}
 												</Badge>
 											</h4>
@@ -50,7 +58,11 @@ export default function TopicCard({ questionData }) {
 									<p className="percentDone mb-1">
 										<b>{percentDone}% Done</b>
 									</p>
-									<ProgressBar animated={percentDone === 100 ? false : true} variant="success" now={percentDone} />
+									<ProgressBar
+										animated={percentDone === 100 ? false : true}
+										variant="success"
+										now={percentDone}
+									/>
 								</Card.Body>
 							</Card>
 						</Link>
@@ -61,7 +73,10 @@ export default function TopicCard({ questionData }) {
 			return (
 				<Fade duration={500 + index * 50} key={index}>
 					<div className="col mb-4 ">
-						<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
+						<Link
+							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
+							style={{ textDecoration: "none" }}
+						>
 							<Card className="mb-3 notstarted-card hvr-grow">
 								<Card.Body>
 									<Row>
@@ -70,7 +85,12 @@ export default function TopicCard({ questionData }) {
 										</Col>
 										<Col>
 											<h4>
-												<Badge pill variant="primary" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
+												<Badge
+													pill
+													variant="primary"
+													className="float-right"
+													style={{ fontWeight: "500", cursor: "pointer" }}
+												>
 													Start Now
 												</Badge>
 											</h4>
@@ -98,15 +118,20 @@ export default function TopicCard({ questionData }) {
 					🔥
 				</span>
 			</h3>
-			<h4 className="text-center mb-5">
-				{totalSolved ? ("Total Questions Solved : " + totalSolved) : "Start Solving"}
-
-				{/* {((totalSolved/450)*100).toFixed} */}
-			<p className="percentDone mb-1">
-					<b>{totalSolved ? (((totalSolved / 450) * 100).toFixed(2) + "% Done!") : null}</b>
+			<h4 className="text-center mb-4">
+				{totalSolved
+					? `Total Questions Solved : ${totalSolved} (${((totalSolved / 450) * 100).toFixed(2)}% Done)`
+					: "Start Solving"}
+				<p className="percentDone container mt-1">
+					{totalSolved ? (
+						<ProgressBar
+							animated={((totalSolved / 450) * 100).toFixed(2) === "100" ? false : true}
+							variant="success"
+							now={((totalSolved / 450) * 100).toFixed(2)}
+							style={{ margin: "0.2em 5em" }}
+						/>
+					) : null}
 				</p>
-				{totalSolved ? (<ProgressBar animated={((totalSolved / 450) * 100).toFixed(2) === "100" ? false : true} variant="success" now={((totalSolved / 450) * 100).toFixed(2)} style={{ margin: "0.2em 5em" }} />) : null}
-				
 			</h4>
 			<div className="container container-custom">
 				<div className="row row-cols-1 row-cols-md-3 mt-3 grids">{topicCard}</div>
