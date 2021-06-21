@@ -103,9 +103,10 @@ export default function TopicCard({ questionData }) {
 
 				{/* {((totalSolved/450)*100).toFixed} */}
 			<p className="percentDone mb-1">
-					<b>{((totalSolved / 450) * 100).toFixed(2)}% Done!</b>
-			</p>
-				<ProgressBar animated={((totalSolved / 450) * 100).toFixed(2) === "100" ? false : true} variant="success" now={((totalSolved / 450) * 100).toFixed(2)} style={{ margin: "0.2em 5em"}}/>
+					<b>{totalSolved ? (((totalSolved / 450) * 100).toFixed(2) + "% Done!") : null}</b>
+				</p>
+				{totalSolved ? (<ProgressBar animated={((totalSolved / 450) * 100).toFixed(2) === "100" ? false : true} variant="success" now={((totalSolved / 450) * 100).toFixed(2)} style={{ margin: "0.2em 5em" }} />) : null}
+				
 			</h4>
 			<div className="container container-custom">
 				<div className="row row-cols-1 row-cols-md-3 mt-3 grids">{topicCard}</div>
