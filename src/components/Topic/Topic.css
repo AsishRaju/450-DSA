@@ -27,3 +27,58 @@
 .Toastify__toast.toast-Incomplete .Toastify__progress-bar {
 	background: #aad0f6;
 }
+
+/* Notes section */
+
+
+.note-section{
+	display: none;
+	border-style:none ;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20em;
+	height: 10em;
+	margin: 2em 5em;
+	border: 1.8px solid black ;
+	padding: 0.5em 0.8em;
+}
+
+span{
+	display: block;
+}
+
+.note-exit{
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10em 5em;
+}
+
+.note-save{
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 10em 21.9em;
+}
+
+.note-save:hover{
+	background:#27ae60;
+	}
+
+.note-exit:hover{
+	background: red;
+	color: white;
+}
+
+@media screen and (max-width:992px)
+{
+	.add-note-cta{
+		float: right;
+	}
+	span{
+		display: none;
+	}
+}

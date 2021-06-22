@@ -10,6 +10,11 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "./Topic.css";
+import { event } from "react-ga";
+
+let resize = window.innerWidth;
+localStorage.setItem("width", resize);
+
 
 export default function Topic({ data, updateData }) {
 	/*
@@ -27,13 +32,18 @@ export default function Topic({ data, updateData }) {
 
 	// updating states using useEffect with dependency  on `data` prop
 	useEffect(() => {
+
 		if (data !== undefined) {
 			let doneQuestion = [];
+			function addResize() {
+				resize = (window.innerWidth);
+				window.location.reload();
+			}
+			window.addEventListener('resize',addResize)
 			let tableData = data.questions.map((question, index) => {
 				if (question.Done) {
 					doneQuestion.push(index);
 				}
-
 				/*
 				|	Hidden properties `_is_selected` and `_search_text` are used to sort the table
 				|	and search the table respectively. react-bootstrap-table does not allow sorting
@@ -42,12 +52,24 @@ export default function Topic({ data, updateData }) {
 				return {
 					id: index,
 					question: (
+						<>
 						<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
 							{question.Problem}
-						</a>
+
+							</a>
+							<button onClick={shownotes} value={index}  style={{ height: "2em", float: "right" }}>
+									🕮 add note
+							</button>
+
+							</>
 					),
 					_is_selected: question.Done,
 					_search_text: question.Problem,
+					quicknotes: (
+						<div style={{wordWrap:"break-word"}}>
+							{question.Notes}
+						</div>
+					)
 				};
 			});
 			setQuestionsTableData(tableData);
@@ -75,7 +97,6 @@ export default function Topic({ data, updateData }) {
 			</div>
 		);
 	};
-
 	// table config
 	const columns = [
 		{
@@ -101,6 +122,14 @@ export default function Topic({ data, updateData }) {
 			headerStyle: { fontSize: "20px" },
 			hidden: true,
 		},
+		{
+			dataField: "quicknotes",
+			text: "Quick Notes",
+			id:"test",
+			headerStyle: { fontSize: "20px", width: "200px" },
+			hidden:resize<992?true:false,
+
+		}
 	];
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
@@ -169,6 +198,65 @@ export default function Topic({ data, updateData }) {
 			closeButton: true,
 		});
 	}
+	
+	//Notes component
+	const NoteSection = (props) => {
+		let id = (localStorage.getItem("cid"));
+		const [quickNotes, setQuickNotes] = useState("");
+		const addnewnotes = (event) => {
+				setQuickNotes(event.target.value)
+			
+		}
+	
+		const onadd = () => {
+			let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
+			if (id != null || id!=undefined)
+			{
+				let que = (data.questions);
+				que[id].Notes = quickNotes;
+				updateData(
+					key,
+					{
+						started: data.started,
+						doneQuestions: data.doneQuestions,
+						questions: que,
+					},
+					data.position
+				);
+
+				localStorage.clear();
+			}
+
+		}
+	
+		useEffect(onadd, []);
+		return (
+			<>
+				<textarea maxLength="40" className="note-section" placeholder="your notes here" onChange={addnewnotes} >
+			</textarea>
+				<button className="note-exit" onClick={saveAndExitNotes}>Close</button>
+				<button className="note-save" onClick={onadd}>Save</button>
+
+			</>
+		)
+	}
+	//function for closing notes
+	function saveAndExitNotes() {
+		document.getElementsByClassName("note-section")[0].style.display = "none";
+		document.getElementsByClassName("note-exit")[0].style.display = "none";
+		document.getElementsByClassName("note-save")[0].style.display = "none";
+
+	}
+	//funtion for taking notes
+	function shownotes(e) {
+		document.getElementsByClassName("note-section")[0].style.display = "block";
+		document.getElementsByClassName("note-exit")[0].style.display = "block";
+		document.getElementsByClassName("note-save")[0].style.display = "block";
+		localStorage.setItem("cid", e.target.value);
+		document.getElementsByClassName("note-section")[0].value = data.questions[e.target.value].Notes;
+
+
+	}
 
 	return (
 		<>
@@ -191,10 +279,13 @@ export default function Topic({ data, updateData }) {
 								</Fade>
 							</div>
 						</div>
-					)}
+						)}
+						
 				</ToolkitProvider>
 			)}
 			<ToastContainer />
+			<NoteSection/>
+
 		</>
 	);
 }
