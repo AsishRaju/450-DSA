@@ -17,7 +17,7 @@ export function getData(callback) {
 	db.collection("450dsaArchive")
 		.get()
 		.then((data) => {
-			console.log(data)
+			
 			if (data.length === 0) {
 				console.log("should not be here")
 				insertData(callback);

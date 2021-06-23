@@ -1,6 +1,7 @@
 import React from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
+
 import "./footer.css";
 export default function Footer() {
 	return (
@@ -12,7 +13,7 @@ export default function Footer() {
 							<h4>
 								<Badge pill variant="light" className="hvr-grow">
 									<span role="img" aria-label="star">
-										⭐
+									⭐
 									</span>{" "}
 									This project
 								</Badge>

@@ -1,29 +1,52 @@
 .Toastify__toast-body {
-	color: white;
-	font-family: "Ubuntu Mono", monospace;
-	font-weight: 600;
-	padding: 0 0.5rem;
+  color: white;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 600;
+  padding: 0 0.5rem;
 }
 
 .Toastify__toast-body .toast-subtitle {
-	font-weight: 400;
-	font-size: small;
+  font-weight: 400;
+  font-size: small;
 }
 
 /* Marked Complete */
 .Toastify__toast.toast-Done {
-	background: #27ae60;
+  background: #27ae60;
 }
 
 .Toastify__toast.toast-Done .Toastify__progress-bar {
-	background: #c8e6c9;
+  background: #c8e6c9;
 }
 
 /* Marked Incomplete */
 .Toastify__toast.toast-Incomplete {
-	background: #007bff;
+  background: #007bff;
 }
 
 .Toastify__toast.toast-Incomplete .Toastify__progress-bar {
-	background: #aad0f6;
+  background: #aad0f6;
+}
+
+/* BookMark */
+.topic-question {
+  display: flex;
+  justify-content: space-between;
+}
+.topic-question > a {
+  max-width: 90%;
+}
+
+.booked-star,
+.not-booked {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+}
+
+.booked-star {
+  color: #ffc107;
+}
+.not-booked {
+  color: #e1e8eb;
 }
