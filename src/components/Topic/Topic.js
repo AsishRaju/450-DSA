@@ -4,6 +4,8 @@ import ToolkitProvider from "react-bootstrap-table2-toolkit";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Spinner from "react-bootstrap/Spinner";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,8 +14,6 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "./Topic.css";
 import { event } from "react-ga";
 
-let resize = window.innerWidth;
-localStorage.setItem("width", resize);
 
 
 export default function Topic({ data, updateData }) {
@@ -35,11 +35,7 @@ export default function Topic({ data, updateData }) {
 
 		if (data !== undefined) {
 			let doneQuestion = [];
-			function addResize() {
-				resize = (window.innerWidth);
-				window.location.reload();
-			}
-			window.addEventListener('resize',addResize)
+			
 			let tableData = data.questions.map((question, index) => {
 				if (question.Done) {
 					doneQuestion.push(index);
@@ -57,19 +53,30 @@ export default function Topic({ data, updateData }) {
 							{question.Problem}
 
 							</a>
-							<button onClick={shownotes} value={index}  style={{ height: "2em", float: "right" }}>
+							{(question.Notes).length != 0 ? (
+								<OverlayTrigger placement="bottom" overlay={renderTooltipView}>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky-fill" viewBox="0 0 16 16" style={{ float: "right", color: "green" }} onClick={() => shownotes(index)}>
+									<path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V9.5z" />
+								</svg>
+								</OverlayTrigger>
+							) : 
+								<OverlayTrigger placement="bottom" overlay={renderTooltipAdd}>
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16" style={{ float: "right", color: "green" }} onClick={() => shownotes(index)}>
+									<path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z" />
+									</svg>
+								</OverlayTrigger>
+							
+							}
+							
+							{/* <button onClick={shownotes} value={index}  style={{ height: "2em", float: "right" }}>
 									🕮 add note
-							</button>
-
+							</button> */}
 							</>
 					),
+					
 					_is_selected: question.Done,
 					_search_text: question.Problem,
-					quicknotes: (
-						<div style={{wordWrap:"break-word"}}>
-							{question.Notes}
-						</div>
-					)
+					
 				};
 			});
 			setQuestionsTableData(tableData);
@@ -77,6 +84,16 @@ export default function Topic({ data, updateData }) {
 			setSelected(doneQuestion);
 		}
 	}, [data]);
+
+	//tooltip functions
+	const renderTooltipView = props => (
+		<Tooltip {...props} className="in" id="tooltip-top">View Notes</Tooltip>
+	);
+
+	const renderTooltipAdd = props => (
+		<Tooltip {...props} className="in" id="tooltip-top">Add Notes</Tooltip>
+	);
+
 
 	// seacrh bar config
 	const SearchBar = (props) => {
@@ -122,14 +139,7 @@ export default function Topic({ data, updateData }) {
 			headerStyle: { fontSize: "20px" },
 			hidden: true,
 		},
-		{
-			dataField: "quicknotes",
-			text: "Quick Notes",
-			id:"test",
-			headerStyle: { fontSize: "20px", width: "200px" },
-			hidden:resize<992?true:false,
-
-		}
+	
 	];
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
@@ -213,7 +223,7 @@ export default function Topic({ data, updateData }) {
 			if (id != null || id!=undefined)
 			{
 				let que = (data.questions);
-				que[id].Notes = quickNotes;
+				que[id].Notes = quickNotes.trim();
 				updateData(
 					key,
 					{
@@ -226,16 +236,25 @@ export default function Topic({ data, updateData }) {
 
 				localStorage.clear();
 			}
+			else {
+				saveAndExitNotes();
+			}
 
 		}
 	
 		useEffect(onadd, []);
 		return (
 			<>
-				<textarea maxLength="40" className="note-section" placeholder="your notes here" onChange={addnewnotes} >
-			</textarea>
+				<div className="note-area">
+					<div className="note-container">
+						<div className="question-title"></div>
+						<textarea maxLength="150" className="note-section" placeholder="your notes here" onChange={addnewnotes} ></textarea>
+				<div className="button-container">
 				<button className="note-exit" onClick={saveAndExitNotes}>Close</button>
 				<button className="note-save" onClick={onadd}>Save</button>
+				</div>
+				</div>		
+			</div>		
 
 			</>
 		)
@@ -245,15 +264,23 @@ export default function Topic({ data, updateData }) {
 		document.getElementsByClassName("note-section")[0].style.display = "none";
 		document.getElementsByClassName("note-exit")[0].style.display = "none";
 		document.getElementsByClassName("note-save")[0].style.display = "none";
+		document.getElementsByClassName("note-area")[0].style.display = "none";
+
+		
 
 	}
 	//funtion for taking notes
-	function shownotes(e) {
+	function shownotes(ind) {
 		document.getElementsByClassName("note-section")[0].style.display = "block";
 		document.getElementsByClassName("note-exit")[0].style.display = "block";
 		document.getElementsByClassName("note-save")[0].style.display = "block";
-		localStorage.setItem("cid", e.target.value);
-		document.getElementsByClassName("note-section")[0].value = data.questions[e.target.value].Notes;
+		document.getElementsByClassName("note-area")[0].style.display = "block";
+
+
+		localStorage.setItem("cid",ind);
+		document.getElementsByClassName("note-section")[0].value = data.questions[ind].Notes;
+		document.getElementsByClassName("question-title")[0].innerHTML = data.questions[ind].Problem;
+
 
 
 	}

@@ -30,55 +30,97 @@
 
 /* Notes section */
 
-
-.note-section{
-	display: none;
-	border-style:none ;
+.note-container{
+	background: white;
 	position: absolute;
-	top: 0;
-	right: 0;
-	width: 20em;
-	height: 10em;
-	margin: 2em 5em;
-	border: 1.8px solid black ;
-	padding: 0.5em 0.8em;
+	display: block;
+	width: 50%;
+	padding: 2% 1%;
+	top: 30%;
+	right: 25%;
+	border: 1px solid gray;
+	border-radius: 0.5em;
+
 }
 
-span{
-	display: block;
+.question-title{
+	width: 100%;
+	background: lightgray;
+	margin-bottom: 0.5em;
+	font-weight: bold;
+	resize: none;
+	font-size: 1.2em;
+	border: 1px solid black;
+	padding: 0.5em 0.8em;
+	word-wrap: break-word;
+
+}
+
+.note-section{
+	background: lightgray;
+	display: none;
+	border: 1px solid black;
+	position: relative;
+	margin-bottom: 0.5em;
+	width: 100%;
+	padding: 0.5em 0.8em;
+	resize: none;
+	height: 10em;
+}
+
+::placeholder{
+	color: black;
+	opacity: 0.5;
+}
+.button-container{
+	display: flex;
+	align-items: right;
+	flex-direction: row-reverse;
+	justify-content: end;
 }
 
 .note-exit{
 	display: none;
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 10em 5em;
+	position: relative;
+	width: 5em;
+	background: red;
+	margin-right: 0.3em;
+	color: white;
+	border-radius: 0.3em;
 }
 
 .note-save{
 	display: none;
-	position: absolute;
-	top: 0;
-	right: 0;
-	margin: 10em 21.9em;
-}
-
-.note-save:hover{
-	background:#27ae60;
-	}
-
-.note-exit:hover{
-	background: red;
+	position: relative;
+	background: #27ae60;
+	width: 5em;
+	border-radius: 0.3em;
+	margin-right: 0.3em;
 	color: white;
 }
 
-@media screen and (max-width:992px)
-{
-	.add-note-cta{
-		float: right;
-	}
-	span{
-		display: none;
-	}
+.note-area{
+	display: none;
+	height: 10em;
+	width: 10em;
+	background:rgba(202, 204, 206, 0.1);
+	backdrop-filter: blur(1px);
+	top: 0;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+
 }
+
+
+#tooltip-top > .tooltip-inner {
+  background-color: #fff;
+  color: green;
+  border: 1px solid #062e56;
+}
+
+#tooltip-top > .tooltip-arrow {
+  border-top: 5px solid #062e56;
+}
+
+
