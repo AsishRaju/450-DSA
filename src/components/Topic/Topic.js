@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { AiFillStar } from 'react-icons/ai'
 import "react-toastify/dist/ReactToastify.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "./Topic.css";
@@ -25,9 +26,11 @@ export default function Topic({ data, updateData }) {
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState("");
 
+
 	// updating states using useEffect with dependency  on `data` prop
 	useEffect(() => {
 		if (data !== undefined) {
+			// console.log(data);
 			let doneQuestion = [];
 			let tableData = data.questions.map((question, index) => {
 				if (question.Done) {
@@ -42,9 +45,12 @@ export default function Topic({ data, updateData }) {
 				return {
 					id: index,
 					question: (
-						<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
-							{question.Problem}
-						</a>
+						<div className="topic-question">
+							<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
+								{question.Problem}
+							</a>
+							<AiFillStar onClick={(e) => handleBookmark(index)} className={question.Bookmark ? "booked-star" : "not-booked"} />
+						</div>
 					),
 					_is_selected: question.Done,
 					_search_text: question.Problem,
@@ -101,6 +107,7 @@ export default function Topic({ data, updateData }) {
 			headerStyle: { fontSize: "20px" },
 			hidden: true,
 		},
+		
 	];
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
@@ -117,6 +124,7 @@ export default function Topic({ data, updateData }) {
 
 	// func() triggered when a question is marked done
 	function handleSelect(row, isSelect) {
+
 		let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
 		let newDoneQuestion = [...select];
 		let updatedQuestionsStatus = data.questions.map((question, index) => {
@@ -145,6 +153,22 @@ export default function Topic({ data, updateData }) {
 		displayToast(isSelect, row.id);
 	}
 
+	const handleBookmark = (id) => {
+		let Bookmark = data.questions[id].Bookmark;
+		let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
+		let updatedQuestionsStatus = [...data.questions];
+		updatedQuestionsStatus[id].Bookmark = !Bookmark;
+
+		updateData(
+			key,
+			{
+				questions: updatedQuestionsStatus,
+			},
+			data.position
+			
+		);
+	}
+
 	// trigger an information message for user on select change
 	function displayToast(isSelect, id) {
 		const { type, icon, verb, dir } = {
@@ -159,7 +183,7 @@ export default function Topic({ data, updateData }) {
 		const Card = (
 			<>
 				<p>{title}</p>
-				<p class="toast-subtitle">{subTitle}</p>
+				<p className="toast-subtitle">{subTitle}</p>
 			</>
 		);
 
