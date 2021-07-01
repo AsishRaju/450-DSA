@@ -2814,4 +2814,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000001;
+export const version = 100000002;
