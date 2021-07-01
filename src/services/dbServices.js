@@ -11,24 +11,6 @@ export function insertData(callback) {
 	getData(callback);
 }
 
-// export function getData(callback) {
-// 	db.collection("450dsaArchive")
-// 		.get()
-// 		.then((data) => {
-// 			console.log(data);
-// 			if (data.length === 0) {
-// 				console.log("should not be here");
-// 				insertData(callback);
-// 			} else {
-// 				return callback(
-// 					data.sort((a, b) => {
-// 						return a.position - b.position;
-// 					})
-// 				);
-// 			}
-// 		});
-// }
-
 export function getData(callback) {
 	db.collection("450dsaArchive")
 		.get()
