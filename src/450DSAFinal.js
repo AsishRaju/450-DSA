@@ -472,7 +472,7 @@ export default [
 				Topic: "String",
 				Problem: "Find the first repeated word in string.",
 				Done: false,
-				URL: "https://practice.geeksforgeeks.org/problems/second-most-repeated-string-in-a-sequence/0",
+				URL: "https://www.geeksforgeeks.org/find-first-repeated-word-string/",
 			},
 			{
 				Topic: "String",
