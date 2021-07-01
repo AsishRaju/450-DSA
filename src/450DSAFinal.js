@@ -7,7 +7,7 @@ export default [
 		questions: [
 			{
 				Topic: "Array",
-				Problem: "Reverse the array",
+				Problem: "Reverse the array 3",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
 			},
@@ -25,7 +25,8 @@ export default [
 			},
 			{
 				Topic: "Array",
-				Problem: "Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
+				Problem:
+					"Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
 				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s/0",
 			},
@@ -151,7 +152,8 @@ export default [
 			},
 			{
 				Topic: "Array",
-				Problem: 'Given an array of size n and a number k, find all elements that appear more than " n/k " times.',
+				Problem:
+					'Given an array of size n and a number k, find all elements that appear more than " n/k " times.',
 				Done: false,
 				URL: "https://leetcode.com/problems/majority-element-ii/",
 			},
@@ -201,8 +203,7 @@ export default [
 				Topic: "Array",
 				Problem: "Minimum swaps required bring elements less equal K together",
 				Done: false,
-				URL:
-					"https://practice.geeksforgeeks.org/problems/minimum-swaps-required-to-bring-all-elements-less-than-or-equal-to-k-together/0",
+				URL: "https://practice.geeksforgeeks.org/problems/minimum-swaps-required-to-bring-all-elements-less-than-or-equal-to-k-together/0",
 			},
 			{
 				Topic: "Array",
@@ -342,7 +343,8 @@ export default [
 			},
 			{
 				Topic: "String",
-				Problem: "Write a program to find the longest Palindrome in a string.[ Longest palindromic Substring]",
+				Problem:
+					"Write a program to find the longest Palindrome in a string.[ Longest palindromic Substring]",
 				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/longest-palindrome-in-a-string/0",
 			},
@@ -518,8 +520,7 @@ export default [
 				Topic: "String",
 				Problem: "Find the smallest window in a string containing all characters of another string",
 				Done: false,
-				URL:
-					"https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string/0",
+				URL: "https://practice.geeksforgeeks.org/problems/smallest-window-in-a-string-containing-all-the-characters-of-another-string/0",
 			},
 			{
 				Topic: "String",
@@ -689,8 +690,7 @@ export default [
 				Topic: "Searching & Sorting",
 				Problem: "Kth smallest number again",
 				Done: false,
-				URL:
-					"https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/kth-smallest-number-again-2/",
+				URL: "https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/kth-smallest-number-again-2/",
 			},
 			{
 				Topic: "Searching & Sorting",
@@ -1786,7 +1786,8 @@ export default [
 			},
 			{
 				Topic: "Stacks & Queues",
-				Problem: "Implement a method to insert an element at its bottom without using any other data structure.",
+				Problem:
+					"Implement a method to insert an element at its bottom without using any other data structure.",
 				Done: false,
 				URL: "https://stackoverflow.com/questions/45130465/inserting-at-the-end-of-stack",
 			},
@@ -1924,7 +1925,8 @@ export default [
 			},
 			{
 				Topic: "Stacks & Queues",
-				Problem: "Minimum sum of squares of character counts in a given string after removing “k” characters.",
+				Problem:
+					"Minimum sum of squares of character counts in a given string after removing “k” characters.",
 				Done: false,
 				URL: "https://practice.geeksforgeeks.org/problems/game-with-string/0",
 			},
@@ -2260,8 +2262,7 @@ export default [
 				Topic: "Graph",
 				Problem: "Oliver and the Game",
 				Done: false,
-				URL:
-					"https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/practice-problems/algorithm/oliver-and-the-game-3/",
+				URL: "https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/practice-problems/algorithm/oliver-and-the-game-3/",
 			},
 			{
 				Topic: "Graph",
@@ -2659,7 +2660,8 @@ export default [
 			},
 			{
 				Topic: "Dynamic Programming",
-				Problem: "Count Derangements (Permutation such that no element appears in its original position) [ IMPORTANT ]",
+				Problem:
+					"Count Derangements (Permutation such that no element appears in its original position) [ IMPORTANT ]",
 				Done: false,
 				URL: "https://www.geeksforgeeks.org/count-derangements-permutation-such-that-no-element-appears-in-its-original-position/",
 			},
@@ -2812,3 +2814,4 @@ export default [
 		],
 	},
 ];
+export const version = 100000001;

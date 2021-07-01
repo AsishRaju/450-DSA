@@ -4,12 +4,15 @@ import ToolkitProvider from "react-bootstrap-table2-toolkit";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Spinner from "react-bootstrap/Spinner";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "./Topic.css";
+import { event } from "react-ga";
 
 export default function Topic({ data, updateData }) {
 	/*
@@ -29,11 +32,11 @@ export default function Topic({ data, updateData }) {
 	useEffect(() => {
 		if (data !== undefined) {
 			let doneQuestion = [];
+
 			let tableData = data.questions.map((question, index) => {
 				if (question.Done) {
 					doneQuestion.push(index);
 				}
-
 				/*
 				|	Hidden properties `_is_selected` and `_search_text` are used to sort the table
 				|	and search the table respectively. react-bootstrap-table does not allow sorting
@@ -42,10 +45,34 @@ export default function Topic({ data, updateData }) {
 				return {
 					id: index,
 					question: (
-						<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
-							{question.Problem}
-						</a>
+						<>
+							<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
+								{question.Problem}
+							</a>
+							<OverlayTrigger
+								placement="left"
+								overlay={question.Notes.length != 0 ? renderTooltipView : renderTooltipAdd}
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="16"
+									height="16"
+									fill="currentColor"
+									class={question.Notes.length != 0 ? "bi bi-sticky-fill" : "bi bi-sticky"}
+									viewBox="0 0 16 16"
+									style={{ float: "right", color: "green", cursor: "pointer" }}
+									onClick={() => shownotes(index)}
+								>
+									{question.Notes.length != 0 ? (
+										<path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V9.5z" />
+									) : (
+										<path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z" />
+									)}
+								</svg>
+							</OverlayTrigger>
+						</>
 					),
+
 					_is_selected: question.Done,
 					_search_text: question.Problem,
 				};
@@ -55,6 +82,19 @@ export default function Topic({ data, updateData }) {
 			setSelected(doneQuestion);
 		}
 	}, [data]);
+
+	//tooltip functions
+	const renderTooltipView = (props) => (
+		<Tooltip {...props} className="in" id="button-tooltip">
+			View Notes
+		</Tooltip>
+	);
+
+	const renderTooltipAdd = (props) => (
+		<Tooltip {...props} className="in" id="button-tooltip">
+			Add Notes
+		</Tooltip>
+	);
 
 	// seacrh bar config
 	const SearchBar = (props) => {
@@ -75,7 +115,6 @@ export default function Topic({ data, updateData }) {
 			</div>
 		);
 	};
-
 	// table config
 	const columns = [
 		{
@@ -108,7 +147,7 @@ export default function Topic({ data, updateData }) {
 		style: { background: "#c8e6c9" },
 		selected: select,
 		onSelect: handleSelect,
-		hideSelectAll: true
+		hideSelectAll: true,
 	};
 	const sortMode = {
 		dataField: "_is_selected",
@@ -170,6 +209,78 @@ export default function Topic({ data, updateData }) {
 		});
 	}
 
+	//Notes component
+	const NoteSection = (props) => {
+		const [quickNotes, setQuickNotes] = useState("");
+		const addnewnotes = (event) => {
+			setQuickNotes(event.target.value);
+		};
+
+		const onadd = () => {
+			let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
+			let id = localStorage.getItem("cid");
+			if (id != null || id != undefined) {
+				let que = data.questions;
+				que[id].Notes = quickNotes.trim().length == 0 ? "" : quickNotes.trim();
+				updateData(
+					key,
+					{
+						started: data.started,
+						doneQuestions: data.doneQuestions,
+						questions: que,
+					},
+					data.position
+				);
+				localStorage.removeItem("cid");
+			} else {
+				saveAndExitNotes();
+			}
+		};
+
+		useEffect(onadd, []);
+		return (
+			<>
+				<div className="note-area">
+					<div className="note-container">
+						<div className="question-title"></div>
+						<textarea
+							maxLength="150"
+							className="note-section"
+							placeholder="your notes here"
+							onChange={addnewnotes}
+						></textarea>
+						<div className="button-container">
+							<button className="note-exit" onClick={saveAndExitNotes}>
+								Close
+							</button>
+							<button className="note-save" onClick={onadd}>
+								Save
+							</button>
+						</div>
+					</div>
+				</div>
+			</>
+		);
+	};
+	//function for closing notes
+	function saveAndExitNotes() {
+		document.getElementsByClassName("note-section")[0].style.display = "none";
+		document.getElementsByClassName("note-exit")[0].style.display = "none";
+		document.getElementsByClassName("note-save")[0].style.display = "none";
+		document.getElementsByClassName("note-area")[0].style.display = "none";
+	}
+	//funtion for taking notes
+	function shownotes(ind) {
+		document.getElementsByClassName("note-section")[0].style.display = "block";
+		document.getElementsByClassName("note-exit")[0].style.display = "block";
+		document.getElementsByClassName("note-save")[0].style.display = "block";
+		document.getElementsByClassName("note-area")[0].style.display = "block";
+
+		localStorage.setItem("cid", ind);
+		document.getElementsByClassName("note-section")[0].value = data.questions[ind].Notes;
+		document.getElementsByClassName("question-title")[0].innerHTML = data.questions[ind].Problem;
+	}
+
 	return (
 		<>
 			<h3 className="text-center mb-4">
@@ -181,7 +292,14 @@ export default function Topic({ data, updateData }) {
 					<Spinner animation="grow" variant="success" />
 				</div>
 			) : (
-				<ToolkitProvider className="float-right" keyField="id" data={questionsTableData} columns={columns} rowStyle={rowStyle} search>
+				<ToolkitProvider
+					className="float-right"
+					keyField="id"
+					data={questionsTableData}
+					columns={columns}
+					rowStyle={rowStyle}
+					search
+				>
 					{(props) => (
 						<div>
 							<SearchBar {...props.searchProps} />
@@ -195,6 +313,7 @@ export default function Topic({ data, updateData }) {
 				</ToolkitProvider>
 			)}
 			<ToastContainer />
+			<NoteSection />
 		</>
 	);
 }
