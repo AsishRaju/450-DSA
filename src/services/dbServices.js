@@ -24,7 +24,8 @@ export function getData(callback) {
 				});
 				if (localVersion === null) {
 					localStorage.setItem("450version", 100000000);
-					window.location.replace("http://localhost:3000");
+					window.location.reload();
+					// window.location.replace("http://localhost:3000");
 					// window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
 				} else if (parseInt(localVersion) !== version) {
 					let i = 0;
@@ -35,25 +36,27 @@ export function getData(callback) {
 							if (qObj.Done) {
 								dataFromJSON[index]["Done"] = true;
 							}
-							if (qObj.hasOwnProperty('Bookmark')) {
-								dataFromJSON[index]["Bookmark"] = qObj.Bookmark
+							if (qObj.hasOwnProperty("Bookmark")) {
+								dataFromJSON[index]["Bookmark"] = qObj.Bookmark;
 							} else {
-								dataFromJSON[index]["Bookmark"] = false
+								dataFromJSON[index]["Bookmark"] = false;
+							}
+							if (qObj.hasOwnProperty("Notes")) {
+								dataFromJSON[index]["Notes"] = qObj.Notes;
+							} else {
+								dataFromJSON[index]["Notes"] = "";
 							}
 						});
-						updateDBData(
-							key,
-							{
-								started: topic.started,
-								doneQuestions: topic.doneQuestions,
-								questions: dataFromJSON,
-							}
-						);
+						updateDBData(key, {
+							started: topic.started,
+							doneQuestions: topic.doneQuestions,
+							questions: dataFromJSON,
+						});
 						i++;
 					}
 					localStorage.setItem("450version", version);
 					setTimeout(() => {
-						window.location.replace("http://localhost:3000");
+						window.location.reload();
 						// window.location.replace('https://450-dsa-git-test-asishraju.vercel.app/');
 					}, 1000);
 				} else {
