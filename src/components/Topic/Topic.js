@@ -186,19 +186,19 @@ export default function Topic({ data, updateData }) {
 
 	// trigger an information message for user on select change
 	function displayToast(isSelect, id) {
-		const { type, icon, verb, dir } = {
+		const { type, icon, dir } = {
 			type: isSelect ? "Done" : "Incomplete",
 			icon: isSelect ? "🎉" : "🙇🏻‍♂️",
 			dir: isSelect ? "👇🏻" : "👆🏻",
 		};
 
-		const title = `Q-${id} Marked ${type} ${icon}`;
-		const subTitle = `Question pushed to the ${dir} of the table.`;
+		const title = `${isSelect ? select.length + 1 : select.length - 1}/${data.questions.length} Done ${icon}`;
+		const subTitle = `Question pushed ${dir} the table.`;
 
 		const Card = (
 			<>
 				<p>{title}</p>
-				<p class="toast-subtitle">{subTitle}</p>
+				<p className="toast-subtitle">{subTitle}</p>
 			</>
 		);
 
