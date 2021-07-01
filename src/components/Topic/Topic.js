@@ -4,7 +4,6 @@ import ToolkitProvider from "react-bootstrap-table2-toolkit";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Spinner from "react-bootstrap/Spinner";
-import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import Fade from "react-reveal/Fade";
@@ -51,7 +50,7 @@ export default function Topic({ data, updateData }) {
 								{question.Problem}
 							</a>
 							<OverlayTrigger
-								placement="bottom"
+								placement="left"
 								overlay={question.Notes.length != 0 ? renderTooltipView : renderTooltipAdd}
 							>
 								<svg
@@ -61,7 +60,7 @@ export default function Topic({ data, updateData }) {
 									fill="currentColor"
 									class={question.Notes.length != 0 ? "bi bi-sticky-fill" : "bi bi-sticky"}
 									viewBox="0 0 16 16"
-									style={{ float: "right", color: "green" }}
+									style={{ float: "right", color: "green", cursor: "pointer" }}
 									onClick={() => shownotes(index)}
 								>
 									{question.Notes.length != 0 ? (
@@ -86,13 +85,13 @@ export default function Topic({ data, updateData }) {
 
 	//tooltip functions
 	const renderTooltipView = (props) => (
-		<Tooltip {...props} className="in" id="tooltip-top">
+		<Tooltip {...props} className="in" id="button-tooltip">
 			View Notes
 		</Tooltip>
 	);
 
 	const renderTooltipAdd = (props) => (
-		<Tooltip {...props} className="in" id="tooltip-top">
+		<Tooltip {...props} className="in" id="button-tooltip">
 			Add Notes
 		</Tooltip>
 	);
