@@ -678,7 +678,7 @@ export default [
 				Topic: "Searching & Sorting",
 				Problem: "Bishu and Soldiers",
 				Done: false,
-				URL: "https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/bishu-and-soldiers/",
+				URL: "https://www.hackerearth.com/problem/algorithm/bishu-and-soldiers-227/",
 			},
 			{
 				Topic: "Searching & Sorting",
