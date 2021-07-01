@@ -944,13 +944,13 @@ export default [
 				Topic: "LinkedList",
 				Problem: "Can we reverse a linked list in less than O(n) ?",
 				Done: false,
-				URL: "<->",
+				URL: "https://www.geeksforgeeks.org/can-we-reverse-a-linked-list-in-less-than-on/",
 			},
 			{
 				Topic: "LinkedList",
 				Problem: "Why Quicksort is preferred for. Arrays and Merge Sort for LinkedLists ?",
 				Done: false,
-				URL: "<->",
+				URL: "https://www.geeksforgeeks.org/why-quick-sort-preferred-for-arrays-and-merge-sort-for-linked-lists/",
 			},
 			{
 				Topic: "LinkedList",
