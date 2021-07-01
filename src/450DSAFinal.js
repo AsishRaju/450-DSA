@@ -161,7 +161,7 @@ export default [
 				Topic: "Array",
 				Problem: "Maximum profit by buying and selling a share atmost twice",
 				Done: false,
-				URL: "https://www.geeksforgeeks.org/maximum-profit-by-buying-and-selling-a-share-at-most-twice/",
+				URL: "https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/",
 			},
 			{
 				Topic: "Array",
