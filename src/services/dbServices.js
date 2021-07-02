@@ -13,6 +13,8 @@ export function insertData(callback) {
 }
 
 export function getData(callback) {
+  console.log(localVersion);
+  console.log(version);
   db.collection("450dsaArchive")
     .get()
     .then((data) => {
@@ -29,20 +31,28 @@ export function getData(callback) {
           let i = 0;
           for (let topic of data) {
             let dataFromJSON = QuestionData[i].questions;
+            let len=dataFromJSON.length;
             let key = topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
             topic.questions.forEach((qObj, index) => {
-              if (qObj.Done) {
-                dataFromJSON[index]["Done"] = true;
-              }
-              if (qObj.hasOwnProperty("Bookmark")) {
-                dataFromJSON[index]["Bookmark"] = qObj.Bookmark;
-              } else {
-                dataFromJSON[index]["Bookmark"] = false;
-              }
-              if (qObj.hasOwnProperty("Notes")) {
-                dataFromJSON[index]["Notes"] = qObj.Notes;
-              } else {
-                dataFromJSON[index]["Notes"] = "";
+              console.log(index);
+              console.log(qObj);
+              console.log(dataFromJSON[index]);
+
+              if(index<=len)
+              {
+                if (qObj.Done) {
+                  dataFromJSON[index]["Done"] = true;
+                }
+                if (qObj.hasOwnProperty("Bookmark")) {
+                  dataFromJSON[index]["Bookmark"] = qObj.Bookmark;
+                } else {
+                  dataFromJSON[index]["Bookmark"] = false;
+                }
+                if (qObj.hasOwnProperty("Notes")) {
+                  dataFromJSON[index]["Notes"] = qObj.Notes;
+                } else {
+                  dataFromJSON[index]["Notes"] = "";
+                }
               }
             });
             updateDBData(key, {
