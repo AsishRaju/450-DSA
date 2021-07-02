@@ -42,7 +42,7 @@ export function getData(callback) {
               console.log(qObj);
               console.log(dataFromJSON[index]);
 
-              if(index<=len)
+              if(index<len)
               {
                 if (qObj.Done) {
                   dataFromJSON[index]["Done"] = true;
