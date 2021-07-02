@@ -24,10 +24,14 @@ export function getData(callback) {
         data.sort((a, b) => {
           return a.position - b.position;
         });
-        if (localVersion === null) {
+        if (localVersion === null || localVersion===undefined) {
+          console.log("hello")
           localStorage.setItem("450version", 100000000);
           window.location.reload();
-        } else if (parseInt(localVersion) !== version) {
+        } 
+        
+        if (parseInt(localVersion) !== version) {
+          
           let i = 0;
           for (let topic of data) {
             let dataFromJSON = QuestionData[i].questions;
