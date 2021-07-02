@@ -100,7 +100,7 @@ export function importDBData(data, callback) {
 			data.forEach((topic, index) => {
 				console.log(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
 				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
-				if (index == data.length - 1) {
+				if (index === data.length - 1) {
 					resolve();
 				}
 			});
