@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Badge from "react-bootstrap/Badge";
@@ -72,7 +72,7 @@ export default function TopicCard({ questionData }) {
 		} else {
 			return (
 				<Fade duration={500 + index * 50} key={index}>
-					<div className="col mb-4 ">
+					<div className="col mb-4" >
 						<Link
 							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
 							style={{ textDecoration: "none" }}
@@ -112,12 +112,13 @@ export default function TopicCard({ questionData }) {
 	});
 	return (
 		<>
-			<h3 className="app-heading2 text-center mb-3">
+			<h3 className="app-heading2 text-center mb-3" >
 				Your Gateway to crack DSA{" "}
 				<span role="img" aria-label="fire">
 					🔥
 				</span>
 			</h3>
+
 			<h4 className="text-center mb-4">
 				{totalSolved
 					? `Total Questions Solved : ${totalSolved} (${((totalSolved / 450) * 100).toFixed(2)}% Done)`

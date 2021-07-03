@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import "./footer.css";
-export default function Footer() {
+export default function Footer({ dark }) {
+
+
 	return (
 		<div>
-			<footer className="footer">
-				<div className="d-flex bd-highlight">
+			<footer className="footer" style={{backgroundColor: dark ? "#00377E" : ""}} >
+				<div className="d-flex bd-highlight"  >
 					<div className="p-2 bd-highlight">
 						<a href="https://github.com/AsishRaju/450-DSA">
 							<h4>
