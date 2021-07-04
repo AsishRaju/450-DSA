@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import ToolkitProvider from "react-bootstrap-table2-toolkit";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import "./Topic.css";
 import { event } from "react-ga";
+import { ThemeContext } from "../../App";
 
 export default function Topic({ data, updateData }) {
 	/*
@@ -27,6 +28,8 @@ export default function Topic({ data, updateData }) {
 	const [select, setSelected] = useState([]);
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState("");
+
+	const dark = useContext(ThemeContext)
 
 	// updating states using useEffect with dependency  on `data` prop
 	useEffect(() => {
@@ -45,8 +48,9 @@ export default function Topic({ data, updateData }) {
 				return {
 					id: index,
 					question: (
-						<>
-							<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600" }}>
+						<>	
+							{/* Question link */}
+							<a href={question.URL} target="_blank" rel="noopener noreferrer" style={{ fontWeight: "600"}} className="question-link" >
 								{question.Problem}
 							</a>
 							<OverlayTrigger
@@ -144,7 +148,7 @@ export default function Topic({ data, updateData }) {
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
 		mode: "checkbox",
-		style: { background: "#c8e6c9" },
+		style: { background: dark ? "#393E46" : "#c8e6c9"},
 		selected: select,
 		onSelect: handleSelect,
 		hideSelectAll: true,
@@ -242,7 +246,7 @@ export default function Topic({ data, updateData }) {
 			<>
 				<div className="note-area">
 					<div className="note-container">
-						<div className="question-title"></div>
+						<div className="question-title" style={{color: 'black'}} ></div>
 						<textarea
 							maxLength="150"
 							className="note-section"
@@ -305,7 +309,7 @@ export default function Topic({ data, updateData }) {
 							<SearchBar {...props.searchProps} />
 							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
 								<Fade duration={600}>
-									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} />
+									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} classes={ dark ? 'dark-table' : ''} />
 								</Fade>
 							</div>
 						</div>
