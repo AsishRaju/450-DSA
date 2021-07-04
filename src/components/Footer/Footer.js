@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import "./footer.css";
@@ -32,9 +32,15 @@ export default function Footer({ dark, setDark }) {
 								}}
 								style={{ cursor: "pointer" }}
 							>
-								<span role="img" aria-label="sun-and-moon-emoji">
-									{dark ? <span>☀️</span> : <span>🌙</span>}
-								</span>
+								{dark ? (
+									<span role="img" aria-label="sun-emoji">
+										☀️
+									</span>
+								) : (
+									<span role="img" aria-label="moon-emoji">
+										🌙
+									</span>
+								)}
 							</Badge>{" "}
 							<Link to="/about">
 								<Badge pill variant="light" className="hvr-grow">
