@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Badge from "react-bootstrap/Badge";
@@ -6,9 +6,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../../App";
+
 import "./topicCard.css";
 
 export default function TopicCard({ questionData }) {
+	const dark = useContext(ThemeContext);
+
 	// This component takes all the topicsData(here questionData ) and renders a TopicCard Component
 
 	// Utility func() to find the progress in percentage
@@ -32,7 +36,9 @@ export default function TopicCard({ questionData }) {
 							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
 							style={{ textDecoration: "none" }}
 						>
-							<Card className="mb-3 inprogress-card animate__slideInDown hvr-grow">
+							<Card
+								className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${dark ? "darkCard" : ""}`}
+							>
 								<Card.Body>
 									<Row>
 										<Col>
@@ -72,12 +78,12 @@ export default function TopicCard({ questionData }) {
 		} else {
 			return (
 				<Fade duration={500 + index * 50} key={index}>
-					<div className="col mb-4" >
+					<div className="col mb-4">
 						<Link
 							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
 							style={{ textDecoration: "none" }}
 						>
-							<Card className="mb-3 notstarted-card hvr-grow">
+							<Card className={`mb-3 notstarted-card hvr-grow ${dark ? "darkCard" : ""}`}>
 								<Card.Body>
 									<Row>
 										<Col>
@@ -112,7 +118,7 @@ export default function TopicCard({ questionData }) {
 	});
 	return (
 		<>
-			<h3 className="app-heading2 text-center mb-3" >
+			<h3 className="app-heading2 text-center mb-3">
 				Your Gateway to crack DSA{" "}
 				<span role="img" aria-label="fire">
 					🔥
