@@ -7,3 +7,19 @@
 	transition: all 0.4s ease-in-out;
 }
 
+.footer-toggle{
+	/* background-color: red; */
+	display: flex;
+	justify-content: space-evenly;
+	width: 10vw;
+	position: relative;
+}
+
+.mode-toggle{
+	padding: 2px 10px 2px 2px;
+	cursor: pointer;
+}
+.mode-toggle span {
+	font-size: 18px;
+}
+

@@ -20,7 +20,8 @@ function App() {
 	
 	// if dark theme is enabled or not
 	const [dark, setDark] = useState(false);
-	const [isToggled, setToggled] = useState(false)
+
+	
 	
 	// useEffect for fetching data from DB on load and init GA
 	useEffect(() => {
@@ -30,6 +31,22 @@ function App() {
 		getData((QuestionData) => {
 			setquestionData(QuestionData);
 		});
+		
+		//implementing dark theme mode option
+		// checking if dark mode "isDark" is already declared or not
+		if (!("isDark" in window.localStorage) ){
+			// console.log("isDark is not present")
+			window.localStorage.setItem("isDark", dark);
+		} else{
+			// initialising the value of dark with the already stored value
+			let temp = window.localStorage["isDark"]
+			if (temp === "false"){
+				setDark(false)
+			} else{
+				setDark(true)
+			}
+		}
+
 	}, []);
 
 	//to update progress in '/' route and also update DB
@@ -76,17 +93,8 @@ function App() {
 
 	return (
 		<Router>
-				<div className={dark ? "App dark" : "App"}>
+				<div className={ dark ? "App dark" : "App"}>
 					<h1 className="app-heading text-center mt-5" style={{ color : dark ? "white" : ""}} >450 DSA Cracker</h1>
-					
-					{/* toggle dark mode */}
-					<div  className="mode-toggle" onClick={() => { setDark(!dark); setToggled(!isToggled) }}>
-							{	isToggled ? 
-									<i class="fa-2x fas fa-sun"></i>
-								:
-									<i class="fa-2x fas fa-moon"></i>
-							}
-					</div>
 					
 					{questionData.length === 0 ? (
 						// load spinner until data is fetched from DB
@@ -120,7 +128,7 @@ function App() {
 							</>
 
 						)}
-					<Footer dark={dark} ></Footer>
+					<Footer dark={dark} setDark={setDark} ></Footer>
 				</div>
 		</Router>
 	);

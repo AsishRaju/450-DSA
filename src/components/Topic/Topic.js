@@ -28,8 +28,7 @@ export default function Topic({ data, updateData }) {
 	const [select, setSelected] = useState([]);
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState("");
-	
-	// getting the theme context
+
 	const dark = useContext(ThemeContext)
 
 	// updating states using useEffect with dependency  on `data` prop
@@ -247,7 +246,7 @@ export default function Topic({ data, updateData }) {
 			<>
 				<div className="note-area">
 					<div className="note-container">
-						<div className="question-title"></div>
+						<div className="question-title" style={{color: 'black'}} ></div>
 						<textarea
 							maxLength="150"
 							className="note-section"
@@ -310,7 +309,7 @@ export default function Topic({ data, updateData }) {
 							<SearchBar {...props.searchProps} />
 							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
 								<Fade duration={600}>
-									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} classes={dark ? 'dark-table' : ''} />
+									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} classes={ dark ? 'dark-table' : ''} />
 								</Fade>
 							</div>
 						</div>

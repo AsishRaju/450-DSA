@@ -13,21 +13,6 @@
 	background-color: #00132D;
 	color: white;
 }
-.mode-toggle{
-	/* background-color: blue; */
-	position: absolute;
-	right: 15vw;
-	cursor: pointer;
-	z-index: 2;
-}
-
-.toggle{
-	/* border-radius: 30px; */
-	display: flex;
-	width: 70px;
-	justify-content: space-between;
-	padding: 5px;
-}
 
 @media screen and (max-width: 480px) {
 	.app-heading {
