@@ -49,7 +49,7 @@ async function versionModification(data)
 export async function getData(callback) {
 	console.log(localVersion);
 	console.log(version);
-   	await db.collection("450dsaArchive")
+	db.collection("450dsaArchive")
 		.get()
 		.then(async (data) => {
 			if (data.length === 0) {
