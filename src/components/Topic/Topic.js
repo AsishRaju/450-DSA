@@ -148,7 +148,7 @@ export default function Topic({ data, updateData }) {
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
 		mode: "checkbox",
-		style: { background: dark ? "#001E45" : "#c8e6c9"},
+		style: { background: dark ? "#393E46" : "#c8e6c9"},
 		selected: select,
 		onSelect: handleSelect,
 		hideSelectAll: true,

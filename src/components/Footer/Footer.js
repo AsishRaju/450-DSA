@@ -7,7 +7,7 @@ export default function Footer({ dark, setDark }) {
 
 	return (
 		<div>
-			<footer className="footer" style={{backgroundColor: dark ? "#00377E" : ""}} >
+			<footer className="footer" style={{backgroundColor: dark ? "#393E46" : ""}} >
 				<div className="d-flex bd-highlight"  >
 					<div className="p-2 bd-highlight">
 						<a href="https://github.com/AsishRaju/450-DSA">
