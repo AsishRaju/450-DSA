@@ -8,10 +8,9 @@
 }
 
 .footer-toggle{
-	/* background-color: red; */
 	display: flex;
 	justify-content: space-evenly;
-	width: 10vw;
+	width: fit-content;
 	position: relative;
 }
 
