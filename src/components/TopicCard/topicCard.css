@@ -18,6 +18,9 @@
 	border-radius: 15px;
 	height: 90%;
 }
+.darkCard {
+	opacity: 0.9;
+}
 .topicName {
 	color: #333333;
 	font-size: 25px;

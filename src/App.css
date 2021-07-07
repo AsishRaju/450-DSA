@@ -3,6 +3,16 @@
 	color: #343a40;
 	font-size: 50px;
 }
+.App{
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	transition: all 0.3s ease-in-out;
+}
+.dark{
+	background-color: #151515;
+	color: white;
+}
 
 @media screen and (max-width: 480px) {
 	.app-heading {

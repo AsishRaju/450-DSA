@@ -13,8 +13,8 @@ export function insertData(callback) {
 }
 
 export function getData(callback) {
-	console.log(localVersion);
-	console.log(version);
+	console.log("localV", localVersion);
+	console.log("version", version);
 	db.collection("450dsaArchive")
 		.get()
 		.then((data) => {
@@ -26,7 +26,9 @@ export function getData(callback) {
 				});
 				if (localVersion === null || localVersion === undefined) {
 					localStorage.setItem("450version", 100000000);
-					window.location.reload();
+					setTimeout(() => {
+						window.location.reload();
+					}, 3000);
 				}
 
 				if (parseInt(localVersion) !== version) {
@@ -62,7 +64,7 @@ export function getData(callback) {
 					localStorage.setItem("450version", version);
 					setTimeout(() => {
 						window.location.reload();
-					}, 1000);
+					}, 3000);
 				} else {
 					return callback(data);
 				}
@@ -108,7 +110,7 @@ export function importDBData(data, callback) {
 			data.forEach((topic, index) => {
 				console.log(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
 				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
-				if (index == data.length - 1) {
+				if (index === data.length - 1) {
 					resolve();
 				}
 			});

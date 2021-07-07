@@ -79,7 +79,7 @@
 	display: flex;
 	align-items: right;
 	flex-direction: row-reverse;
-	justify-content: end;
+	justify-content: flex-end;
 }
 
 .note-exit {
@@ -123,4 +123,11 @@
 
 #tooltip-top > .tooltip-arrow {
 	border-top: 5px solid #062e56;
+}
+.dark-table {
+	color: white;
+}
+
+.question-link:hover {
+	color: rgb(0, 115, 192);
 }

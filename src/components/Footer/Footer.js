@@ -2,10 +2,10 @@ import React from "react";
 import Badge from "react-bootstrap/Badge";
 import { Link } from "react-router-dom";
 import "./footer.css";
-export default function Footer() {
+export default function Footer({ dark, setDark }) {
 	return (
 		<div>
-			<footer className="footer">
+			<footer className="footer" style={{ backgroundColor: dark ? "#393E46" : "" }}>
 				<div className="d-flex bd-highlight">
 					<div className="p-2 bd-highlight">
 						<a href="https://github.com/AsishRaju/450-DSA">
@@ -19,8 +19,29 @@ export default function Footer() {
 							</h4>
 						</a>
 					</div>
-					<div className="ml-auto p-2 bd-highlight">
+					<div className="ml-auto p-2 bd-highlight footer-toggle">
 						<h4>
+							{/* toggle dark mode */}
+							<Badge
+								pill
+								variant="light"
+								className="hvr-grow"
+								onClick={() => {
+									setDark(!dark);
+									window.localStorage["isDark"] = !dark;
+								}}
+								style={{ cursor: "pointer" }}
+							>
+								{dark ? (
+									<span role="img" aria-label="sun-emoji">
+										☀️
+									</span>
+								) : (
+									<span role="img" aria-label="moon-emoji">
+										🌙
+									</span>
+								)}
+							</Badge>{" "}
 							<Link to="/about">
 								<Badge pill variant="light" className="hvr-grow">
 									About{" "}
