@@ -226,6 +226,7 @@ export default function Topic({ data, updateData }) {
 		};
 
 		const onadd = () => {
+			console.log("on add called");
 			let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
 			let id = localStorage.getItem("cid");
 			if (id) {
@@ -247,7 +248,6 @@ export default function Topic({ data, updateData }) {
 			}
 		};
 
-		useEffect(onadd, []);
 		return (
 			<>
 				<div className="note-area">
@@ -278,6 +278,7 @@ export default function Topic({ data, updateData }) {
 		document.getElementsByClassName("note-exit")[0].style.display = "none";
 		document.getElementsByClassName("note-save")[0].style.display = "none";
 		document.getElementsByClassName("note-area")[0].style.display = "none";
+		localStorage.removeItem("cid");
 	}
 	//funtion for taking notes
 	function shownotes(ind) {

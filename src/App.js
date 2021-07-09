@@ -23,6 +23,7 @@ function App() {
 	// useEffect for fetching data from DB on load and init GA
 	useEffect(() => {
 		console.log("in use effect");
+		localStorage.removeItem("cid");
 		ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
 		ReactGA.pageview(window.location.pathname + window.location.search);
 		getData((QuestionData) => {
