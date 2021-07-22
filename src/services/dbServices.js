@@ -4,6 +4,8 @@ let db = new Localbase("db");
 window.db = db;
 db.config.debug = false;
 const localVersion = localStorage.getItem("450version");
+window.localVersion = localVersion;
+window.version = version;
 
 export function insertData(callback) {
 	QuestionData.forEach((topic, index) => {
@@ -13,8 +15,6 @@ export function insertData(callback) {
 }
 
 export function getData(callback) {
-	console.log("localV", localVersion);
-	console.log("version", version);
 	db.collection("450dsaArchive")
 		.get()
 		.then((data) => {
@@ -108,7 +108,6 @@ export function importDBData(data, callback) {
 	resetDBData((response) => {
 		new Promise((resolve, reject) => {
 			data.forEach((topic, index) => {
-				console.log(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
 				db.collection("450dsaArchive").add(topic, topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase());
 				if (index === data.length - 1) {
 					resolve();
