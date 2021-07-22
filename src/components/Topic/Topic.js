@@ -313,7 +313,7 @@ export default function Topic({ data, updateData }) {
 					{(props) => (
 						<div>
 							<SearchBar {...props.searchProps} />
-							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
+							<div className="container" style={{ overflowAnchor: "none" }}>
 								<Fade duration={600}>
 									<BootstrapTable
 										{...props.baseProps}

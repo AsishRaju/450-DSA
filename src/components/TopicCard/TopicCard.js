@@ -140,7 +140,7 @@ export default function TopicCard({ questionData }) {
 					) : null}
 				</p>
 			</h4>
-			<div className="container container-custom">
+			<div className="container">
 				<div className="row row-cols-1 row-cols-md-3 mt-3 grids">{topicCard}</div>
 			</div>
 		</>
