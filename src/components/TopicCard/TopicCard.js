@@ -21,6 +21,7 @@ export default function TopicCard({ questionData }) {
 	};
 
 	let totalSolved = 0;
+	let totalQuestions = 0;
 	// Mapping questionData to topicCard array
 	let topicCard = questionData.map((topic, index) => {
 		let { topicName, doneQuestions, questions, started } = topic;
@@ -28,17 +29,13 @@ export default function TopicCard({ questionData }) {
 		let questionsRemainig = questions.length - doneQuestions;
 		//adding solved questions of every topic to totalSolved
 		totalSolved += doneQuestions;
+		totalQuestions += questions.length;
 		if (started) {
 			return (
 				<Fade duration={500 + index * 0.4} key={index}>
 					<div className="col mb-4">
-						<Link
-							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
-							style={{ textDecoration: "none" }}
-						>
-							<Card
-								className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${dark ? "darkCard" : ""}`}
-							>
+						<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
+							<Card className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${dark ? "darkCard" : ""}`}>
 								<Card.Body>
 									<Row>
 										<Col>
@@ -46,12 +43,7 @@ export default function TopicCard({ questionData }) {
 										</Col>
 										<Col>
 											<h4>
-												<Badge
-													pill
-													variant="success"
-													className="float-right"
-													style={{ fontWeight: "500", cursor: "pointer" }}
-												>
+												<Badge pill variant="success" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
 													{questionsRemainig === 0 ? "Done 👏🏻" : "Solve Now 🙇🏻‍♂️"}
 												</Badge>
 											</h4>
@@ -64,11 +56,7 @@ export default function TopicCard({ questionData }) {
 									<p className="percentDone mb-1">
 										<b>{percentDone}% Done</b>
 									</p>
-									<ProgressBar
-										animated={percentDone === 100 ? false : true}
-										variant="success"
-										now={percentDone}
-									/>
+									<ProgressBar animated={percentDone === 100 ? false : true} variant="success" now={percentDone} />
 								</Card.Body>
 							</Card>
 						</Link>
@@ -79,10 +67,7 @@ export default function TopicCard({ questionData }) {
 			return (
 				<Fade duration={500 + index * 50} key={index}>
 					<div className="col mb-4">
-						<Link
-							to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`}
-							style={{ textDecoration: "none" }}
-						>
+						<Link to={`/${topic.topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase()}`} style={{ textDecoration: "none" }}>
 							<Card className={`mb-3 notstarted-card hvr-grow ${dark ? "darkCard" : ""}`}>
 								<Card.Body>
 									<Row>
@@ -91,12 +76,7 @@ export default function TopicCard({ questionData }) {
 										</Col>
 										<Col>
 											<h4>
-												<Badge
-													pill
-													variant="primary"
-													className="float-right"
-													style={{ fontWeight: "500", cursor: "pointer" }}
-												>
+												<Badge pill variant="primary" className="float-right" style={{ fontWeight: "500", cursor: "pointer" }}>
 													Start Now
 												</Badge>
 											</h4>
@@ -116,6 +96,7 @@ export default function TopicCard({ questionData }) {
 			);
 		}
 	});
+	console.log(totalSolved, totalQuestions);
 	return (
 		<>
 			<h3 className="app-heading2 text-center mb-3">
@@ -127,14 +108,14 @@ export default function TopicCard({ questionData }) {
 
 			<h4 className="text-center mb-4">
 				{totalSolved
-					? `Total Questions Solved : ${totalSolved} (${((totalSolved / 450) * 100).toFixed(2)}% Done)`
+					? `Total Questions Solved : ${totalSolved} (${((totalSolved / totalQuestions) * 100).toFixed(2)}% Done)`
 					: "Start Solving"}
 				<p className="percentDone container mt-1">
 					{totalSolved ? (
 						<ProgressBar
-							animated={((totalSolved / 450) * 100).toFixed(2) === "100" ? false : true}
+							animated={((totalSolved / totalQuestions) * 100).toFixed(2) === "100" ? false : true}
 							variant="success"
-							now={((totalSolved / 450) * 100).toFixed(2)}
+							now={((totalSolved / totalQuestions) * 100).toFixed(2)}
 							style={{ margin: "0.2em 5em" }}
 						/>
 					) : null}
