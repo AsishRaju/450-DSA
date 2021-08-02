@@ -220,14 +220,16 @@ export default function Topic({ data, updateData }) {
 
 	//Notes component
 	const NoteSection = (props) => {
-		const [quickNotes, setQuickNotes] = useState("");
+		let id = localStorage.getItem("cid");
+		
+		const [quickNotes, setQuickNotes] = useState(data.questions[id]?.Notes);
 		const addnewnotes = (event) => {
 			setQuickNotes(event.target.value);
 		};
 
 		const onadd = () => {
 			let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
-			let id = localStorage.getItem("cid");
+			// let id = localStorage.getItem("cid");
 			if (id) {
 				let que = data.questions;
 				que[id].Notes = quickNotes.trim().length === 0 ? "" : quickNotes.trim();
@@ -317,7 +319,7 @@ export default function Topic({ data, updateData }) {
 				</ToolkitProvider>
 			)}
 			<ToastContainer />
-			<NoteSection />
+			<NoteSection  />
 		</>
 	);
 }
