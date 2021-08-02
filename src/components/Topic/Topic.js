@@ -220,9 +220,11 @@ export default function Topic({ data, updateData }) {
 
 	//Notes component
 	const NoteSection = (props) => {
+		const [activity, setActivity] = useState(false);
 		const [quickNotes, setQuickNotes] = useState("");
 		const addnewnotes = (event) => {
 			setQuickNotes(event.target.value);
+			setActivity(true);
 		};
 
 		const onadd = () => {
@@ -230,6 +232,7 @@ export default function Topic({ data, updateData }) {
 			let id = localStorage.getItem("cid");
 			if (id) {
 				let que = data.questions;
+				console.log();
 				que[id].Notes = quickNotes.trim().length === 0 ? "" : quickNotes.trim();
 				updateData(
 					key,
@@ -253,10 +256,15 @@ export default function Topic({ data, updateData }) {
 						<div className="question-title" style={{ color: "black" }}></div>
 						<textarea maxLength="150" className="note-section" placeholder="your notes here" onChange={addnewnotes}></textarea>
 						<div className="button-container">
-							<button className="note-exit" onClick={saveAndExitNotes}>
+							<button
+								className="note-exit"
+								onClick={() => {
+									saveAndExitNotes(setActivity);
+								}}
+							>
 								Close
 							</button>
-							<button className="note-save" onClick={onadd}>
+							<button className="note-save" onClick={onadd} disabled={!activity ? true : false}>
 								Save
 							</button>
 						</div>
@@ -266,11 +274,12 @@ export default function Topic({ data, updateData }) {
 		);
 	};
 	//function for closing notes
-	function saveAndExitNotes() {
+	function saveAndExitNotes(setActivity) {
 		document.getElementsByClassName("note-section")[0].style.display = "none";
 		document.getElementsByClassName("note-exit")[0].style.display = "none";
 		document.getElementsByClassName("note-save")[0].style.display = "none";
 		document.getElementsByClassName("note-area")[0].style.display = "none";
+		setActivity(false);
 		localStorage.removeItem("cid");
 	}
 	//funtion for taking notes
