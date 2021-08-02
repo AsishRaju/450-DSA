@@ -102,16 +102,6 @@
 	color: white;
 }
 
-.note-save:disabled {
-	display: none;
-	position: relative;
-	background: #868686;
-	width: 5em;
-	border-radius: 0.3em;
-	margin-right: 0.3em;
-	color: white;
-}
-
 .note-area {
 	display: none;
 	height: 10em;
