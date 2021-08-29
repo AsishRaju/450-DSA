@@ -650,7 +650,7 @@ export default [
 			},
 			{
 				Topic: "String",
-				Problem: "Write a program tofind the smallest window that contains all characters of string itself.",
+				Problem: "Write a program to find the smallest window that contains all characters of string itself.",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -2985,14 +2985,6 @@ export default [
 				Bookmark: false,
 				Notes: "",
 				URL: "https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/practice-problems/algorithm/oliver-and-the-game-3/",
-			},
-			{
-				Topic: "Graph",
-				Problem: "Water Jug problem using BFS",
-				Done: false,
-				Bookmark: false,
-				Notes: "",
-				URL: "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
 			},
 			{
 				Topic: "Graph",
