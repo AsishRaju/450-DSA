@@ -27,9 +27,9 @@ export default function Topic({ data, updateData }) {
 	const [select, setSelected] = useState([]);
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState("");
+	const [random, setRandom] = useState(0)
 
 	const dark = useContext(ThemeContext);
-
 	// updating states using useEffect with dependency  on `data` prop
 	useEffect(() => {
 		if (data !== undefined) {
@@ -287,6 +287,25 @@ export default function Topic({ data, updateData }) {
 		document.getElementsByClassName("question-title")[0].innerHTML = data.questions[ind].Problem;
 	}
 
+	function getRandom() {
+		let min=0;
+		let max=data.questions.length-1;
+		let rnd=Math.floor(Math.random() * (max - min)) + min;
+		setRandom(rnd) 
+	}
+	function RandomButton()
+	{
+		return (
+		<a
+		href={data.questions[random].URL}
+		target="_blank"
+		style={{ fontWeight: "600" }}
+		className="question-link"
+		>
+		PICK A RANDOM QUESTION
+		</a>
+		)
+	}
 	return (
 		<>
 			<h3 className="text-center mb-4">
@@ -308,7 +327,10 @@ export default function Topic({ data, updateData }) {
 				>
 					{(props) => (
 						<div>
+							<div className="header-rand">
 							<SearchBar {...props.searchProps} />
+							<div className="random" onClick={getRandom}>{RandomButton()}</div>
+							</div>
 							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
 								<Fade duration={600}>
 									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} classes={dark ? "dark-table" : ""} />
