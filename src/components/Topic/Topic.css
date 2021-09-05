@@ -131,3 +131,22 @@
 .question-link:hover {
 	color: rgb(0, 115, 192);
 }
+.header-rand{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.random{
+	margin-bottom: 25px;
+}
+.random>a{
+	padding: 10px 15px;
+	border-radius: 10px;
+	background-color: #27ae60;
+	color: white;
+	text-decoration: none;
+}
+.random>a:hover{
+	color: white;
+	background-color: #1a8647;
+}
