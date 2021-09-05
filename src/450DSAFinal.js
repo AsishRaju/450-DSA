@@ -647,7 +647,7 @@ export default [
 			},
 			{
 				Topic: "String",
-				Problem: "Write a program tofind the smallest window that contains all characters of string itself.",
+				Problem: "Write a program to find the smallest window that contains all characters of string itself.",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -2991,14 +2991,6 @@ export default [
 			},
 			{
 				Topic: "Graph",
-				Problem: "Water Jug problem using BFS",
-				Done: false,
-				Bookmark: false,
-				Notes: "",
-				URL: "https://www.geeksforgeeks.org/water-jug-problem-using-bfs/",
-			},
-			{
-				Topic: "Graph",
 				Problem: "Find if there is a path of more thank length from a source",
 				Done: false,
 				Bookmark: false,
@@ -3704,4 +3696,5 @@ export default [
 		],
 	},
 ];
-export const version = 100000012;
+export const version = 100000013;
+
