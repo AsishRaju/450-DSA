@@ -31,8 +31,7 @@ export default [
 			},
 			{
 				Topic: "Array",
-				Problem:
-					"Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
+				Problem: "Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -200,8 +199,7 @@ export default [
 			},
 			{
 				Topic: "Array",
-				Problem:
-					'Given an array of size n and a number k, find all elements that appear more than " n/k " times.',
+				Problem: 'Given an array of size n and a number k, find all elements that appear more than " n/k " times.',
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -449,8 +447,7 @@ export default [
 			},
 			{
 				Topic: "String",
-				Problem:
-					"Write a program to find the longest Palindrome in a string.[ Longest palindromic Substring]",
+				Problem: "Write a program to find the longest Palindrome in a string.[ Longest palindromic Substring]",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -2354,8 +2351,7 @@ export default [
 			},
 			{
 				Topic: "Stacks & Queues",
-				Problem:
-					"Implement a method to insert an element at its bottom without using any other data structure.",
+				Problem: "Implement a method to insert an element at its bottom without using any other data structure.",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -2539,8 +2535,7 @@ export default [
 			},
 			{
 				Topic: "Stacks & Queues",
-				Problem:
-					"Minimum sum of squares of character counts in a given string after removing “k” characters.",
+				Problem: "Minimum sum of squares of character counts in a given string after removing “k” characters.",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -3500,8 +3495,7 @@ export default [
 			},
 			{
 				Topic: "Dynamic Programming",
-				Problem:
-					"Count Derangements (Permutation such that no element appears in its original position) [ IMPORTANT ]",
+				Problem: "Count Derangements (Permutation such that no element appears in its original position) [ IMPORTANT ]",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -3702,4 +3696,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000011;
+export const version = 100000013;
