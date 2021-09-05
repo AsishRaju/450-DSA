@@ -253,7 +253,7 @@ export default function Topic({ data, updateData }) {
 				<div className="note-area">
 					<div className="note-container">
 						<div className="question-title" style={{ color: "black" }}></div>
-						<textarea maxLength="150" className="note-section" placeholder="your notes here" onChange={addnewnotes}></textarea>
+						<textarea maxLength="432" className="note-section" placeholder="your notes here" onChange={addnewnotes}></textarea>
 						<div className="button-container">
 							<button className="note-exit" onClick={saveAndExitNotes}>
 								Close

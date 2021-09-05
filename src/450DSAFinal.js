@@ -1743,7 +1743,7 @@ export default [
 			},
 			{
 				Topic: "Binary Search Trees",
-				Problem: "Count BST ndoes that lie in a given range",
+				Problem: "Count BST nodes that lie in a given range",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
@@ -3697,3 +3697,4 @@ export default [
 	},
 ];
 export const version = 100000013;
+
