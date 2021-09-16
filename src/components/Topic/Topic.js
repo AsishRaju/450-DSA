@@ -323,7 +323,7 @@ export default function Topic({ data, updateData }) {
 					{(props) => (
 						<div>
 							<div className="header-rand">
-								<SearchBar {...props.searchProps} />
+								{SearchBar({...props.searchProps})}
 							</div>
 							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
 								<Fade duration={600}>
