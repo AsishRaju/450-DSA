@@ -293,7 +293,7 @@ export default function Topic({ data, updateData }) {
 		let max = data.questions.length - 1;
 		let rnd = Math.floor(Math.random() * (max - min)) + min;
 		return (
-			<Button variant="outline-primary" href={data.questions[rnd].URL} target="_blank">
+			<Button className="pick-random-btn" variant="outline-primary" href={data.questions[rnd].URL} target="_blank">
 				Pick Random{" "}
 				<span role="img" aria-label="woman-juggling-emoji">
 					🤹🏻‍♀️
