@@ -20,7 +20,6 @@ export default function Topic({ data, updateData }) {
 	  This component takes data releted to a paticular topic 
 	  and updateData() from App component
 	*/
-
   /*
 	  Setting state for fields that comes from `data` prop 
 	  so that `data` prop is not undefined on reload
@@ -119,17 +118,25 @@ export default function Topic({ data, updateData }) {
       props.onSearch(e.target.value);
     };
     return (
-      <div className="container container-custom2">
-        <InputGroup className="mb-4">
-          <FormControl
-            className="text-center"
-            placeholder="Search Question.. 🔍"
-            aria-label="Search Question"
-            aria-describedby="basic-addon2"
-            onChange={handleChange}
-          />
-          <InputGroup.Append><RandomButton data={data}/></InputGroup.Append>
-        </InputGroup>
+      <div className="topic-input-container">
+        <div className="container container-custom2">
+          <InputGroup className="mb-4">
+            <FormControl
+              className="text-center"
+              placeholder="Search Question.. 🔍"
+              aria-label="Search Question"
+              aria-describedby="basic-addon2"
+              onChange={handleChange}
+            />
+            <InputGroup.Append>
+              <RandomButton data={data} />
+            </InputGroup.Append>
+          </InputGroup>
+        </div>
+        <p className="completed-questions">
+          <span>{data.doneQuestions}</span>/{data.questions.length} Questions
+          Done &#9989;
+        </p>
       </div>
     );
   };
@@ -305,31 +312,31 @@ export default function Topic({ data, updateData }) {
       data.questions[ind].Problem;
   }
 
-// Commented this section becuase made a component for this work named RandomButton
-//	function RandomButton() {
-//     let min = 0;
-//     let max = data.questions.length - 1;
-//     const [rnd, setRnd] = useState(
-//       Math.floor(Math.random() * (max - min)) + min
-//     );
-//     function pickRandomHandler() {
-//       setRnd(Math.floor(Math.random() * (max - min)) + min);
-//     }
-//     return (
-//       <Button
-//         className="pick-random-btn"
-//         onClick={pickRandomHandler}
-//         variant="outline-primary"
-//         href={data.questions[rnd].URL}
-//         target="_blank"
-//       >
-//         Pick Random{" "}
-//         <span role="img" aria-label="woman-juggling-emoji">
-//           🤹🏻‍♀️
-//         </span>
-//       </Button>
-//     );
-//   }
+  // Commented this section becuase made a component for this work named RandomButton
+  //	function RandomButton() {
+  //     let min = 0;
+  //     let max = data.questions.length - 1;
+  //     const [rnd, setRnd] = useState(
+  //       Math.floor(Math.random() * (max - min)) + min
+  //     );
+  //     function pickRandomHandler() {
+  //       setRnd(Math.floor(Math.random() * (max - min)) + min);
+  //     }
+  //     return (
+  //       <Button
+  //         className="pick-random-btn"
+  //         onClick={pickRandomHandler}
+  //         variant="outline-primary"
+  //         href={data.questions[rnd].URL}
+  //         target="_blank"
+  //       >
+  //         Pick Random{" "}
+  //         <span role="img" aria-label="woman-juggling-emoji">
+  //           🤹🏻‍♀️
+  //         </span>
+  //       </Button>
+  //     );
+  //   }
   return (
     <>
       <h3 className="text-center mb-4">
@@ -377,27 +384,25 @@ export default function Topic({ data, updateData }) {
   );
 }
 
-function RandomButton({data}){
-	let min = 0;
-    let max = data.questions.length - 1;
-    const [rnd, setRnd] = useState(
-      Math.floor(Math.random() * (max - min)) + min
-    );
-    function pickRandomHandler() {
-      setRnd(Math.floor(Math.random() * (max - min)) + min);
-    }
-    return (
-      <Button
-        className="pick-random-btn"
-        onClick={pickRandomHandler}
-        variant="outline-primary"
-        href={data.questions[rnd].URL}
-        target="_blank"
-      >
-        Pick Random{" "}
-        <span role="img" aria-label="woman-juggling-emoji">
-          🤹🏻‍♀️
-        </span>
-      </Button>
-    );
+function RandomButton({ data }) {
+  let min = 0;
+  let max = data.questions.length - 1;
+  const [rnd, setRnd] = useState(Math.floor(Math.random() * (max - min)) + min);
+  function pickRandomHandler() {
+    setRnd(Math.floor(Math.random() * (max - min)) + min);
+  }
+  return (
+    <Button
+      className="pick-random-btn"
+      onClick={pickRandomHandler}
+      variant="outline-primary"
+      href={data.questions[rnd].URL}
+      target="_blank"
+    >
+      Pick Random{" "}
+      <span role="img" aria-label="woman-juggling-emoji">
+        🤹🏻‍♀️
+      </span>
+    </Button>
+  );
 }

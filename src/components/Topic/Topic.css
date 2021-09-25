@@ -153,3 +153,26 @@
 .pick-random-btn {
   z-index: 0 !important; /*To Override z-index set by Bootstrap*/
 }
+.completed-questions {
+  height: fit-content;
+  margin: 0px;
+  font-size: 17px;
+  padding: 5px 8px;
+}
+.completed-questions span {
+  color: green;
+  font-weight: 900;
+}
+.topic-input-container {
+  display: flex;
+  align-items: center;
+}
+.container-custom2 > .mb-4 {
+  padding: 10px 0px;
+  margin-bottom: 0px !important;
+}
+@media screen and (max-width: 767px) {
+  .container-custom2 > .topic-input-container {
+    flex-direction: column;
+  }
+}
