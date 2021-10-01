@@ -1,3 +1,11 @@
+:root {
+  /* These are the breakpoints, usage: for media query  */
+  --table-xl-width: 1140px;
+  --table-lg-width: 960px;
+  --table-md-width: 720px;
+  --table-sm-width: 540px;
+}
+
 .Toastify__toast-body {
   color: white;
   font-family: "Ubuntu Mono", monospace;
@@ -153,26 +161,70 @@
 .pick-random-btn {
   z-index: 0 !important; /*To Override z-index set by Bootstrap*/
 }
+
 .completed-questions {
   height: fit-content;
   margin: 0px;
-  font-size: 17px;
+  background: rgb(200, 230, 201);
+  font-size: 18px;
   padding: 5px 8px;
+  margin-left: auto;
 }
 .completed-questions span {
-  color: green;
   font-weight: 900;
 }
 .topic-input-container {
   display: flex;
+  width: 100%;
+  max-width: var(--table-xl-width);
+  padding: 0px 15px;
+  box-sizing: border-box;
   align-items: center;
+}
+.container-custom2 {
+  margin: 0px;
+  padding-left: 0px;
 }
 .container-custom2 > .mb-4 {
   padding: 10px 0px;
   margin-bottom: 0px !important;
 }
+
+@media screen and (max-width: 1199px) {
+  .topic-input-container {
+    max-width: var(--table-lg-width);
+  }
+}
+@media screen and (max-width: 991px) {
+  .topic-input-container {
+    max-width: var(--table-md-width);
+  }
+}
 @media screen and (max-width: 767px) {
+  .container-custom {
+    padding-bottom: 50px;
+  }
+  .search-input-container {
+    min-width: 300px !important;
+  }
+  .container-custom2 > .mb-4 {
+    margin-left: 0px !important;
+  }
+  .container-custom2 {
+    width: 100% !important;
+  }
+  .topic-input-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .container-custom2 > .topic-input-container {
     flex-direction: column;
+  }
+  .topic-input-container {
+    max-width: var(--table-sm-width);
+    margin-bottom: 10px;
+  }
+  .completed-questions {
+    margin-left: 0px;
   }
 }

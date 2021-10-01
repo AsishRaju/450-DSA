@@ -121,21 +121,23 @@ export default function Topic({ data, updateData }) {
       <div className="topic-input-container">
         <div className="container container-custom2">
           <InputGroup className="mb-4">
+            <InputGroup.Append>
+              <RandomButton data={data} />
+            </InputGroup.Append>
             <FormControl
-              className="text-center"
+              className="text-center search-input-container"
               placeholder="Search Question.. 🔍"
               aria-label="Search Question"
               aria-describedby="basic-addon2"
               onChange={handleChange}
             />
-            <InputGroup.Append>
-              <RandomButton data={data} />
-            </InputGroup.Append>
           </InputGroup>
         </div>
         <p className="completed-questions">
-          <span>{data.doneQuestions}</span>/{data.questions.length} Questions
-          Done &#9989;
+          <span>
+            {data.doneQuestions}/{data.questions.length}
+          </span>{" "}
+          Questions Done &#9989;
         </p>
       </div>
     );
