@@ -3,13 +3,13 @@
 	color: #343a40;
 	font-size: 50px;
 }
-.App{
+.App {
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
 	transition: all 0.3s ease-in-out;
 }
-.dark{
+.dark {
 	background-color: #151515;
 	color: white;
 }
@@ -21,4 +21,8 @@
 	.app-heading2 {
 		font-size: 20px;
 	}
+}
+
+.emojiFix {
+	font-weight: 100 !important;
 }
