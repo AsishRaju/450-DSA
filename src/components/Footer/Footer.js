@@ -11,7 +11,7 @@ export default function Footer({ dark, setDark }) {
 						<a href="https://github.com/AsishRaju/450-DSA">
 							<h4>
 								<Badge pill variant="light" className="hvr-grow">
-									<span role="img" aria-label="star">
+									<span role="img" aria-label="star" className="emojiFix">
 										⭐
 									</span>{" "}
 									This project
@@ -33,11 +33,11 @@ export default function Footer({ dark, setDark }) {
 								style={{ cursor: "pointer" }}
 							>
 								{dark ? (
-									<span role="img" aria-label="sun-emoji">
+									<span role="img" aria-label="sun-emoji" className="emojiFix">
 										☀️
 									</span>
 								) : (
-									<span role="img" aria-label="moon-emoji">
+									<span role="img" aria-label="moon-emoji" className="emojiFix">
 										🌙
 									</span>
 								)}
@@ -45,7 +45,7 @@ export default function Footer({ dark, setDark }) {
 							<Link to="/about">
 								<Badge pill variant="light" className="hvr-grow">
 									About{" "}
-									<span role="img" aria-label="face-with-monocole">
+									<span role="img" aria-label="face-with-monocole" className="emojiFix">
 										🧐
 									</span>
 								</Badge>
