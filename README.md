@@ -31,7 +31,7 @@
 
 ## WIP 🛠
 
-- Dark Mode
+- ~Dark Mode~
 - Add `mark for review\fav` feature
 - Leader Board
 - Better Responsive CSS
