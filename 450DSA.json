@@ -1970,9 +1970,15 @@
         },
         {
             "Topic:": "Graph",
-            "Problem: ": "Create a Graph, print it",
+            "Problem: ": "Create a Graph, print it (implemented code)",
             "Done": "<->",
             "URL": "https://1drv.ms/t/s!AqTOHFO77CqEiRua06v1PATyiFg5"
+        },
+        {
+            "Topic:": "Graph",
+            "Problem: ": "Create a Graph (for practice)",
+            "Done": "<->",
+            "URL": "https://practice.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1"
         },
         {
             "Topic:": "Graph",
