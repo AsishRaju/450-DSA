@@ -251,7 +251,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://practice.geeksforgeeks.org/problems/smallest-subarray-with-sum-greater-than-x/0",
+				URL: "https://leetcode.com/problems/minimum-size-subarray-sum/",
 			},
 			{
 				Topic: "Array",
