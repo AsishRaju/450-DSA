@@ -3203,7 +3203,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/gold-mine-problem/",
+				URL: "https://practice.geeksforgeeks.org/problems/gold-mine-problem2608/1",
 			},
 			{
 				Topic: "Dynamic Programming",
@@ -3696,5 +3696,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000013;
-
+export const version = 100000014;
