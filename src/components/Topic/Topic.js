@@ -53,7 +53,7 @@ export default function Topic({ data, updateData }) {
 								href={question.URL}
 								target="_blank"
 								rel="noopener noreferrer"
-								style={{ fontWeight: "600" }}
+								style={{ fontWeight: "600", fontSize: "20px" }}
 								className="question-link"
 							>
 								{question.Problem}
@@ -123,13 +123,14 @@ export default function Topic({ data, updateData }) {
 							aria-label="Search Question"
 							aria-describedby="basic-addon2"
 							onChange={handleChange}
+							style={{ fontSize: "18px", fontWeight: "600" }}
 						/>
 						<InputGroup.Prepend>
 							<Badge
 								variant="success"
 								style={{ borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", background: "rgb(200, 230, 201)" }}
 							>
-								<p className="completed-questions" style={{ color: "black" }}>
+								<p className="completed-questions" style={{ color: "black", padding: "8px" }}>
 									<span style={{ fontWeight: "bold" }}>
 										{data.doneQuestions}/{data.questions.length}
 									</span>{" "}
@@ -150,12 +151,18 @@ export default function Topic({ data, updateData }) {
 		{
 			dataField: "id",
 			text: "Q-Id",
-			headerStyle: { width: "130px", fontSize: "20px" },
+			headerStyle: { width: "80px", fontSize: "20px", textAlign: "center" },
+			style: { fontSize: "20px", cursor: "pointer", textAlign: "center" },
+			events: {
+				onClick: (e, column, columnIndex, row, rowIndex) => {
+					handleSelect(row, !row._is_selected);
+				},
+			},
 		},
 		{
 			dataField: "question",
 			text: "Questions",
-			headerStyle: { fontSize: "20px" },
+			headerStyle: { fontSize: "20px", textAlign: "center" },
 		},
 		{
 			dataField: "_is_selected",
@@ -174,7 +181,7 @@ export default function Topic({ data, updateData }) {
 	const rowStyle = { fontSize: "20px" };
 	const selectRow = {
 		mode: "checkbox",
-		style: { background: dark ? "#393E46" : "#c8e6c9" },
+		style: { background: dark ? "#393E46" : "#c8e6c9", fontSize: "24px" },
 		selected: select,
 		onSelect: handleSelect,
 		hideSelectAll: true,
