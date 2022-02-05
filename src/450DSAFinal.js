@@ -7,11 +7,11 @@ export default [
 		questions: [
 			{
 				Topic: "Array",
-				Problem: "Reverse the array 3",
+				Problem: "Reverse the array",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
+				URL: "https://practice.geeksforgeeks.org/problems/reverse-an-array/0",
 			},
 			{
 				Topic: "Array",
@@ -19,7 +19,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/maximum-and-minimum-in-an-array/",
+				URL: "https://practice.geeksforgeeks.org/problems/find-minimum-and-maximum-element-in-an-array4428/1",
 			},
 			{
 				Topic: "Array",
@@ -43,7 +43,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/",
+				URL: "https://practice.geeksforgeeks.org/problems/move-all-negative-elements-to-end1813/1",
 			},
 			{
 				Topic: "Array",
@@ -163,7 +163,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/rearrange-array-alternating-positive-negative-items-o1-extra-space/",
+				URL: "https://practice.geeksforgeeks.org/problems/array-of-alternate-ve-and-ve-nos1401/1",
 			},
 			{
 				Topic: "Array",
@@ -2727,6 +2727,14 @@ export default [
 			},
 			{
 				Topic: "Graph",
+				Problem: "Create a Graph (for practice)",
+				Done: false,
+				Bookmark: false,
+				Notes: "",
+				URL: "https://practice.geeksforgeeks.org/problems/print-adjacency-list-1587115620/1",
+			},
+			{
+				Topic: "Graph",
 				Problem: "Implement BFS algorithm ",
 				Done: false,
 				Bookmark: false,
@@ -3696,4 +3704,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000014;
+export const version = 100000015;
