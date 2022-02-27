@@ -2755,7 +2755,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/",
+				URL: "https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1/",
 			},
 			{
 				Topic: "Graph",
@@ -2819,7 +2819,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/",
+				URL: "https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1/",
 			},
 			{
 				Topic: "Graph",
@@ -3171,7 +3171,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/program-nth-catalan-number/",
+				URL: "https://practice.geeksforgeeks.org/problems/geek-and-his-binary-strings1951/1/",
 			},
 			{
 				Topic: "Dynamic Programming",
@@ -3179,7 +3179,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/",
+				URL: "https://practice.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1/",
 			},
 			{
 				Topic: "Dynamic Programming",
@@ -3704,4 +3704,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000015;
+export const version = 100000016;
