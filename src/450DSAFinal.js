@@ -283,7 +283,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://practice.geeksforgeeks.org/problems/find-the-median0527/1",
+				URL: "https://www.geeksforgeeks.org/median-of-two-sorted-arrays/",
 			},
 			{
 				Topic: "Array",
@@ -3704,4 +3704,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000016;
+export const version = 100000017;
