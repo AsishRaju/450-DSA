@@ -1007,7 +1007,7 @@ export default [
 			},
 			{
 				Topic: "Searching & Sorting",
-				Problem: "Findthe inversion count",
+				Problem: "Find the inversion count",
 				Done: false,
 				Bookmark: false,
 				Notes: "",
