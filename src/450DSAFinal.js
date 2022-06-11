@@ -291,7 +291,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/median-of-two-sorted-arrays-of-different-sizes/",
+				URL: "https://leetcode.com/problems/median-of-two-sorted-arrays/",
 			},
 		],
 	},
