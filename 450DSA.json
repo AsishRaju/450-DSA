@@ -1990,13 +1990,13 @@
             "Topic:": "Graph",
             "Problem: ": "Implement DFS Algo ",
             "Done": "<->",
-            "URL": "https://www.geeksforgeeks.org/depth-first-search-or-dfs-for-a-graph/"
+            "URL": "https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1"
         },
         {
             "Topic:": "Graph",
             "Problem: ": "Detect Cycle in Directed Graph using BFS/DFS Algo ",
             "Done": "<->",
-            "URL": "https://www.geeksforgeeks.org/detect-cycle-in-a-graph/"
+            "URL": "https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1"
         },
         {
             "Topic:": "Graph",
