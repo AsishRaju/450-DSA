@@ -56,7 +56,8 @@ export default function Topic({ data, updateData }) {
 								style={{ fontWeight: "600", fontSize: "20px" }}
 								className="question-link"
 							>
-								{question.Problem}
+								{question.Problem} 
+								 &nbsp; [<code variant="outline-warning" style={{ fontWeight: "400"}}>{question.URL.includes("geeksfor") ? 'Geeks for Geeks' : 'Leetcode'}</code>]
 							</a>
 							<OverlayTrigger
 								placement="left"
