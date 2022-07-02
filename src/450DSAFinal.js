@@ -1187,7 +1187,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/deletion-circular-linked-list/",
+				URL: "https://practice.geeksforgeeks.org/problems/deletion-and-reverse-in-linked-list/1/",
 			},
 			{
 				Topic: "LinkedList",
@@ -1219,7 +1219,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/sort-k-sorted-doubly-linked-list/",
+				URL: "https://www.codingninjas.com/codestudio/problems/sort-a-k-sorted-doubly-linked-list_1118118",
 			},
 			{
 				Topic: "LinkedList",
@@ -1371,7 +1371,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/create-a-mirror-tree-from-the-given-binary-tree/",
+				URL: "https://leetcode.com/problems/invert-binary-tree/",
 			},
 			{
 				Topic: "Binary Trees",
@@ -1627,7 +1627,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/binary-search-tree-set-1-search-and-insertion/",
+				URL: "https://practice.geeksforgeeks.org/problems/search-a-node-in-bst/1/",
 			},
 			{
 				Topic: "Binary Search Trees",
@@ -1683,7 +1683,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: "",
-				URL: "https://www.geeksforgeeks.org/construct-bst-from-given-preorder-traversa/",
+				URL: "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/",
 			},
 			{
 				Topic: "Binary Search Trees",
