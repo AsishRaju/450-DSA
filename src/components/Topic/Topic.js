@@ -57,7 +57,8 @@ export default function Topic({ data, updateData }) {
 								className="question-link"
 							>
 								{question.Problem} 
-								 &nbsp; [<code variant="outline-warning" style={{ fontWeight: "400"}}>{question.URL.includes("geeksfor") ? 'Geeks for Geeks' : 'Leetcode'}</code>]
+								&nbsp;<img src={question.URL.includes("geeksforgeeks") ? "https://user-images.githubusercontent.com/17960677/100546521-d3c7ea00-3287-11eb-9a5f-c4887c8c3ccf.png" :
+								 "https://user-images.githubusercontent.com/36547915/97088991-45da5d00-1652-11eb-900f-80d106540f4f.png"} width="30px" height="25px" alt="icon"/>
 							</a>
 							<OverlayTrigger
 								placement="left"
