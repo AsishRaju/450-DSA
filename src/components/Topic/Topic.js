@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-import BootstrapTable from "react-bootstrap-table-next";
-import ToolkitProvider from "react-bootstrap-table2-toolkit";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
-import Spinner from "react-bootstrap/Spinner";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
-import Badge from "react-bootstrap/Badge";
-import Fade from "react-reveal/Fade";
-import { Link } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.min.css";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import "./Topic.css";
-import { ThemeContext } from "../../App";
-import Button from "react-bootstrap/Button";
+import React, { useState, useEffect, useContext } from 'react';
+import BootstrapTable from 'react-bootstrap-table-next';
+import ToolkitProvider from 'react-bootstrap-table2-toolkit';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import Spinner from 'react-bootstrap/Spinner';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import Badge from 'react-bootstrap/Badge';
+import Fade from 'react-reveal/Fade';
+import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
+import './Topic.css';
+import { ThemeContext } from '../../App';
+import Button from 'react-bootstrap/Button';
 
 export default function Topic({ data, updateData }) {
 	/*
@@ -27,7 +27,7 @@ export default function Topic({ data, updateData }) {
 	*/
 	const [select, setSelected] = useState([]);
 	const [questionsTableData, setQuestionsTableData] = useState([]);
-	const [topicName, setTopicName] = useState("");
+	const [topicName, setTopicName] = useState('');
 
 	const dark = useContext(ThemeContext);
 	// updating states using useEffect with dependency  on `data` prop
@@ -47,41 +47,58 @@ export default function Topic({ data, updateData }) {
 				return {
 					id: index,
 					question: (
-						<>
+						<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 							{/* Question link */}
 							<a
 								href={question.URL}
-								target="_blank"
-								rel="noopener noreferrer"
-								style={{ fontWeight: "600", fontSize: "20px" }}
-								className="question-link"
+								target='_blank'
+								rel='noopener noreferrer'
+								style={{ fontWeight: '600', fontSize: '20px' }}
+								className='question-link'
 							>
 								{question.Problem}
 							</a>
+						</div>
+					),
+					controls: (
+						<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+							<img
+								src={
+									question.URL.includes('geeksforgeeks')
+										? 'https://img.icons8.com/color/24/000000/GeeksforGeeks.png'
+										: 'https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/000000/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-color-tal-revivo.png'
+								}
+								width='30px'
+								height='25px'
+								alt='icon'
+								style={{ float: 'right', cursor: 'pointer' }}
+								onClick={() => {
+									window.open(question.URL, '_blank');
+								}}
+							/>
 							<OverlayTrigger
-								placement="left"
+								placement='left'
 								overlay={question.Notes && question.Notes.length !== 0 ? renderTooltipView : renderTooltipAdd}
 							>
 								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									width="16"
-									height="16"
-									fill="currentColor"
-									class={question.Notes && question.Notes.length !== 0 ? "bi bi-sticky-fill" : "bi bi-sticky"}
-									viewBox="0 0 16 16"
-									style={{ float: "right", color: "green", cursor: "pointer" }}
+									xmlns='http://www.w3.org/2000/svg'
+									width='16'
+									height='16'
+									fill='currentColor'
+									class={question.Notes && question.Notes.length !== 0 ? 'bi bi-sticky-fill' : 'bi bi-sticky'}
+									viewBox='0 0 16 16'
+									style={{ float: 'right', color: 'green', cursor: 'pointer', marginTop: '5px' }}
 									onClick={() => shownotes(index)}
 								>
 									{question.Notes && question.Notes.length !== 0 ? (
-										<path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V9.5z" />
+										<path d='M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V9.5z' />
 									) : (
-										<path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z" />
+										<path d='M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z' />
 									)}
 								</svg>
 							</OverlayTrigger>
-						</>
+						</div>
 					),
-
 					_is_selected: question.Done,
 					_search_text: question.Problem,
 				};
@@ -94,13 +111,13 @@ export default function Topic({ data, updateData }) {
 
 	//tooltip functions
 	const renderTooltipView = (props) => (
-		<Tooltip {...props} className="in" id="button-tooltip">
+		<Tooltip {...props} className='in' id='button-tooltip'>
 			View Notes
 		</Tooltip>
 	);
 
 	const renderTooltipAdd = (props) => (
-		<Tooltip {...props} className="in" id="button-tooltip">
+		<Tooltip {...props} className='in' id='button-tooltip'>
 			Add Notes
 		</Tooltip>
 	);
@@ -111,31 +128,31 @@ export default function Topic({ data, updateData }) {
 			props.onSearch(e.target.value);
 		};
 		return (
-			<div className="topic-input-container">
-				<div className="container">
-					<InputGroup className="mb-4">
+			<div className='topic-input-container'>
+				<div className='container'>
+					<InputGroup className='mb-4'>
 						<InputGroup.Append>
 							<RandomButton data={data} />
 						</InputGroup.Append>
 						<FormControl
-							className="text-center search-input-container"
-							placeholder="Search Question.. 🔍"
-							aria-label="Search Question"
-							aria-describedby="basic-addon2"
+							className='text-center search-input-container'
+							placeholder='Search Question.. 🔍'
+							aria-label='Search Question'
+							aria-describedby='basic-addon2'
 							onChange={handleChange}
-							style={{ fontSize: "18px", fontWeight: "600" }}
+							style={{ fontSize: '18px', fontWeight: '600' }}
 						/>
 						<InputGroup.Prepend>
 							<Badge
-								variant="success"
-								style={{ borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px", background: "rgb(200, 230, 201)" }}
+								variant='success'
+								style={{ borderTopLeftRadius: '0px', borderBottomLeftRadius: '0px', background: 'rgb(200, 230, 201)' }}
 							>
-								<p className="completed-questions" style={{ color: "black", padding: "8px" }}>
-									<span style={{ fontWeight: "bold" }}>
+								<p className='completed-questions' style={{ color: 'black', padding: '8px' }}>
+									<span style={{ fontWeight: 'bold' }}>
 										{data.doneQuestions}/{data.questions.length}
-									</span>{" "}
-									Done{" "}
-									<span className="emojiFix" role="img" aria-label="checker">
+									</span>{' '}
+									Done{' '}
+									<span className='emojiFix' role='img' aria-label='checker'>
 										&#9989;
 									</span>
 								</p>
@@ -149,10 +166,10 @@ export default function Topic({ data, updateData }) {
 	// table config
 	const columns = [
 		{
-			dataField: "id",
-			text: "Q-Id",
-			headerStyle: { width: "80px", fontSize: "20px", textAlign: "center" },
-			style: { fontSize: "20px", cursor: "pointer", textAlign: "center" },
+			dataField: 'id',
+			text: 'Q-Id',
+			headerStyle: { width: '80px', fontSize: '20px', textAlign: 'center' },
+			style: { fontSize: '20px', cursor: 'pointer', textAlign: 'center' },
 			events: {
 				onClick: (e, column, columnIndex, row, rowIndex) => {
 					handleSelect(row, !row._is_selected);
@@ -160,40 +177,45 @@ export default function Topic({ data, updateData }) {
 			},
 		},
 		{
-			dataField: "question",
-			text: "Questions",
-			headerStyle: { fontSize: "20px", textAlign: "center" },
+			dataField: 'question',
+			text: 'Questions',
+			headerStyle: { fontSize: '20px', textAlign: 'center', width: '80%' },
 		},
 		{
-			dataField: "_is_selected",
-			text: "Is Selected",
-			headerStyle: { fontSize: "20px" },
+			dataField: 'controls',
+			text: ' ',
+			headerStyle: { fontSize: '20px', textAlign: 'center' },
+		},
+		{
+			dataField: '_is_selected',
+			text: 'Is Selected',
+			headerStyle: { fontSize: '20px' },
 			hidden: true,
 			sort: true,
 		},
 		{
-			dataField: "_search_text",
-			text: "Search Text",
-			headerStyle: { fontSize: "20px" },
+			dataField: '_search_text',
+			text: 'Search Text',
+			headerStyle: { fontSize: '20px' },
 			hidden: true,
 		},
 	];
-	const rowStyle = { fontSize: "20px" };
+	const rowStyle = { fontSize: '20px' };
 	const selectRow = {
-		mode: "checkbox",
-		style: { background: dark ? "#393E46" : "#c8e6c9", fontSize: "24px" },
+		mode: 'checkbox',
+		style: { background: dark ? '#393E46' : '#c8e6c9', fontSize: '24px' },
 		selected: select,
 		onSelect: handleSelect,
 		hideSelectAll: true,
 	};
 	const sortMode = {
-		dataField: "_is_selected",
-		order: "asc",
+		dataField: '_is_selected',
+		order: 'asc',
 	};
 
 	// func() triggered when a question is marked done
 	function handleSelect(row, isSelect) {
-		let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
+		let key = topicName.replace(/[^A-Z0-9]+/gi, '_').toLowerCase();
 		let newDoneQuestion = [...select];
 		let updatedQuestionsStatus = data.questions.map((question, index) => {
 			if (row.id === index) {
@@ -224,9 +246,9 @@ export default function Topic({ data, updateData }) {
 	// trigger an information message for user on select change
 	function displayToast(isSelect, id) {
 		const { type, icon, dir } = {
-			type: isSelect ? "Done" : "Incomplete",
-			icon: isSelect ? "🎉" : "🙇🏻‍♂️",
-			dir: isSelect ? "👇🏻" : "👆🏻",
+			type: isSelect ? 'Done' : 'Incomplete',
+			icon: isSelect ? '🎉' : '🙇🏻‍♂️',
+			dir: isSelect ? '👇🏻' : '👆🏻',
 		};
 
 		const title = `${isSelect ? select.length + 1 : select.length - 1}/${data.questions.length} Done`;
@@ -235,9 +257,9 @@ export default function Topic({ data, updateData }) {
 		const Card = (
 			<>
 				<p>
-					{title} <span className="emojiFix">{icon}</span>
+					{title} <span className='emojiFix'>{icon}</span>
 				</p>
-				<p className="toast-subtitle">{subTitle}</p>
+				<p className='toast-subtitle'>{subTitle}</p>
 			</>
 		);
 
@@ -250,7 +272,7 @@ export default function Topic({ data, updateData }) {
 
 	//Notes component
 	const NoteSection = (props) => {
-		let id = localStorage.getItem("cid");
+		let id = localStorage.getItem('cid');
 
 		const [quickNotes, setQuickNotes] = useState(data.questions[id]?.Notes);
 		const addnewnotes = (event) => {
@@ -258,11 +280,11 @@ export default function Topic({ data, updateData }) {
 		};
 
 		const onadd = () => {
-			let key = topicName.replace(/[^A-Z0-9]+/gi, "_").toLowerCase();
+			let key = topicName.replace(/[^A-Z0-9]+/gi, '_').toLowerCase();
 			// let id = localStorage.getItem("cid");
 			if (id) {
 				let que = data.questions;
-				que[id].Notes = quickNotes.trim().length === 0 ? "" : quickNotes.trim();
+				que[id].Notes = quickNotes.trim().length === 0 ? '' : quickNotes.trim();
 				updateData(
 					key,
 					{
@@ -272,7 +294,7 @@ export default function Topic({ data, updateData }) {
 					},
 					data.position
 				);
-				localStorage.removeItem("cid");
+				localStorage.removeItem('cid');
 			} else {
 				saveAndExitNotes();
 			}
@@ -280,15 +302,15 @@ export default function Topic({ data, updateData }) {
 
 		return (
 			<>
-				<div className="note-area">
-					<div className="note-container">
-						<div className="question-title" style={{ color: "black" }}></div>
-						<textarea maxLength="432" className="note-section" placeholder="your notes here" onChange={addnewnotes}></textarea>
-						<div className="button-container">
-							<button className="note-exit" onClick={saveAndExitNotes}>
+				<div className='note-area'>
+					<div className='note-container'>
+						<div className='question-title' style={{ color: 'black' }}></div>
+						<textarea maxLength='432' className='note-section' placeholder='your notes here' onChange={addnewnotes}></textarea>
+						<div className='button-container'>
+							<button className='note-exit' onClick={saveAndExitNotes}>
 								Close
 							</button>
-							<button className="note-save" onClick={onadd}>
+							<button className='note-save' onClick={onadd}>
 								Save
 							</button>
 						</div>
@@ -299,37 +321,37 @@ export default function Topic({ data, updateData }) {
 	};
 	//function for closing notes
 	function saveAndExitNotes() {
-		document.getElementsByClassName("note-section")[0].style.display = "none";
-		document.getElementsByClassName("note-exit")[0].style.display = "none";
-		document.getElementsByClassName("note-save")[0].style.display = "none";
-		document.getElementsByClassName("note-area")[0].style.display = "none";
-		localStorage.removeItem("cid");
+		document.getElementsByClassName('note-section')[0].style.display = 'none';
+		document.getElementsByClassName('note-exit')[0].style.display = 'none';
+		document.getElementsByClassName('note-save')[0].style.display = 'none';
+		document.getElementsByClassName('note-area')[0].style.display = 'none';
+		localStorage.removeItem('cid');
 	}
 	//funtion for taking notes
 	function shownotes(ind) {
-		document.getElementsByClassName("note-section")[0].style.display = "block";
-		document.getElementsByClassName("note-exit")[0].style.display = "block";
-		document.getElementsByClassName("note-save")[0].style.display = "block";
-		document.getElementsByClassName("note-area")[0].style.display = "block";
+		document.getElementsByClassName('note-section')[0].style.display = 'block';
+		document.getElementsByClassName('note-exit')[0].style.display = 'block';
+		document.getElementsByClassName('note-save')[0].style.display = 'block';
+		document.getElementsByClassName('note-area')[0].style.display = 'block';
 
-		localStorage.setItem("cid", ind);
-		document.getElementsByClassName("note-section")[0].value = data.questions[ind].Notes;
-		document.getElementsByClassName("question-title")[0].innerHTML = data.questions[ind].Problem;
+		localStorage.setItem('cid', ind);
+		document.getElementsByClassName('note-section')[0].value = data.questions[ind].Notes;
+		document.getElementsByClassName('question-title')[0].innerHTML = data.questions[ind].Problem;
 	}
 	return (
 		<>
-			<h3 className="text-center mb-4">
-				<Link to="/">Topics</Link>/{topicName}
+			<h3 className='text-center mb-4'>
+				<Link to='/'>Topics</Link>/{topicName}
 			</h3>
 
 			{data === undefined ? (
-				<div className="d-flex justify-content-center">
-					<Spinner animation="grow" variant="success" />
+				<div className='d-flex justify-content-center'>
+					<Spinner animation='grow' variant='success' />
 				</div>
 			) : (
 				<ToolkitProvider
-					className="float-right"
-					keyField="id"
+					className='float-right'
+					keyField='id'
 					data={questionsTableData}
 					columns={columns}
 					rowStyle={rowStyle}
@@ -337,10 +359,10 @@ export default function Topic({ data, updateData }) {
 				>
 					{(props) => (
 						<div>
-							<div className="header-rand">{SearchBar({ ...props.searchProps })}</div>
-							<div className="container container-custom" style={{ overflowAnchor: "none" }}>
+							<div className='header-rand'>{SearchBar({ ...props.searchProps })}</div>
+							<div className='container container-custom' style={{ overflowAnchor: 'none' }}>
 								<Fade duration={600}>
-									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} classes={dark ? "dark-table" : ""} />
+									<BootstrapTable {...props.baseProps} selectRow={selectRow} sort={sortMode} classes={dark ? 'dark-table' : ''} />
 								</Fade>
 							</div>
 						</div>
@@ -362,14 +384,14 @@ function RandomButton({ data }) {
 	}
 	return (
 		<Button
-			className="pick-random-btn"
+			className='pick-random-btn'
 			onClick={pickRandomHandler}
-			variant="outline-primary"
+			variant='outline-primary'
 			href={data.questions[rnd].URL}
-			target="_blank"
+			target='_blank'
 		>
-			Pick Random{" "}
-			<span role="img" aria-label="woman-juggling-emoji" className="emojiFix">
+			Pick Random{' '}
+			<span role='img' aria-label='woman-juggling-emoji' className='emojiFix'>
 				🤹🏻‍♀️
 			</span>
 		</Button>
