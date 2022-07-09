@@ -52,7 +52,7 @@ export default function Topic({ data, updateData }) {
         return {
           id: index,
           question: (
-            <>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               {/* Question link */}
               <a
                 href={question.URL}
@@ -63,6 +63,24 @@ export default function Topic({ data, updateData }) {
               >
                 {question.Problem}
               </a>
+            </div>
+          ),
+          controls: (
+            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+              <img
+                src={
+                  question.URL.includes('geeksforgeeks')
+                    ? 'https://img.icons8.com/color/24/000000/GeeksforGeeks.png'
+                    : 'https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/000000/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-color-tal-revivo.png'
+                }
+                width='30px'
+                height='25px'
+                alt='icon'
+                style={{ float: 'right', cursor: 'pointer' }}
+                onClick={() => {
+                  window.open(question.URL, '_blank');
+                }}
+              />
               <OverlayTrigger
                 placement="left"
                 overlay={!question.Bookmark ? renderTooltipAddBookmark : renderTooltipRemoveBookmark}
@@ -104,7 +122,7 @@ export default function Topic({ data, updateData }) {
                   )}
                 </svg>
               </OverlayTrigger>
-            </>
+            </div>
           ),
 
           _is_selected: question.Done,
@@ -223,6 +241,11 @@ export default function Topic({ data, updateData }) {
       headerStyle: { fontSize: "20px", textAlign: "center" },
     },
     {
+      dataField: 'controls',
+      text: ' ',
+      headerStyle: { fontSize: '20px', textAlign: 'center' },
+    },
+    {
       dataField: "_is_selected",
       text: "Is Selected",
       headerStyle: { fontSize: "20px" },
@@ -277,7 +300,7 @@ export default function Topic({ data, updateData }) {
       },
       data.position
     );
-    if(isSelectedComplete)
+    if (isSelectedComplete)
       displayToast(isSelect, row.id);
   }
 
@@ -423,10 +446,10 @@ export default function Topic({ data, updateData }) {
               <div className="header-rand">{SearchBar({ ...props.searchProps })}</div>
               <div className="sort-button-container">
                 <h4>Sort property: </h4>
-                <Button className={!isSelectedComplete ? "selected-sort-button" : "unselected-sort-button"} onClick={() =>Sorter(0)}>
+                <Button className={!isSelectedComplete ? "selected-sort-button" : "unselected-sort-button"} onClick={() => Sorter(0)}>
                   Bookmarks <span className="emojiFix">👆</span>
                 </Button>
-                <Button className={isSelectedComplete ? "selected-sort-button" : "unselected-sort-button"} onClick={()=>Sorter(1)}>
+                <Button className={isSelectedComplete ? "selected-sort-button" : "unselected-sort-button"} onClick={() => Sorter(1)}>
                   Completed <span className="emojiFix">👇</span>
                 </Button>
               </div>
