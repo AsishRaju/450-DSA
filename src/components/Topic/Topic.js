@@ -66,7 +66,7 @@ export default function Topic({ data, updateData }) {
             </div>
           ),
           controls: (
-            <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
               <img
                 src={
                   question.URL.includes('geeksforgeeks')
@@ -238,11 +238,11 @@ export default function Topic({ data, updateData }) {
     {
       dataField: "question",
       text: "Questions",
-      headerStyle: { fontSize: "20px", textAlign: "center" },
+      headerStyle: { fontSize: '20px', textAlign: 'center', width: '80%' },
     },
     {
       dataField: 'controls',
-      text: ' ',
+      text: '',
       headerStyle: { fontSize: '20px', textAlign: 'center' },
     },
     {
