@@ -8,7 +8,7 @@
 
 .Toastify__toast-body {
 	color: white;
-	font-family: "Ubuntu Mono", monospace;
+	font-family: 'Ubuntu Mono', monospace;
 	font-weight: 600;
 	padding: 0 0.5rem;
 }
@@ -36,33 +36,8 @@
 	background: #aad0f6;
 }
 
-/* Sorting mechanism */
-.sort-button-container{
-  max-width: var(--table-xl-width);
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin-bottom: 20px;
-}
-
-.selected-sort-button{
-  margin: 0px 10px 0px 10px;
-  color: black;
-  border-color: transparent;
-  background-color: rgb(200, 230, 201);
-}
-
-.selected-sort-button:focus{
-  background-color: rgb(200, 230, 201);
-  color: black;
-  border-color: transparent;
-}
-.unselected-sort-button{
-  margin: 0px 10px 0px 10px;
-  color: #007bff;
-  background-color: white;
+.sort-button {
+	margin: 0px 20px 0px 20px;
 }
 
 /* Notes section */
@@ -220,18 +195,11 @@
 	.topic-input-container {
 		max-width: var(--table-lg-width);
 	}
-  .sort-button-container {
-    max-width: var(--table-lg-width);
-  }
 }
 @media screen and (max-width: 991px) {
 	.topic-input-container {
 		max-width: var(--table-md-width);
 	}
-
-  .sort-button-container {
-    max-width: var(--table-md-width);
-  }
 }
 @media screen and (max-width: 767px) {
 	.container-custom {
@@ -260,7 +228,4 @@
 	.completed-questions {
 		margin-left: 0px;
 	}
-  .sort-button-container {
-    max-width: var(--table-sm-width);
-  }
 }
