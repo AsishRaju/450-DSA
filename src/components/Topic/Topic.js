@@ -18,14 +18,20 @@ import Button from 'react-bootstrap/Button';
 
 export default function Topic({ data, updateData }) {
 	/*
-	  This component takes data releted to a paticular topic 
-	  and updateData() from App component
-	*/
+    This component takes data releted to a paticular topic
+    and updateData() from App component
+  */
 	/*
-	  Setting state for fields that comes from `data` prop 
-	  so that `data` prop is not undefined on reload
-	*/
+    Setting state for fields that comes from `data` prop
+    so that `data` prop is not undefined on reload
+  */
 	const [select, setSelected] = useState([]);
+	const [isBookmarkSortFilterSelected, setIsBookmarkSortFilterSelected] = useState(false);
+	const [isSelectedComplete, setSelectedComplete] = useState(true);
+	const [sortMode, setSortMode] = useState({
+		dataField: '_is_selected',
+		order: 'asc',
+	});
 	const [questionsTableData, setQuestionsTableData] = useState([]);
 	const [topicName, setTopicName] = useState('');
 
@@ -40,10 +46,10 @@ export default function Topic({ data, updateData }) {
 					doneQuestion.push(index);
 				}
 				/*
-				|	Hidden properties `_is_selected` and `_search_text` are used to sort the table
-				|	and search the table respectively. react-bootstrap-table does not allow sorting
-				|	by selectRow by default, and requires plain text to perform searches.
-				*/
+        |	Hidden properties `_is_selected` and `_search_text` are used to sort the table
+        |	and search the table respectively. react-bootstrap-table does not allow sorting
+        |	by selectRow by default, and requires plain text to perform searches.
+        */
 				return {
 					id: index,
 					question: (
@@ -61,7 +67,7 @@ export default function Topic({ data, updateData }) {
 						</div>
 					),
 					controls: (
-						<div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+						<div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
 							<img
 								src={
 									question.URL.includes('geeksforgeeks')
@@ -78,6 +84,27 @@ export default function Topic({ data, updateData }) {
 							/>
 							<OverlayTrigger
 								placement='left'
+								overlay={!question.Bookmark ? renderTooltipAddBookmark : renderTooltipRemoveBookmark}
+							>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									width='16'
+									height='16'
+									fill='currentColor'
+									class={question.Bookmark === 1 ? 'bi bi-bookmark-fill' : 'bi bi-bookmark'}
+									viewBox='0 0 16 16'
+									style={{ float: 'right', color: 'green', cursor: 'pointer', paddingLeft: '1px' }}
+									onClick={() => handleBookmark(index, question)}
+								>
+									{question.Bookmark ? (
+										<path d='M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z' />
+									) : (
+										<path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z' />
+									)}
+								</svg>
+							</OverlayTrigger>
+							<OverlayTrigger
+								placement='left'
 								overlay={question.Notes && question.Notes.length !== 0 ? renderTooltipView : renderTooltipAdd}
 							>
 								<svg
@@ -87,7 +114,7 @@ export default function Topic({ data, updateData }) {
 									fill='currentColor'
 									class={question.Notes && question.Notes.length !== 0 ? 'bi bi-sticky-fill' : 'bi bi-sticky'}
 									viewBox='0 0 16 16'
-									style={{ float: 'right', color: 'green', cursor: 'pointer', marginTop: '5px' }}
+									style={{ float: 'right', color: 'green', cursor: 'pointer' }}
 									onClick={() => shownotes(index)}
 								>
 									{question.Notes && question.Notes.length !== 0 ? (
@@ -99,7 +126,9 @@ export default function Topic({ data, updateData }) {
 							</OverlayTrigger>
 						</div>
 					),
+
 					_is_selected: question.Done,
+					Bookmark: question.Bookmark,
 					_search_text: question.Problem,
 				};
 			});
@@ -110,6 +139,30 @@ export default function Topic({ data, updateData }) {
 	}, [data]);
 
 	//tooltip functions
+	const renderTooltipAddBookmark = (props) => (
+		<Tooltip {...props} className='in' id='button-tooltip'>
+			Add Bookmark
+		</Tooltip>
+	);
+
+	const renderTooltipRemoveBookmark = (props) => (
+		<Tooltip {...props} className='in' id='button-tooltip'>
+			Remove Bookmark
+		</Tooltip>
+	);
+
+	const renderTooltipSortBookmark = (props) => (
+		<Tooltip {...props} className='in' id='button-tooltip'>
+			Show Bookmarks
+		</Tooltip>
+	);
+
+	const renderTooltipResetSortBookmark = (props) => (
+		<Tooltip {...props} className='in' id='button-tooltip'>
+			Reset Show Bookmarks
+		</Tooltip>
+	);
+
 	const renderTooltipView = (props) => (
 		<Tooltip {...props} className='in' id='button-tooltip'>
 			View Notes
@@ -123,6 +176,22 @@ export default function Topic({ data, updateData }) {
 	);
 
 	// seacrh bar config
+	const Sorter = (x) => {
+		if (!x) {
+			setSortMode({
+				dataField: 'Bookmark',
+				order: 'desc',
+			});
+			setSelectedComplete(x);
+		} else {
+			setSortMode({
+				dataField: '_is_selected',
+				order: 'asc',
+			});
+			setSelectedComplete(x);
+		}
+		setIsBookmarkSortFilterSelected(!x);
+	};
 	const SearchBar = (props) => {
 		const handleChange = (e) => {
 			props.onSearch(e.target.value);
@@ -158,6 +227,20 @@ export default function Topic({ data, updateData }) {
 								</p>
 							</Badge>
 						</InputGroup.Prepend>
+						<OverlayTrigger
+							placement='left'
+							overlay={isBookmarkSortFilterSelected ? renderTooltipResetSortBookmark : renderTooltipSortBookmark}
+						>
+							<Button
+								variant={isBookmarkSortFilterSelected ? 'success' : 'outline-success'}
+								className='sort-button'
+								onClick={() => {
+									Sorter(isBookmarkSortFilterSelected);
+								}}
+							>
+								<span className='label-emoji'>🏷️</span>
+							</Button>
+						</OverlayTrigger>
 					</InputGroup>
 				</div>
 			</div>
@@ -183,7 +266,7 @@ export default function Topic({ data, updateData }) {
 		},
 		{
 			dataField: 'controls',
-			text: ' ',
+			text: '',
 			headerStyle: { fontSize: '20px', textAlign: 'center' },
 		},
 		{
@@ -199,6 +282,12 @@ export default function Topic({ data, updateData }) {
 			headerStyle: { fontSize: '20px' },
 			hidden: true,
 		},
+		{
+			dataField: 'Bookmark',
+			text: 'Bookmark',
+			headerStyle: { fontSize: '20px' },
+			hidden: true,
+		},
 	];
 	const rowStyle = { fontSize: '20px' };
 	const selectRow = {
@@ -208,11 +297,6 @@ export default function Topic({ data, updateData }) {
 		onSelect: handleSelect,
 		hideSelectAll: true,
 	};
-	const sortMode = {
-		dataField: '_is_selected',
-		order: 'asc',
-	};
-
 	// func() triggered when a question is marked done
 	function handleSelect(row, isSelect) {
 		let key = topicName.replace(/[^A-Z0-9]+/gi, '_').toLowerCase();
@@ -240,7 +324,7 @@ export default function Topic({ data, updateData }) {
 			},
 			data.position
 		);
-		displayToast(isSelect, row.id);
+		if (isSelectedComplete) displayToast(isSelect, row.id);
 	}
 
 	// trigger an information message for user on select change
@@ -319,6 +403,29 @@ export default function Topic({ data, updateData }) {
 			</>
 		);
 	};
+	//function for bookmarks
+	function handleBookmark(row, quest) {
+		let key = topicName.replace(/[^A-Z0-9]+/gi, '_').toLowerCase();
+		let newDoneQuestion = [...select];
+		let updatedQuestionsStatus = data.questions.map((question, index) => {
+			if (row === index) {
+				question.Bookmark = quest.Bookmark ? false : true;
+				return question;
+			} else {
+				return question;
+			}
+		});
+		updateData(
+			key,
+			{
+				started: newDoneQuestion.length > 0 ? true : false,
+				doneQuestions: newDoneQuestion.length,
+				questions: updatedQuestionsStatus,
+			},
+			data.position
+		);
+		// console.log(quest.Bookmark)
+	}
 	//function for closing notes
 	function saveAndExitNotes() {
 		document.getElementsByClassName('note-section')[0].style.display = 'none';
