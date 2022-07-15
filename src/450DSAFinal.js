@@ -2863,7 +2863,7 @@ export default [
 			},
 			{
 				Topic: 'Graph',
-				Problem: 'Implement Kruksal’sAlgorithm',
+				Problem: 'Implement Kruskal’s Algorithm',
 				Done: false,
 				Bookmark: false,
 				Notes: '',
@@ -2895,7 +2895,7 @@ export default [
 			},
 			{
 				Topic: 'Graph',
-				Problem: 'Implement Floyd warshallAlgorithm',
+				Problem: 'Implement Floyd Warshall Algorithm',
 				Done: false,
 				Bookmark: false,
 				Notes: '',
@@ -2911,7 +2911,7 @@ export default [
 			},
 			{
 				Topic: 'Graph',
-				Problem: 'Graph ColouringProblem',
+				Problem: 'Graph Colouring Problem',
 				Done: false,
 				Bookmark: false,
 				Notes: '',
@@ -3007,7 +3007,7 @@ export default [
 			},
 			{
 				Topic: 'Graph',
-				Problem: 'M-ColouringProblem',
+				Problem: 'M-Colouring Problem',
 				Done: false,
 				Bookmark: false,
 				Notes: '',
@@ -3015,7 +3015,7 @@ export default [
 			},
 			{
 				Topic: 'Graph',
-				Problem: 'Minimum edges to reverse o make path from source to destination',
+				Problem: 'Minimum edges to reverse to make path from source to destination',
 				Done: false,
 				Bookmark: false,
 				Notes: '',
