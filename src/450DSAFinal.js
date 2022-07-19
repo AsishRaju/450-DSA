@@ -1451,7 +1451,7 @@ export default [
         Done: false,
         Bookmark: false,
         Notes: "",
-        URL: "https://www.geeksforgeeks.org/diagonal-traversal-of-binary-tree/",
+        URL: "https://practice.geeksforgeeks.org/problems/diagonal-traversal-of-binary-tree/1",
       },
       {
         Topic: "Binary Trees",
