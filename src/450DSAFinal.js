@@ -483,7 +483,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: '',
-				URL: 'https://www.geeksforgeeks.org/split-the-binary-string-into-substrings-with-equal-number-of-0s-and-1s/',
+				URL: 'https://practice.geeksforgeeks.org/problems/split-the-binary-string-into-substrings-with-equal-number-of-0s-and-1s/1',
 			},
 			{
 				Topic: 'String',
