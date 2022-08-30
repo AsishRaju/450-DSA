@@ -275,7 +275,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: '',
-				URL: 'https://app.glider.ai/practice/problem/basic-programming/make-array-palindrome/problem',
+				URL: 'https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/',
 			},
 			{
 				Topic: 'Array',
@@ -483,7 +483,7 @@ export default [
 				Done: false,
 				Bookmark: false,
 				Notes: '',
-				URL: 'https://www.geeksforgeeks.org/split-the-binary-string-into-substrings-with-equal-number-of-0s-and-1s/',
+				URL: 'https://practice.geeksforgeeks.org/problems/split-the-binary-string-into-substrings-with-equal-number-of-0s-and-1s/1',
 			},
 			{
 				Topic: 'String',
