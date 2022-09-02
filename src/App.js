@@ -88,6 +88,21 @@ function App() {
 	return (
 		<Router>
 			<div className={dark ? 'App dark' : 'App'}>
+			<div 
+			className='banner'
+			style={
+				{
+					display:'flex', 
+					justifyContent:'center', 
+					alignItems:'center',
+					height:'50px',
+					boxShadow: 'rgba(0 0 0 / 10%) 0 4px 12px'
+				}
+			}>
+				<a href="https://bit.ly/3eiq9K6" target="_blank">
+					Avail 60% Exclusive Discount on All Coding Courses. Click Here
+				</a>
+			</div>
 				<h1 className='app-heading text-center mt-5' style={{ color: dark ? 'white' : '' }}>
 					450 DSA Cracker
 				</h1>
