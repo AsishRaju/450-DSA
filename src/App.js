@@ -100,7 +100,7 @@ function App() {
 				}
 			}>
 				<a href="https://bit.ly/3eiq9K6" target="_blank">
-					Avail 60% Exclusive Discount on All Coding Courses. Click Here
+					Register for the Free scholarship test to avail Free coding courses
 				</a>
 			</div>
 				<h1 className='app-heading text-center mt-5' style={{ color: dark ? 'white' : '' }}>
