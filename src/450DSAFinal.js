@@ -110,7 +110,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/",
+				"URL": "https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays-1587115620/1",
 				"URL2": ""
 			},
 			{
@@ -738,7 +738,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
+				"URL": "https://practice.geeksforgeeks.org/problems/rearrange-characters4649/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/rearrange-string_982765?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -2326,7 +2326,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
+				"URL": "https://practice.geeksforgeeks.org/problems/rearrange-characters4649/1",
 				"URL2": ""
 			},
 			{
@@ -2666,7 +2666,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/overlapping-intervals/0",
+				"URL": "https://practice.geeksforgeeks.org/problems/8a644e94faaa94968d8665ba9e0a80d1ae3e0a2d/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/merge-overlapping-intervals_1082151?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -3025,7 +3025,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
+				"URL": "https://practice.geeksforgeeks.org/problems/rearrange-characters4649/1",
 				"URL2": ""
 			},
 			{
