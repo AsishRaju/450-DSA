@@ -110,7 +110,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1",
+				"URL": "https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/",
 				"URL2": ""
 			},
 			{
@@ -738,7 +738,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/rearrange-characters/0",
+				"URL": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/rearrange-string_982765?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -953,7 +953,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/merge-two-sorted-arrays5135/1",
+				"URL": "https://www.geeksforgeeks.org/merge-two-sorted-arrays/",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/ninja-and-sorted-arrays_1214628?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -2326,7 +2326,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/rearrange-characters/0",
+				"URL": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
 				"URL2": ""
 			},
 			{
@@ -3025,7 +3025,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/rearrange-characters/0",
+				"URL": "https://www.geeksforgeeks.org/rearrange-characters-string-no-two-adjacent/",
 				"URL2": ""
 			},
 			{
