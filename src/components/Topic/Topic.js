@@ -66,8 +66,19 @@ export default function Topic({ data, updateData }) {
 							</a>
 						</div>
 					),
-					controls: (
-						<div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+					links:(
+						<div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', gap:'10px' }}>
+							{question.URL2.length>0 && <img
+								src={'https://i.ibb.co/RcQ5qLs/Coding-Ninjas-logo.jpg'}
+								width='30px'
+								height='25px'
+								alt='icon'
+								style={{ float: 'right', cursor: 'pointer' }}
+								onClick={() => {
+									window.open(question.URL2, '_blank');
+								}}
+							/>}
+							
 							<img
 								src={
 									question.URL.includes('geeksforgeeks')
@@ -82,6 +93,24 @@ export default function Topic({ data, updateData }) {
 									window.open(question.URL, '_blank');
 								}}
 							/>
+						</div>
+					),
+					controls: (
+						<div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
+							{/* <img
+								src={
+									question.URL.includes('geeksforgeeks')
+										? 'https://img.icons8.com/color/24/000000/GeeksforGeeks.png'
+										: 'https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/000000/external-level-up-your-coding-skills-and-quickly-land-a-job-logo-color-tal-revivo.png'
+								}
+								width='30px'
+								height='25px'
+								alt='icon'
+								style={{ float: 'right', cursor: 'pointer' }}
+								onClick={() => {
+									window.open(question.URL, '_blank');
+								}}
+							/> */}
 							<OverlayTrigger
 								placement='left'
 								overlay={!question.Bookmark ? renderTooltipAddBookmark : renderTooltipRemoveBookmark}
@@ -250,8 +279,8 @@ export default function Topic({ data, updateData }) {
 	const columns = [
 		{
 			dataField: 'id',
-			text: 'Q-Id',
-			headerStyle: { width: '80px', fontSize: '20px', textAlign: 'center' },
+			text: 'id',
+			headerStyle: { width: '40px', fontSize: '20px', textAlign: 'center' },
 			style: { fontSize: '20px', cursor: 'pointer', textAlign: 'center' },
 			events: {
 				onClick: (e, column, columnIndex, row, rowIndex) => {
@@ -263,6 +292,11 @@ export default function Topic({ data, updateData }) {
 			dataField: 'question',
 			text: 'Questions',
 			headerStyle: { fontSize: '20px', textAlign: 'center', width: '80%' },
+		},
+		{
+			dataField: 'links',
+			text: 'Links',
+			headerStyle: { fontSize: '20px', textAlign: 'center' },
 		},
 		{
 			dataField: 'controls',
