@@ -99,7 +99,7 @@ function App() {
 					boxShadow: 'rgba(0 0 0 / 10%) 0 4px 12px'
 				}
 			}>
-				<a href="https://bit.ly/3eiq9K6" target="_blank">
+				<a href="https://bit.ly/3Rk01x9" target="_blank">
 					Register for the Free scholarship test to avail Free coding courses
 				</a>
 			</div>
