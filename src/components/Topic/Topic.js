@@ -75,7 +75,7 @@ export default function Topic({ data, updateData }) {
 								alt='icon'
 								style={{ float: 'right', cursor: 'pointer' }}
 								onClick={() => {
-									window.open(question.URL2, '_blank');
+									window.open(`${question.URL2}&utm_source=website&utm_medium=affiliate&utm_campaign=450dsatracker`, '_blank');
 								}}
 							/>}
 							
