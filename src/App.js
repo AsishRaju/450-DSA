@@ -88,7 +88,7 @@ function App() {
 	return (
 		<Router>
 			<div className={dark ? 'App dark' : 'App'}>
-			<div 
+			{/* <div 
 			className='banner'
 			style={
 				{
@@ -102,7 +102,7 @@ function App() {
 				<a href="https://bit.ly/3Rk01x9" target="_blank">
 					Register for the Free scholarship test to avail Free coding courses | Apply Now!
 				</a>
-			</div>
+			</div> */}
 				<h1 className='app-heading text-center mt-5' style={{ color: dark ? 'white' : '' }}>
 					450 DSA Cracker
 				</h1>
