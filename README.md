@@ -44,8 +44,8 @@
     >> For Windows: Git Bash
     >> For Linux: Terminal
     >> git clone https://github.com/AsishRaju/450-DSA.git
-> Change the folder location to your source Code Folder
-    >> cd 450-DSA/src
+> Change the directory to the root of the project
+    >> cd 450-DSA
 > Install the dependencies
     >> npm install
 > Start the server
