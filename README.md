@@ -32,7 +32,7 @@
 ## WIP 🛠
 
 - ~Dark Mode~
-- Add `mark for review\fav` feature
+- ~Add `bookmark` feature~
 - Leader Board
 - Better Responsive CSS
 - Better State Management
@@ -40,17 +40,10 @@
 ## Run Locally 💻
 
 ```
-> Clone the repo
-    >> For Windows: Git Bash
-    >> For Linux: Terminal
-    >> git clone https://github.com/AsishRaju/450-DSA.git
-> Change the folder location to your source Code Folder
-    >> cd 450-DSA/src
-> Install the dependencies
-    >> npm install
-> Start the server
-    >> npm start
-> 450DSA runs on port 3000 of your Local Machine
+git clone https://github.com/AsishRaju/450-DSA.git
+npm install
+npm start
+
 ```
 
 [![OPEN-PR](https://img.shields.io/badge/Open%20For-PR-orange?style=for-the-badge&logo=github)](https://github.com/AsishRaju/450-DSA)
