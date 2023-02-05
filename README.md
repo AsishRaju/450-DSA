@@ -43,7 +43,6 @@
 git clone https://github.com/AsishRaju/450-DSA.git
 npm install
 npm start
-
 ```
 
 [![OPEN-PR](https://img.shields.io/badge/Open%20For-PR-orange?style=for-the-badge&logo=github)](https://github.com/AsishRaju/450-DSA)
