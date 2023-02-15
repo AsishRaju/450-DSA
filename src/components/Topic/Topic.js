@@ -68,7 +68,7 @@ export default function Topic({ data, updateData }) {
 					),
 					links:(
 						<div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center', gap:'10px' }}>
-							{/* {question.URL2.length>0 && <img
+							{question.URL2.length>0 && <img
 								src={'https://i.ibb.co/RcQ5qLs/Coding-Ninjas-logo.jpg'}
 								width='30px'
 								height='25px'
@@ -77,7 +77,7 @@ export default function Topic({ data, updateData }) {
 								onClick={() => {
 									window.open(`${question.URL2}&utm_source=website&utm_medium=affiliate&utm_campaign=450dsatracker`, '_blank');
 								}}
-							/>} */}
+							/>}
 							
 							<img
 								src={
