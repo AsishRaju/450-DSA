@@ -3706,7 +3706,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/maximum-subsequence-sum-such-that-no-three-are-consecutive/",
+				"URL": "https://practice.geeksforgeeks.org/problems/max-sum-without-adjacents-2/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/maximum-subsequence-sum-such-that-no-three-are-consecutive_1215007?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -4152,4 +4152,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000025;
+export const version = 100000026;
