@@ -41,9 +41,8 @@ export default function TopicCard({ questionData }) {
               style={{ textDecoration: "none" }}
             >
               <Card
-                className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${
-                  dark ? "darkCard" : ""
-                }`}
+                className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${dark ? "darkCard" : ""
+                  }`}
               >
                 <Card.Body>
                   <Row>
@@ -94,9 +93,8 @@ export default function TopicCard({ questionData }) {
               style={{ textDecoration: "none" }}
             >
               <Card
-                className={`mb-3 notstarted-card hvr-grow ${
-                  dark ? "darkCard" : ""
-                }`}
+                className={`mb-3 notstarted-card hvr-grow ${dark ? "darkCard" : ""
+                  }`}
               >
                 <Card.Body>
                   <Row>
@@ -135,6 +133,51 @@ export default function TopicCard({ questionData }) {
       );
     }
   });
+
+
+  const promotionTile = (
+    <Fade duration={500 + 1 * 50} key={-1}>
+      <div className="col mb-4">
+        <Link
+          to={{ pathname: "http://bit.ly/425Yel5" }}
+          target="_blank"
+          style={{ textDecoration: "none" }}
+        >
+          <Card
+            className={`mb-3 promotional-card hvr-grow ${dark ? "darkCard" : ""
+              }`}
+          >
+            <Card.Body>
+              <Row style={{ justifyContent: 'center' }}>
+                <Card.Title className="promotional-heading">
+                  {" "}
+                  {"21 Days Challenge 💪"}{" "}
+                </Card.Title>
+              </Row>
+              <Card.Text className="promotional-subtext">
+              Level up your summer with our<br></br>
+                <span style={{fontWeight:700}}>21 Days Beginner Coding Challenge</span>
+                <br></br>
+                for a solid foundation in coding
+              </Card.Text>
+              <h4 className="promotional-cta mb-1">
+                <Badge
+                  pill
+                  variant="primary"
+                  style={{ fontWeight: "700", cursor: "pointer", backgroundColor:"#fa7328" }}
+                >
+                  Start Now 
+                </Badge>
+              </h4>
+            </Card.Body>
+          </Card>
+        </Link>
+      </div>
+    </Fade>
+  );
+
+  topicCard.splice(1, 0, promotionTile)
+
   return (
     <>
       <h3 className="app-heading2 text-center mb-3">
@@ -147,9 +190,9 @@ export default function TopicCard({ questionData }) {
       <h4 className="text-center mb-4">
         {totalSolved
           ? `Total Questions Solved : ${totalSolved} (${(
-              (totalSolved / totalQuestions) *
-              100
-            ).toFixed(2)}% Done)`
+            (totalSolved / totalQuestions) *
+            100
+          ).toFixed(2)}% Done)`
           : "Start Solving"}
         <p className="percentDone container mt-1">
           {totalSolved ? (
