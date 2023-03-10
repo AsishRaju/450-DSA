@@ -2639,7 +2639,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://stackoverflow.com/questions/45130465/inserting-at-the-end-of-stack",
+				"URL": "https://www.geeksforgeeks.org/program-to-insert-an-element-at-the-bottom-of-a-stack/",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/insert-an-element-at-its-bottom-in-a-given-stack_1171166?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
