@@ -99,7 +99,7 @@ function App() {
 					boxShadow: 'rgba(0 0 0 / 10%) 0 4px 12px'
 				}
 			}>
-				<a href="http://bit.ly/3ZwLuSm" target="_blank">
+				<a href="http://bit.ly/3LJ2Tnc" target="_blank">
 				Want to test your DSA  skills and get recruiters to see your strong coding profile. Register here !
 				</a>
 			</div>
