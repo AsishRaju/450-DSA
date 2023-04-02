@@ -1644,7 +1644,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/",
+				"URL": "https://practice.geeksforgeeks.org/problems/construct-binary-tree-from-string-with-bracket-representation/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/binary-tree-from-bracket_1118117?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -4152,4 +4152,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000026;
+export const version = 100000027;
