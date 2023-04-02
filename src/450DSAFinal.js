@@ -11,7 +11,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/reverse-an-array/0",
+				"URL": "https://www.geeksforgeeks.org/write-a-program-to-reverse-an-array-or-string/",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/reverse-the-array_1262298?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
