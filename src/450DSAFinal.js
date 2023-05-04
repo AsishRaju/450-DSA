@@ -908,7 +908,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/searching-array-adjacent-differ-k/",
+				"URL": "https://practice.geeksforgeeks.org/problems/searching-in-an-array-where-adjacent-differ-by-at-most-k0456/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/find-student_3161883?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -4152,4 +4152,4 @@ export default [
 		],
 	},
 ];
-export const version = 100000028;
+export const version = 100000029;
