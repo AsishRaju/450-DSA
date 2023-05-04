@@ -88,7 +88,7 @@ function App() {
 	return (
 		<Router>
 			<div className={dark ? 'App dark' : 'App'}>
-			<div 
+			{/* <div 
 			className='banner'
 			style={
 				{
@@ -102,8 +102,8 @@ function App() {
 				<a href="http://bit.ly/3LJ2Tnc" target="_blank">
 				Want to test your DSA  skills and get recruiters to see your strong coding profile. Register here !
 				</a>
-			</div>
-				<h1 className='app-heading text-center mt-5' style={{ color: dark ? 'white' : '' }}>
+			</div> */}
+				<h1 className='app-heading text-center mt-4' style={{ color: dark ? 'white' : '' }}>
 					450 DSA Cracker
 				</h1>
 

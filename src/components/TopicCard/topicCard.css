@@ -1,6 +1,6 @@
 .container-custom {
   overflow-y: scroll;
-  height: 64vh;
+  height: 70vh;
 }
 .container::-webkit-scrollbar {
   width: 5px; /* width of the entire scrollbar */
@@ -64,29 +64,43 @@
 
 
 .promotional-card {
-  /* background: #9D50BB;  fallback for old browsers */
-  /* background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab); */
+  /* background: #0575E6;  
+  background: -webkit-linear-gradient(to right, #021B79, #0575E6);  
+  background: linear-gradient(to right, #021B79, #0575E6);  */
+
+
+
   
-  background: -webkit-linear-gradient(135deg,#6249c5 0%,#9882f3 100%,#9882f3 100%) no-repeat;  
-  background: linear-gradient(135deg,#6249c5 0%,#9882f3 100%,#9882f3 100%) no-repeat; 
-  /* background: linear-gradient(to right, #00d2ff, #3a7bd5);  */
+  background: #ee0979;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+  
+
+
+
+
+  
+  
+
+
+  /* background: -webkit-linear-gradient(135deg,#6249c5 0%,#9882f3 100%,#9882f3 100%) no-repeat;  
+  background: linear-gradient(135deg,#6249c5 0%,#9882f3 100%,#9882f3 100%) no-repeat;  */
   background-size: 200% 200%;
 
-  /* background-color: #aad0f6; */
-  /* background: linear-gradient(135deg,#6249c5 0%,#9882f3 100%,#9882f3 100%) no-repeat; */
-  /* background: #1e3c72;  /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(to right, #2a5298, #1e3c72);  /* Chrome 10-25, Safari 5.1-6 */
-  /* background: linear-gradient(to right, #2a5298, #1e3c72); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ 
   border-radius: 15px;
   height: 90%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 5s ease infinite;
 }
 
 .promotional-heading {
   color: #fff;
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
   font-weight: 700;
+  margin-bottom: 0;
 }
 
 .promotional-subtext {
@@ -98,6 +112,8 @@
 .promotional-cta {
   color: #4f4f4f;
   text-align: center;
+  margin-bottom: 0;
+
 }
 
 @media screen and (max-height: 650px) {

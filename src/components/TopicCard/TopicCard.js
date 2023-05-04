@@ -135,48 +135,54 @@ export default function TopicCard({ questionData }) {
   });
 
 
-  const promotionTile = (
-    <Fade duration={500 + 1 * 50} key={-1}>
-      <div className="col mb-4">
-        <Link
-          to={{ pathname: "http://bit.ly/425Yel5" }}
-          target="_blank"
-          style={{ textDecoration: "none" }}
-        >
-          <Card
-            className={`mb-3 promotional-card hvr-grow ${dark ? "darkCard" : ""
-              }`}
+  const promotionTile = () => {
+    return (
+      <Fade duration={500 + 1 * 50} key={-1}>
+        <div>
+          <Link
+            to={{ pathname: "https://bit.ly/419XxW9" }}
+            target="_blank"
+            style={{ textDecoration: "none" }}
           >
-            <Card.Body>
-              <Row style={{ justifyContent: 'center' }}>
-                <Card.Title className="promotional-heading">
-                  {" "}
-                  {"21 Days Challenge 💪"}{" "}
-                </Card.Title>
-              </Row>
-              <Card.Text className="promotional-subtext">
+            <Card
+              className={`mb-3 promotional-card  ${dark ? "darkCard" : ""
+                }`}
+            >
+              <Card.Body style={{ padding: '12px' }}>
+                <div style={{
+                  display: 'flex', justifyContent: 'space-evenly',
+                  alignItems: 'center'
+                }}>
+                  <h4 className="promotional-heading">
+                  Code your way to the top and win big in the 45 Day DSA Coding Challenge by CodeStudio!
+                  </h4>
+                  <h4 className="promotional-cta  hvr-grow">
+                    <Badge
+                      pill
+                      variant="primary"
+                      style={{ fontWeight: "700", cursor: "pointer", backgroundColor: "white", color:"black" }}
+                    >
+                      Start Now
+                    </Badge>
+                  </h4>
+                </div>
+                {/* <Row style={{ justifyContent: 'center' }}>
+              </Row> */}
+                {/* <Card.Text className="promotional-subtext">
               Level up your summer with our<br></br>
                 <span style={{fontWeight:700}}>21 Days Beginner Coding Challenge</span>
                 <br></br>
                 for a solid foundation in coding
-              </Card.Text>
-              <h4 className="promotional-cta mb-1">
-                <Badge
-                  pill
-                  variant="primary"
-                  style={{ fontWeight: "700", cursor: "pointer", backgroundColor:"#fa7328" }}
-                >
-                  Start Now 
-                </Badge>
-              </h4>
-            </Card.Body>
-          </Card>
-        </Link>
-      </div>
-    </Fade>
-  );
+              </Card.Text> */}
+              </Card.Body>
+            </Card>
+          </Link>
+        </div>
+      </Fade>
+    )
+  }
 
-  topicCard.splice(1, 0, promotionTile)
+  // topicCard.splice(1, 0, promotionTile)
 
   return (
     <>
@@ -210,6 +216,7 @@ export default function TopicCard({ questionData }) {
         </p>
       </h4>
       <div className="container container-custom">
+        {promotionTile()}
         <div className="row row-cols-1 row-cols-md-3 mt-3 grids">
           {topicCard}
         </div>
