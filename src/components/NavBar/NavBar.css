@@ -1,0 +1,15 @@
+.nav-bar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 45px;
+	background-color: #27ae5f00;
+	transition: all 0.4s ease-in-out;
+}
+
+.navbar-toggle {
+	display: flex;
+	justify-content: space-evenly;
+	width: fit-content;
+	position: relative;
+}
