@@ -6,9 +6,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import TopicCard from './components/TopicCard/TopicCard';
 import Topic from './components/Topic/Topic';
 import About from './components/About/About';
-import Footer from './components/Footer/Footer';
 import ReactGA from 'react-ga';
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
 
 // Creating a theme context
 export const ThemeContext = createContext(null);
@@ -103,7 +103,8 @@ function App() {
 				Want to test your DSA  skills and get recruiters to see your strong coding profile. Register here !
 				</a>
 			</div> */}
-				<h1 className='app-heading text-center mt-4' style={{ color: dark ? 'white' : '' }}>
+				<NavBar dark={dark} setDark={setDark} />
+				<h1 className='app-heading text-center mt-5' style={{ color: dark ? 'white' : '' }}>
 					450 DSA Cracker
 				</h1>
 
@@ -148,7 +149,6 @@ function App() {
 						</ThemeContext.Provider>
 					</>
 				)}
-				<Footer dark={dark} setDark={setDark}></Footer>
 			</div>
 		</Router>
 	);
