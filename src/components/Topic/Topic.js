@@ -527,6 +527,7 @@ function RandomButton({ data }) {
 		<Button
 			className='pick-random-btn'
 			onClick={pickRandomHandler}
+			onContextMenu={pickRandomHandler}
 			variant='outline-primary'
 			href={data.questions[rnd].URL}
 			target='_blank'
