@@ -1,231 +1,232 @@
 :root {
-	/* These are the breakpoints, usage: for media query  */
-	--table-xl-width: 1140px;
-	--table-lg-width: 960px;
-	--table-md-width: 720px;
-	--table-sm-width: 540px;
+  /* These are the breakpoints, usage: for media query  */
+  --table-xl-width: 1140px;
+  --table-lg-width: 960px;
+  --table-md-width: 720px;
+  --table-sm-width: 540px;
 }
 
 .Toastify__toast-body {
-	color: white;
-	font-family: 'Ubuntu Mono', monospace;
-	font-weight: 600;
-	padding: 0 0.5rem;
+  color: white;
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 600;
+  padding: 0 0.5rem;
 }
 
 .Toastify__toast-body .toast-subtitle {
-	font-weight: 400;
-	font-size: small;
+  font-weight: 400;
+  font-size: small;
 }
 
 /* Marked Complete */
 .Toastify__toast.toast-Done {
-	background: #27ae60;
+  background: #27ae60;
 }
 
 .Toastify__toast.toast-Done .Toastify__progress-bar {
-	background: #c8e6c9;
+  background: #c8e6c9;
 }
 
 /* Marked Incomplete */
 .Toastify__toast.toast-Incomplete {
-	background: #007bff;
+  background: #007bff;
 }
 
 .Toastify__toast.toast-Incomplete .Toastify__progress-bar {
-	background: #aad0f6;
+  background: #aad0f6;
 }
 
 .sort-button {
-	margin: 0px 20px 0px 20px;
+  margin: 0px 20px 0px 20px;
 }
 
 /* Notes section */
 .note-container {
-	background: white;
-	position: absolute;
-	display: block;
-	width: 50%;
-	padding: 2% 1%;
-	top: 30%;
-	right: 25%;
-	border: 2px solid black;
-	border-radius: 0.5em;
+  background: white;
+  position: absolute;
+  display: block;
+  height: 70%;
+  width: 50%;
+  padding: 2% 1%;
+  top: 30%;
+  right: 25%;
+  border: 2px solid black;
+  border-radius: 0.5em;
 }
 
 .question-title {
-	width: 100%;
-	background: rgb(243, 243, 243);
-	margin-bottom: 0.5em;
-	font-weight: bold;
-	resize: none;
-	font-size: 1.2em;
-	border: 0.5px solid black;
-	border-radius: 5px;
-	padding: 0.5em 0.8em;
-	word-wrap: break-word;
+  width: 100%;
+  background: rgb(243, 243, 243);
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  resize: none;
+  font-size: 1.2em;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 0.5em 0.8em;
+  word-wrap: break-word;
 }
 
 .note-section {
-	background: rgb(255, 255, 255);
-	display: none;
-	border: 2px solid #27ae60;
-	border-radius: 5px;
-	position: relative;
-	margin-bottom: 0.5em;
-	width: 100%;
-	padding: 0.5em 0.8em;
-	resize: none;
-	height: 10em;
+  background: rgb(255, 255, 255);
+  display: none;
+  border: 2px solid #27ae60;
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 0.5em;
+  width: 100%;
+  padding: 0.5em 0.8em;
+  resize: none;
+  height: 30em;
 }
 .note-section:focus-visible {
-	outline: none;
+  outline: none;
 }
 
 ::placeholder {
-	color: black;
-	opacity: 0.5;
+  color: black;
+  opacity: 0.5;
 }
 .button-container {
-	display: flex;
-	align-items: right;
-	flex-direction: row-reverse;
-	justify-content: flex-end;
+  display: flex;
+  align-items: right;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 .note-exit {
-	display: none;
-	position: relative;
-	width: 5em;
-	background: #dc3545;
-	margin-right: 0.3em;
-	border-radius: 0.3em;
-	color: white;
+  display: none;
+  position: relative;
+  width: 5em;
+  background: #dc3545;
+  margin-right: 0.3em;
+  border-radius: 0.3em;
+  color: white;
 }
 
 .note-save {
-	display: none;
-	position: relative;
-	background: #27ae60;
-	width: 5em;
-	border-radius: 0.3em;
-	margin-right: 0.3em;
-	color: white;
+  display: none;
+  position: relative;
+  background: #27ae60;
+  width: 5em;
+  border-radius: 0.3em;
+  margin-right: 0.3em;
+  color: white;
 }
 
 .note-area {
-	display: none;
-	height: 10em;
-	width: 10em;
-	background: rgba(255, 255, 255, 0.1);
-	backdrop-filter: blur(2px);
+  display: none;
+  height: 10em;
+  width: 10em;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
 
-	top: 0;
-	position: fixed;
-	width: 100%;
-	height: 100%;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 #tooltip-top > .tooltip-inner {
-	background-color: #fff;
-	color: green;
-	border: 1px solid #062e56;
+  background-color: #fff;
+  color: green;
+  border: 1px solid #062e56;
 }
 
 #tooltip-top > .tooltip-arrow {
-	border-top: 5px solid #062e56;
+  border-top: 5px solid #062e56;
 }
 .dark-table {
-	color: white;
+  color: white;
 }
 
 .question-link:hover {
-	color: rgb(0, 115, 192);
+  color: rgb(0, 115, 192);
 }
 .header-rand {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .random {
-	margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 .random > a {
-	padding: 10px 15px;
-	border-radius: 10px;
-	background-color: #27ae60;
-	color: white;
-	text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #27ae60;
+  color: white;
+  text-decoration: none;
 }
 .random > a:hover {
-	color: white;
-	background-color: #1a8647;
+  color: white;
+  background-color: #1a8647;
 }
 .pick-random-btn {
-	z-index: 0 !important; /*To Override z-index set by Bootstrap*/
+  z-index: 0 !important; /*To Override z-index set by Bootstrap*/
 }
 
 .completed-questions {
-	margin: 0px;
-	background: rgb(200, 230, 201);
-	font-size: 18px;
-	font-weight: 100;
-	padding: 5px 8px;
-	margin-left: auto;
+  margin: 0px;
+  background: rgb(200, 230, 201);
+  font-size: 18px;
+  font-weight: 100;
+  padding: 5px 8px;
+  margin-left: auto;
 }
 
 .topic-input-container {
-	display: flex;
-	width: 100%;
-	max-width: var(--table-xl-width);
-	padding: 0px 15px;
-	box-sizing: border-box;
-	align-items: center;
+  display: flex;
+  width: 100%;
+  max-width: var(--table-xl-width);
+  padding: 0px 15px;
+  box-sizing: border-box;
+  align-items: center;
 }
 .container-custom2 {
-	margin: 0px;
-	padding-left: 0px;
+  margin: 0px;
+  padding-left: 0px;
 }
 .container-custom2 > .mb-4 {
-	padding: 10px 0px;
-	margin-bottom: 0px !important;
+  padding: 10px 0px;
+  margin-bottom: 0px !important;
 }
 
 @media screen and (max-width: 1199px) {
-	.topic-input-container {
-		max-width: var(--table-lg-width);
-	}
+  .topic-input-container {
+    max-width: var(--table-lg-width);
+  }
 }
 @media screen and (max-width: 991px) {
-	.topic-input-container {
-		max-width: var(--table-md-width);
-	}
+  .topic-input-container {
+    max-width: var(--table-md-width);
+  }
 }
 @media screen and (max-width: 767px) {
-	.container-custom {
-		padding-bottom: 50px;
-	}
-	.search-input-container {
-		min-width: 300px !important;
-	}
-	.container-custom2 > .mb-4 {
-		margin-left: 0px !important;
-	}
-	.container-custom2 {
-		width: 100% !important;
-	}
-	.topic-input-container {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-	.container-custom2 > .topic-input-container {
-		flex-direction: column;
-	}
-	.topic-input-container {
-		max-width: var(--table-sm-width);
-		margin-bottom: 10px;
-	}
-	.completed-questions {
-		margin-left: 0px;
-	}
+  .container-custom {
+    padding-bottom: 50px;
+  }
+  .search-input-container {
+    min-width: 300px !important;
+  }
+  .container-custom2 > .mb-4 {
+    margin-left: 0px !important;
+  }
+  .container-custom2 {
+    width: 100% !important;
+  }
+  .topic-input-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .container-custom2 > .topic-input-container {
+    flex-direction: column;
+  }
+  .topic-input-container {
+    max-width: var(--table-sm-width);
+    margin-bottom: 10px;
+  }
+  .completed-questions {
+    margin-left: 0px;
+  }
 }
