@@ -863,7 +863,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://practice.geeksforgeeks.org/problems/count-squares3649/1",
+				"URL": "https://practice.geeksforgeeks.org/problems/square-root/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/square-root-integral_893351?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
@@ -2693,7 +2693,7 @@ export default [
 				"Done": false,
 				"Bookmark": false,
 				"Notes": "",
-				"URL": "https://www.geeksforgeeks.org/expression-contains-redundant-bracket-not/",
+				"URL": "https://practice.geeksforgeeks.org/problems/expression-contains-redundant-bracket-or-not/1",
 				"URL2": "https://www.codingninjas.com/codestudio/problems/ninja-and-a-complex-expression_1170758?topList=love-babbar-dsa-sheet-problems"
 			},
 			{
