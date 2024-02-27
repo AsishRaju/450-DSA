@@ -83,10 +83,10 @@ export default function Footer({ dark, setDark }) {
                 variant="light"
                 className="hvr-grow ml-3"
               >
+                Log Out{" "}
                 <span role="img" aria-label="star" className="emojiFix">
                   👋
                 </span>{" "}
-                Log Out
               </Badge>
             </h4>
           </div>

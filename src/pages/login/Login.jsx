@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
+
+import { LOGIN_URL } from "../../services/url";
+import { localStorageKeyForAuthentication } from "../../services/constants";
+
 export default function Login() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
   const [password, setPassword] = useState("");
+
+  const history = useHistory();
+
   const onCheckBoxChange = () => {
     localStorage.setItem("450dsaEmail", email);
   };
@@ -12,6 +20,25 @@ export default function Login() {
     e.preventDefault();
     if (!email || !password) {
       toast.error("All files are required");
+      return;
+    }
+    try {
+      const { data } = await axios.post(
+        LOGIN_URL,
+        { email, password },
+        { validateStatus: false }
+      );
+      console.log(data);
+      if (data.success) {
+        const token = data.data.authToken;
+        localStorage.setItem(localStorageKeyForAuthentication, token);
+        history.push("/");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
     }
   };
   return (
