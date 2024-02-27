@@ -22,27 +22,27 @@ export default function Login() {
           <u>{"Log in"}</u>
         </h3>
         <form className="flex mt-5">
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
               type="email"
               required
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <small id="emailHelp" class="form-text text-muted">
+            <small id="emailHelp" className="form-text text-muted">
               We'll never share your email with anyone else.
             </small>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
               value={password}
@@ -50,21 +50,21 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div class="form-group form-check d-flex justify-content-between">
+          <div className="form-group form-check d-flex justify-content-between">
             <input
               onChange={onCheckBoxChange}
               type="checkbox"
-              class="form-check-input"
+              className="form-check-input"
               id="exampleCheck1"
             />
-            <label class="form-check-label" for="exampleCheck1">
+            <label className="form-check-label" for="exampleCheck1">
               Remember
             </label>
             <Link to={"/forgot-password"}>Forgot password</Link>
           </div>
-          <div class="d-grid">
+          <div className="d-grid">
             <button
-              class="btn btn-primary w-100"
+              className="btn btn-primary w-100"
               onClick={(e) => onSubmit(e)}
               type="submit"
             >

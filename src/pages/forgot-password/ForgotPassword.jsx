@@ -16,25 +16,25 @@ export default function ForgotPassword() {
           <u>{"Forgot password"}</u>
         </h3>
         <form className="flex mt-5">
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input
               type="email"
               required
-              class="form-control"
+              className="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Enter email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <small id="emailHelp" class="form-text text-muted">
+            <small id="emailHelp" className="form-text text-muted">
               we'll send you a link to get back into your account.
             </small>
           </div>
-          <div class="d-grid">
+          <div className="d-grid">
             <button
-              class="btn btn-primary w-100"
+              className="btn btn-primary w-100"
               onClick={(e) => onSubmit(e)}
               type="submit"
             >

@@ -20,11 +20,11 @@ export default function PasswordReset() {
           <u>{"Password reset"}</u>
         </h3>
         <form className="flex mt-5">
-          <div class="form-group">
+          <div className="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
               value={password}
@@ -32,11 +32,11 @@ export default function PasswordReset() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div class="form-group mb-5">
+          <div className="form-group mb-5">
             <label for="exampleInputPassword1">Confirm Password</label>
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="exampleInputPassword2"
               placeholder="Confirm password"
               value={confirmPassword}
@@ -44,9 +44,9 @@ export default function PasswordReset() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <div class="d-grid">
+          <div className="d-grid">
             <button
-              class="btn btn-primary w-100"
+              className="btn btn-primary w-100"
               onClick={(e) => onSubmit(e)}
               type="submit"
             >

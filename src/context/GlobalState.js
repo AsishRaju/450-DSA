@@ -5,6 +5,7 @@ const GlobalState = (props) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
+    isLoggedIn: false,
   });
   // if dark theme is enabled or not
   const [dark, setDark] = useState(false);
