@@ -16,6 +16,9 @@ export default function PasswordReset() {
     <div className="container mx-auto d-flex justify-content-center align-items-center">
       <ToastContainer />
       <div className="loginContainer mx-auto">
+        <h3 className="text-center mt-2 text-decoration-underline">
+          <u>{"Password reset"}</u>
+        </h3>
         <form className="flex mt-5">
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>

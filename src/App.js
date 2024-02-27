@@ -27,6 +27,9 @@ function App() {
   // setting state for data received from the DB
   const [questionData, setquestionData] = useState([]);
 
+  // storing page name to display in Header which is common in most of the pages
+  const [name, setName] = useState("");
+
   // if dark theme is enabled or not
   const [dark, setDark] = useState(false);
 
@@ -122,7 +125,6 @@ function App() {
         >
           450 DSA Cracker
         </h1>
-
         {questionData.length === 0 ? (
           // load spinner until data is fetched from DB
           <div className="d-flex justify-content-center">

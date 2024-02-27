@@ -12,6 +12,9 @@ export default function ForgotPassword() {
     <div className="container mx-auto d-flex justify-content-center align-items-center">
       <ToastContainer />
       <div className="loginContainer mx-auto">
+        <h3 className="text-center mt-2 text-decoration-underline">
+          <u>{"Forgot password"}</u>
+        </h3>
         <form className="flex mt-5">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
