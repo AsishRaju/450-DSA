@@ -5,14 +5,16 @@ import App from "./App";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import "./index.css";
-
+import GlobalState from "./context/GlobalState";
 ReactDOM.render(
-	<React.StrictMode>
-		<Router>
-			<Route path="/" component={App}></Route>
-		</Router>
-	</React.StrictMode>,
-	document.getElementById("root")
+  <React.StrictMode>
+    <GlobalState>
+      <Router>
+        <Route path="/" component={App}></Route>
+      </Router>
+    </GlobalState>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

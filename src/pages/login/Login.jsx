@@ -8,9 +8,11 @@ export default function Login() {
   const onCheckBoxChange = () => {
     localStorage.setItem("450dsaEmail", email);
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    alert(email);
+    if (!email || !password) {
+      toast.error("All files are required");
+    }
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">

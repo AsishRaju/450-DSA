@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import {
   getData,
@@ -19,6 +19,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword";
 import PasswordReset from "./pages/password-reset/PasswordReset";
+import { GlobalContext } from "./context/GlobalContext";
 
 // Creating a theme context
 export const ThemeContext = createContext(null);
@@ -27,11 +28,8 @@ function App() {
   // setting state for data received from the DB
   const [questionData, setquestionData] = useState([]);
 
-  // storing page name to display in Header which is common in most of the pages
-  const [name, setName] = useState("");
-
-  // if dark theme is enabled or not
-  const [dark, setDark] = useState(false);
+  // getting from ContextAPI
+  const { dark, setDark } = useContext(GlobalContext);
 
   // useEffect for fetching data from DB on load and init GA
   useEffect(() => {
@@ -132,120 +130,118 @@ function App() {
           </div>
         ) : (
           <>
-            <ThemeContext.Provider value={dark}>
-              {/* HOME AND ABOUT ROUTE */}
-              <Route
-                exact
-                path="/"
-                children={<TopicCard questionData={questionData}></TopicCard>}
-              />
-              <Route
-                path="/about"
-                children={
-                  <About
-                    resetData={resetData}
-                    exportData={exportData}
-                    importData={importData}
-                    setQuestionData={setquestionData}
-                  ></About>
-                }
-              />
-              {/* TOPIC ROUTE */}
-              <Route
-                path="/array"
-                children={
-                  <Topic data={questionData[0]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/matrix"
-                children={
-                  <Topic data={questionData[1]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/string"
-                children={
-                  <Topic data={questionData[2]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/search_sort"
-                children={
-                  <Topic data={questionData[3]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/linked_list"
-                children={
-                  <Topic data={questionData[4]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/binary_trees"
-                children={
-                  <Topic data={questionData[5]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/bst"
-                children={
-                  <Topic data={questionData[6]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/greedy"
-                children={
-                  <Topic data={questionData[7]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/backtracking"
-                children={
-                  <Topic data={questionData[8]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/stacks_queues"
-                children={
-                  <Topic data={questionData[9]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/heap"
-                children={
-                  <Topic data={questionData[10]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/graph"
-                children={
-                  <Topic data={questionData[11]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/trie"
-                children={
-                  <Topic data={questionData[12]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/dynamic_programming"
-                children={
-                  <Topic data={questionData[13]} updateData={updateData} />
-                }
-              />
-              <Route
-                path="/bit_manipulation"
-                children={
-                  <Topic data={questionData[14]} updateData={updateData} />
-                }
-              />
-              <Route path="/login" children={<Login />} />
-              <Route path="/register" children={<Register />} />
-              <Route path="/forgot-password" children={<ForgotPassword />} />
-              <Route path="/password-reset" children={<PasswordReset />} />
-            </ThemeContext.Provider>
+            {/* HOME AND ABOUT ROUTE */}
+            <Route
+              exact
+              path="/"
+              children={<TopicCard questionData={questionData}></TopicCard>}
+            />
+            <Route
+              path="/about"
+              children={
+                <About
+                  resetData={resetData}
+                  exportData={exportData}
+                  importData={importData}
+                  setQuestionData={setquestionData}
+                ></About>
+              }
+            />
+            {/* TOPIC ROUTE */}
+            <Route
+              path="/array"
+              children={
+                <Topic data={questionData[0]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/matrix"
+              children={
+                <Topic data={questionData[1]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/string"
+              children={
+                <Topic data={questionData[2]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/search_sort"
+              children={
+                <Topic data={questionData[3]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/linked_list"
+              children={
+                <Topic data={questionData[4]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/binary_trees"
+              children={
+                <Topic data={questionData[5]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/bst"
+              children={
+                <Topic data={questionData[6]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/greedy"
+              children={
+                <Topic data={questionData[7]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/backtracking"
+              children={
+                <Topic data={questionData[8]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/stacks_queues"
+              children={
+                <Topic data={questionData[9]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/heap"
+              children={
+                <Topic data={questionData[10]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/graph"
+              children={
+                <Topic data={questionData[11]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/trie"
+              children={
+                <Topic data={questionData[12]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/dynamic_programming"
+              children={
+                <Topic data={questionData[13]} updateData={updateData} />
+              }
+            />
+            <Route
+              path="/bit_manipulation"
+              children={
+                <Topic data={questionData[14]} updateData={updateData} />
+              }
+            />
+            <Route path="/login" children={<Login />} />
+            <Route path="/register" children={<Register />} />
+            <Route path="/forgot-password" children={<ForgotPassword />} />
+            <Route path="/password-reset" children={<PasswordReset />} />
           </>
         )}
         <Footer dark={dark} setDark={setDark}></Footer>
