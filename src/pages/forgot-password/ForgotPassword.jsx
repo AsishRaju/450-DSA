@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./ForgotPassword.css";
+import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
 export default function ForgotPassword() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
@@ -9,6 +10,7 @@ export default function ForgotPassword() {
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">
+      <ToastContainer />
       <div className="loginContainer mx-auto">
         <form className="flex mt-5">
           <div class="form-group">

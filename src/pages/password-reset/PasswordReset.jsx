@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Reset.css";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 export default function PasswordReset() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -13,6 +14,7 @@ export default function PasswordReset() {
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">
+      <ToastContainer />
       <div className="loginContainer mx-auto">
         <form className="flex mt-5">
           <div class="form-group">

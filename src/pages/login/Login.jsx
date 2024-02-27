@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 export default function Login() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
   const [password, setPassword] = useState("");
@@ -13,6 +14,7 @@ export default function Login() {
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">
+      <ToastContainer />
       <div className="loginContainer mx-auto">
         <form className="flex mt-5">
           <div class="form-group">
