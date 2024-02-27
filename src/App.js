@@ -15,6 +15,10 @@ import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
 import ReactGA from "react-ga4";
 import "./App.css";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import ForgotPassword from "./pages/forgot-password/ForgotPassword";
+import PasswordReset from "./pages/password-reset/PasswordReset";
 
 // Creating a theme context
 export const ThemeContext = createContext(null);
@@ -144,7 +148,6 @@ function App() {
                   ></About>
                 }
               />
-
               {/* TOPIC ROUTE */}
               <Route
                 path="/array"
@@ -236,6 +239,10 @@ function App() {
                   <Topic data={questionData[14]} updateData={updateData} />
                 }
               />
+              <Route path="/login" children={<Login />} />
+              <Route path="/register" children={<Register />} />
+              <Route path="/forgot-password" children={<ForgotPassword />} />
+              <Route path="/password-reset" children={<PasswordReset />} />
             </ThemeContext.Provider>
           </>
         )}
