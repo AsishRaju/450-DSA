@@ -20,6 +20,7 @@ import Register from "./pages/register/Register";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword";
 import PasswordReset from "./pages/password-reset/PasswordReset";
 import { GlobalContext } from "./context/GlobalContext";
+import VerifyEmail from "./pages/verify-email/VerifyEmail";
 
 // Creating a theme context
 export const ThemeContext = createContext(null);
@@ -242,6 +243,7 @@ function App() {
             <Route path="/register" children={<Register />} />
             <Route path="/forgot-password" children={<ForgotPassword />} />
             <Route path="/password-reset" children={<PasswordReset />} />
+            <Route path="/verify-email" children={<VerifyEmail />} />
           </>
         )}
         <Footer dark={dark} setDark={setDark}></Footer>

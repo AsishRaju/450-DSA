@@ -1,25 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { Link, useHistory } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
-
+import { GlobalContext } from "../../context/GlobalContext";
 import { LOGIN_URL } from "../../services/url";
 import { localStorageKeyForAuthentication } from "../../services/constants";
 
 export default function Login() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const history = useHistory();
+  const { setUser } = useContext(GlobalContext);
 
   const onCheckBoxChange = () => {
     localStorage.setItem("450dsaEmail", email);
   };
   const onSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     if (!email || !password) {
       toast.error("All files are required");
+      setLoading(false);
       return;
     }
     try {
@@ -28,10 +32,11 @@ export default function Login() {
         { email, password },
         { validateStatus: false }
       );
-      console.log(data);
       if (data.success) {
         const token = data.data.authToken;
         localStorage.setItem(localStorageKeyForAuthentication, token);
+        setUser(data?.data?.user);
+        setLoading(false);
         history.push("/");
       } else {
         toast.error(data.message);
@@ -40,6 +45,7 @@ export default function Login() {
       console.log(error);
       toast.error(error.message);
     }
+    setLoading(false);
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">
@@ -95,7 +101,7 @@ export default function Login() {
               onClick={(e) => onSubmit(e)}
               type="submit"
             >
-              Log in
+              {loading ? "Loading..." : "Log in"}
             </button>
           </div>
           <div className="mt-4">

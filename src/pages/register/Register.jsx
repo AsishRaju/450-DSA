@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "./Register.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { REGISTER_URL } from "../../services/url";
+import { localStorageKeyForAuthentication } from "../../services/constants";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+
 export default function Register() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
   const [password, setPassword] = useState("");
@@ -9,10 +14,33 @@ export default function Register() {
   const onCheckBoxChange = () => {
     localStorage.setItem("450dsaEmail", email);
   };
+  const history = useHistory();
   // Register
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    toast.error(email);
+    if (!email || !password || !name) {
+      toast.error("All files are required");
+      return;
+    }
+    try {
+      const { data } = await axios.post(
+        REGISTER_URL,
+        { email, password, name },
+        { validateStatus: false }
+      );
+      console.log(data);
+      if (data.success) {
+        toast.success("Registed successfully. Please Check Email to confirm.");
+        setTimeout(() => {
+          history.push("/login");
+        }, 3000);
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">
