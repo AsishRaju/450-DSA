@@ -4,19 +4,21 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { REGISTER_URL } from "../../services/url";
-import { localStorageKeyForAuthentication } from "../../services/constants";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export default function Register() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const onCheckBoxChange = () => {
     localStorage.setItem("450dsaEmail", email);
   };
   const history = useHistory();
   // Register
   const onSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     if (!email || !password || !name) {
       toast.error("All files are required");
@@ -28,7 +30,7 @@ export default function Register() {
         { email, password, name },
         { validateStatus: false }
       );
-      console.log(data);
+      setLoading(false);
       if (data.success) {
         toast.success("Registed successfully. Please Check Email to confirm.");
         setTimeout(() => {
@@ -109,7 +111,7 @@ export default function Register() {
               onClick={(e) => onSubmit(e)}
               type="submit"
             >
-              Register
+              {loading ? "Loading..." : "Register"}
             </button>
           </div>
           <div className="mt-4">

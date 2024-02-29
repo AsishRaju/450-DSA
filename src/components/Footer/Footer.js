@@ -6,7 +6,8 @@ import "./footer.css";
 import { localStorageKeyForAuthentication } from "../../services/constants";
 
 export default function Footer({ dark, setDark }) {
-  const { user, setUser } = useContext(GlobalContext);
+  const { user, setUser, isLoggedIn, setIsLoggedIn } =
+    useContext(GlobalContext);
 
   const history = useHistory();
 
@@ -17,8 +18,8 @@ export default function Footer({ dark, setDark }) {
     setUser({
       name: "",
       email: "",
-      isLoggedIn: false,
     });
+    setIsLoggedIn(false);
     // go to login page
     history.push("/login");
   };
@@ -77,17 +78,19 @@ export default function Footer({ dark, setDark }) {
                   </span>
                 </Badge>
               </Link>
-              <Badge
-                onClick={onLogOutButtonClicked}
-                pill
-                variant="light"
-                className="hvr-grow ml-3"
-              >
-                Log Out{" "}
-                <span role="img" aria-label="star" className="emojiFix">
-                  👋
-                </span>{" "}
-              </Badge>
+              {isLoggedIn && (
+                <Badge
+                  onClick={onLogOutButtonClicked}
+                  pill
+                  variant="light"
+                  className="hvr-grow ml-3"
+                >
+                  Log Out{" "}
+                  <span role="img" aria-label="star" className="emojiFix">
+                    👋
+                  </span>{" "}
+                </Badge>
+              )}
             </h4>
           </div>
         </div>

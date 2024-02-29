@@ -6,12 +6,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
-import { ThemeContext } from "../../App";
 
 import "./topicCard.css";
+import { GlobalContext } from "../../context/GlobalContext";
 
 export default function TopicCard({ questionData }) {
-  const dark = useContext(ThemeContext);
+  const { dark, isLoggedIn, user } = useContext(GlobalContext);
 
   // This component takes all the topicsData(here questionData ) and renders a TopicCard Component
 
@@ -41,8 +41,9 @@ export default function TopicCard({ questionData }) {
               style={{ textDecoration: "none" }}
             >
               <Card
-                className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${dark ? "darkCard" : ""
-                  }`}
+                className={`mb-3 inprogress-card animate__slideInDown hvr-grow ${
+                  dark ? "darkCard" : ""
+                }`}
               >
                 <Card.Body>
                   <Row>
@@ -93,8 +94,9 @@ export default function TopicCard({ questionData }) {
               style={{ textDecoration: "none" }}
             >
               <Card
-                className={`mb-3 notstarted-card hvr-grow ${dark ? "darkCard" : ""
-                  }`}
+                className={`mb-3 notstarted-card hvr-grow ${
+                  dark ? "darkCard" : ""
+                }`}
               >
                 <Card.Body>
                   <Row>
@@ -134,7 +136,6 @@ export default function TopicCard({ questionData }) {
     }
   });
 
-
   const promotionTile = () => {
     return (
       <Fade duration={500 + 1 * 50} key={-1}>
@@ -145,22 +146,30 @@ export default function TopicCard({ questionData }) {
             style={{ textDecoration: "none" }}
           >
             <Card
-              className={`mb-3 promotional-card  ${dark ? "darkCard" : ""
-                }`}
+              className={`mb-3 promotional-card  ${dark ? "darkCard" : ""}`}
             >
-              <Card.Body style={{ padding: '12px' }}>
-                <div style={{
-                  display: 'flex', justifyContent: 'space-evenly',
-                  alignItems: 'center'
-                }}>
+              <Card.Body style={{ padding: "12px" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-evenly",
+                    alignItems: "center",
+                  }}
+                >
                   <h4 className="promotional-heading">
-                  Code your way to the top and win big in the 45 Day DSA Coding Challenge by CodeStudio!
+                    Code your way to the top and win big in the 45 Day DSA
+                    Coding Challenge by CodeStudio!
                   </h4>
                   <h4 className="promotional-cta  hvr-grow">
                     <Badge
                       pill
                       variant="primary"
-                      style={{ fontWeight: "700", cursor: "pointer", backgroundColor: "white", color:"black" }}
+                      style={{
+                        fontWeight: "700",
+                        cursor: "pointer",
+                        backgroundColor: "white",
+                        color: "black",
+                      }}
                     >
                       Start Now
                     </Badge>
@@ -179,8 +188,8 @@ export default function TopicCard({ questionData }) {
           </Link>
         </div>
       </Fade>
-    )
-  }
+    );
+  };
 
   // topicCard.splice(1, 0, promotionTile)
 
@@ -196,10 +205,11 @@ export default function TopicCard({ questionData }) {
       <h4 className="text-center mb-4">
         {totalSolved
           ? `Total Questions Solved : ${totalSolved} (${(
-            (totalSolved / totalQuestions) *
-            100
-          ).toFixed(2)}% Done)`
-          : "Start Solving"}
+              (totalSolved / totalQuestions) *
+              100
+            ).toFixed(2)}% Done)`
+          : "Start Solving" +
+            (isLoggedIn ? "," + user.name?.toUpperCase() + "👨‍💻" : "")}
         <p className="percentDone container mt-1">
           {totalSolved ? (
             <ProgressBar

@@ -2,11 +2,39 @@ import React, { useState } from "react";
 import "./ForgotPassword.css";
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { PASSWORD_RESET_REQUEST } from "../../services/url";
+import { useHistory } from "react-router-dom";
 export default function ForgotPassword() {
   const [email, setEmail] = useState(localStorage.getItem("450dsaEmail") || "");
-  const onSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
+  const onSubmit = async (e) => {
     e.preventDefault();
-    alert(email);
+    setLoading(true);
+    try {
+      const { data } = await axios.post(
+        PASSWORD_RESET_REQUEST,
+        { email },
+        { validateStatus: false }
+      );
+      setLoading(false);
+      if (data.success) {
+        toast.success(data.message);
+        toast.info("Please check your email");
+        setTimeout(() => {
+          history.push("/login");
+        }, 3000);
+      } else {
+        toast.error(data.message);
+        setTimeout(() => {
+          history.push("/login");
+        }, 3000);
+      }
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message);
+    }
   };
   return (
     <div className="container mx-auto d-flex justify-content-center align-items-center">
@@ -38,7 +66,7 @@ export default function ForgotPassword() {
               onClick={(e) => onSubmit(e)}
               type="submit"
             >
-              Agree to send email
+              {loading ? "Loading..." : "Agree to send email"}
             </button>
           </div>
           <div className="mt-4">

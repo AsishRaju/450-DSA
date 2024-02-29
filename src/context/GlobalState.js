@@ -5,11 +5,11 @@ const GlobalState = (props) => {
   const [user, setUser] = useState({
     name: "",
     email: "",
-    isLoggedIn: false,
   });
   // if dark theme is enabled or not
   const [dark, setDark] = useState(false);
   const [progress, setProgress] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <GlobalContext.Provider
       value={{
@@ -19,6 +19,8 @@ const GlobalState = (props) => {
         setProgress,
         dark,
         setDark,
+        isLoggedIn,
+        setIsLoggedIn,
       }}
     >
       {props.children}

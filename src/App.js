@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import {
   getData,
   updateDBData,
@@ -18,19 +18,61 @@ import "./App.css";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import ForgotPassword from "./pages/forgot-password/ForgotPassword";
-import PasswordReset from "./pages/password-reset/PasswordReset";
+import ResetPassword from "./pages/reset-password/ResetPassword";
 import { GlobalContext } from "./context/GlobalContext";
 import VerifyEmail from "./pages/verify-email/VerifyEmail";
+import { localStorageKeyForAuthentication } from "./services/constants";
+import axios from "axios";
+import { GET_LOGGED_IN_USER_DETAILS } from "./services/url";
+import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { Badge } from "react-bootstrap";
 
 // Creating a theme context
 export const ThemeContext = createContext(null);
 
 function App() {
+  const history = useHistory();
   // setting state for data received from the DB
   const [questionData, setquestionData] = useState([]);
 
   // getting from ContextAPI
-  const { dark, setDark } = useContext(GlobalContext);
+  const { dark, setDark, isLoggedIn, setIsLoggedIn, setUser, user } =
+    useContext(GlobalContext);
+
+  const getLoggedInUserData = async () => {
+    try {
+      const key = localStorage.getItem(localStorageKeyForAuthentication);
+      console.log(key);
+      const { data } = await axios.get(GET_LOGGED_IN_USER_DETAILS, {
+        validateStatus: false,
+        headers: {
+          authToken: key,
+        },
+      });
+      if (data.success) {
+        setIsLoggedIn(true);
+        setUser(data.data);
+      } else {
+        history.push("/login");
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  // get logged in user info
+  useEffect(() => {
+    // if we have localStorage key
+    if (localStorage.getItem(localStorageKeyForAuthentication)) {
+      // && not logged in
+      if (isLoggedIn === false) {
+        getLoggedInUserData();
+      }
+    } else {
+      // history.push("/");
+    }
+  }, []);
 
   // useEffect for fetching data from DB on load and init GA
   useEffect(() => {
@@ -118,13 +160,30 @@ function App() {
 				Want to test your DSA  skills and get recruiters to see your strong coding profile. Register here !
 				</a>
 			</div> */}
+        <ToastContainer />
         <h1
           className="app-heading text-center mt-4"
           style={{ color: dark ? "white" : "" }}
         >
           450 DSA Cracker
         </h1>
-        {questionData.length === 0 ? (
+        {isLoggedIn ? (
+          <></>
+        ) : (
+          <h5 className="text-center ">
+            Wanna Save Progress?{" "}
+            <Link to={"/login"}>
+              Login
+              <Badge
+                variant={dark ? "light" : "dark"}
+                className="hvr-grow ml-3 bg-success"
+              >
+                New{" "}
+              </Badge>
+            </Link>
+          </h5>
+        )}
+        {questionData.length === 0 && isLoggedIn === false ? (
           // load spinner until data is fetched from DB
           <div className="d-flex justify-content-center">
             <Spinner animation="grow" variant="success" />
@@ -242,7 +301,7 @@ function App() {
             <Route path="/login" children={<Login />} />
             <Route path="/register" children={<Register />} />
             <Route path="/forgot-password" children={<ForgotPassword />} />
-            <Route path="/password-reset" children={<PasswordReset />} />
+            <Route path="/reset-password" children={<ResetPassword />} />
             <Route path="/verify-email" children={<VerifyEmail />} />
           </>
         )}
