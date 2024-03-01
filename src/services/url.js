@@ -2,7 +2,8 @@
 :: PROTECTED --> authToken Header Needed 
 :: TOKEN     --> /token (token comes in email)
 */
-const BASE_URL = "http://localhost:8081/";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+console.log("BASE URL ", BASE_URL);
 const LOGIN_URL = BASE_URL + "api/user/login"; // POST
 const REGISTER_URL = BASE_URL + "api/user/register"; // POST
 const GET_LOGGED_IN_USER_DETAILS = BASE_URL + "api/user"; // GET :: PROTECTED
