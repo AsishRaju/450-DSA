@@ -23,13 +23,10 @@ import { GlobalContext } from "./context/GlobalContext";
 import VerifyEmail from "./pages/verify-email/VerifyEmail";
 import { localStorageKeyForAuthentication } from "./services/constants";
 import axios from "axios";
-import { GET_LOGGED_IN_USER_DETAILS } from "./services/url";
+import { GET_LOGGED_IN_USER_DETAILS, GET_USER_PROGRESS } from "./services/url";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import { Badge } from "react-bootstrap";
-
-// Creating a theme context
-export const ThemeContext = createContext(null);
 
 function App() {
   const history = useHistory();
@@ -40,10 +37,11 @@ function App() {
   const { dark, setDark, isLoggedIn, setIsLoggedIn, setUser, user } =
     useContext(GlobalContext);
 
+  const [loading, setLoading] = useState(true);
+  // Fetch User data
   const getLoggedInUserData = async () => {
     try {
       const key = localStorage.getItem(localStorageKeyForAuthentication);
-      console.log(key);
       const { data } = await axios.get(GET_LOGGED_IN_USER_DETAILS, {
         validateStatus: false,
         headers: {
@@ -61,6 +59,34 @@ function App() {
     }
   };
 
+  // Fetch User Progress
+  const getUserProgress = async () => {
+    try {
+      const token = localStorage.getItem(localStorageKeyForAuthentication);
+      // if user is logged in get the data from Database
+      // else take from local storage
+      if (token) {
+        const res = await axios.get(GET_USER_PROGRESS, {
+          validateStatus: false,
+          headers: {
+            authToken: token,
+          },
+        });
+        const resData = res?.data;
+        if (resData?.success) {
+          const data = resData.data;
+          data.sort((a, b) => a.position - b.position);
+          setquestionData(data);
+        } else {
+          toast.info(resData.message);
+        }
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
+    setLoading(false);
+  };
+
   // get logged in user info
   useEffect(() => {
     // if we have localStorage key
@@ -69,18 +95,20 @@ function App() {
       if (isLoggedIn === false) {
         getLoggedInUserData();
       }
+      getUserProgress();
     } else {
-      // history.push("/");
+      getData((qd) => setquestionData(qd));
+      setLoading(false);
     }
-  }, []);
+  }, [isLoggedIn]);
 
   // useEffect for fetching data from DB on load and init GA
   useEffect(() => {
     localStorage.removeItem("cid");
     // ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
-    getData((QuestionData) => {
-      setquestionData(QuestionData);
-    });
+    // getData((QuestionData) => {
+    //   setquestionData(QuestionData);
+    // });
 
     //implementing dark theme mode option
     // checking if dark mode "isDark" is already declared or not
@@ -194,7 +222,13 @@ function App() {
             <Route
               exact
               path="/"
-              children={<TopicCard questionData={questionData}></TopicCard>}
+              children={
+                loading ? (
+                  <></>
+                ) : (
+                  <TopicCard questionData={questionData}></TopicCard>
+                )
+              }
             />
             <Route
               path="/about"

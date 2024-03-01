@@ -13,6 +13,8 @@ import { GlobalContext } from "../../context/GlobalContext";
 export default function TopicCard({ questionData }) {
   const { dark, isLoggedIn, user } = useContext(GlobalContext);
 
+  if (questionData.length === 0) return <>Loading</>;
+
   // This component takes all the topicsData(here questionData ) and renders a TopicCard Component
 
   // Utility func() to find the progress in percentage

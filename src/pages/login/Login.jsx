@@ -54,7 +54,7 @@ export default function Login() {
         setLoading(false);
         setTimeout(() => {
           history.push("/");
-        }, 2000);
+        }, 500);
       } else {
         toast.error(data.message);
       }
